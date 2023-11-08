@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin']);
 Route::get('/', function () {
     return view('layouts.app');
 });
