@@ -93,6 +93,9 @@
                                                 <h6 class="mb-1">وارد کردن اطلاعات هویتی</h6>
                                                 <small>جزئیات اطلاعات خود را وارد کنید.</small>
                                             </div>
+                                            <hr class="my-4 mx-n4">
+
+                                            <h6 class="mb-b fw-normal">1.اطلاعات فردی</h6>
                                             <div class="row g-3">
                                                 <div class="col-sm-6">
                                                     <label class="form-label" for="">نام </label>
@@ -163,6 +166,9 @@
                                                         <input type="text" id="" class="form-control text-start">
                                                     </div>
                                                 </div>
+                                                <hr class="my-4 mx-n4">
+
+                                                <h6 class="mb-b fw-normal">2.اطلاعات تماس</h6>
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="">تلفن ثابت</label>
                                                     <div class="input-group input-group-merge">
@@ -181,7 +187,8 @@
                                                         <input type="text" id="" class="form-control text-start">
                                                     </div>
                                                 </div>
-                                                <hr>
+                                                <hr class="my-4 mx-n4">
+                                                <h6 class="mb-b fw-normal">3.اطلاعات محل سکونت</h6>
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="">وضعیت سکونت</label>
                                                     <div class="input-group input-group-merge">
@@ -198,8 +205,8 @@
                                                         <input type="text" id="" class="form-control text-start">
                                                     </div>
                                                 </div>
-                                                <hr class="mt-5">
-
+                                                <hr class="my-4 mx-n4">
+                                                <h6 class="mb-b fw-normal">4.اطلاعات اشتغال و بیمه</h6>
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="">وضعیت اشتغال</label>
                                                     <div class="input-group input-group-merge">
@@ -220,7 +227,6 @@
                                                         <input type="text" id="" class="form-control text-start">
                                                     </div>
                                                 </div>
-                                                <hr class="mt-5 mb-5">
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="">وضعیت بیمه تامین اجتماعی</label>
                                                     <div class="input-group input-group-merge">
@@ -408,26 +414,168 @@
                                         </div>
                                         <div id="health-details" class="content">
                                             <div class="content-header mb-3">
-                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
-                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                                <h6 class="mb-1">سلامت جسمانی</h6>
+                                                <small>لطفا اطلاعات مربوط به سلامت جسمانی خود را بادقت وارد نمایید.</small>
                                             </div>
+                                            <hr class="my-4 mx-n4">
+
                                             <div class="row g-3">
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
-                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">1. آیا سابقه بیماری دارید</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
-                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
+                                                    <label class="form-label" for="">لطفا ذکر نمایید</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">2. در صورت ابتلا به بیماری، آیا علایم شما در محیط کار تغییر می کند?</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
-                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
+                                                    <label class="form-label" for="">لطفا ذکر نمایید</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">3. آیا به غذا، دارو یا ماده خاصی حساسیت دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
-                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
+                                                    <label class="form-label" for="">لطفا ذکر نمایید</label>
+                                                    <input type="text" id="" class="form-control text-start">
                                                 </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">4. آیا سابقه بستری در بیمارستان دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">لطفا ذکر نمایید</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">5.  آیا سابقه عمل جراحی دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">دلیل و تاریخ جراحی</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">6. آیا داروی خاصی مصرف می کنید؟ </label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">لطفا ذکر نمایید</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">7. آیا اکنون سیگار می کشید؟ </label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">تعداد نخ روزانه؟ مدت استعمال؟</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">8. آیا سابقه قبلی مصرف سیگار دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">تعداد نخ روزانه؟ مدت استعمال؟</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">9.آیا در اوقات فراغت ورزش خاصی انجام می دهید؟  </label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">نام ببرید</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for=""> 10. آیا تاکنون دچار حادثه شغلی شده اید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="">نوع آسیب؟ علت؟</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">11. آیا سابقه استفاده از استعلاجی برای مدت بیش از 3 روز دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for=""> 12.آیا سابقه معرفی به کمیسیون پزشکی دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option selected>خیر</option>
+                                                        <option>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for=""> علت؟</label>
+                                                    <input type="text" id="" class="form-control text-start">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-primary btn-prev">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
@@ -436,6 +584,8 @@
                                                     <button class="btn btn-success btn-submit">ثبت</button>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                         <div id="bank-info" class="content">
                                             <div class="content-header mb-3">
