@@ -285,37 +285,115 @@
                                         </div>
                                         <div id="document-upload" class="content">
                                             <div class="content-header mb-3">
-                                                <h6 class="mb-1">اطلاعات شخصی</h6>
-                                                <small>اطلاعات شخصی خود را وارد کنید.</small>
+                                                <h6 class="mb-1">مدارک هویتی</h6>
+                                                <small>لطفا مدارک خواسته شده را در بخش های مربوطه بارگذاری نمایید.</small>
                                             </div>
                                             <div class="row g-3">
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="first-name-modern-vertical">نام</label>
-                                                    <input type="text" id="first-name-modern-vertical" class="form-control" placeholder="جان">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="last-name-modern-vertical">نام خانوادگی</label>
-                                                    <input type="text" id="last-name-modern-vertical" class="form-control" placeholder="اسنو">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="country-vertical-modern">کشور</label>
-                                                    <select class="select2" id="country-vertical-modern">
-                                                        <option>انگلستان</option>
-                                                        <option>ایران</option>
-                                                        <option>اسپانیا</option>
-                                                        <option>فرانسه</option>
-                                                        <option>ایتالیا</option>
-                                                        <option>استرالیا</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="language-vertical-modern">زبان</label>
-                                                    <select class="selectpicker w-auto" id="language-vertical-modern" data-style="btn-default" data-icon-base="bx" data-tick-icon="bx-check text-white" multiple>
-                                                        <option>انگلیسی</option>
-                                                        <option>فرانسوی</option>
-                                                        <option>اسپانیایی</option>
-                                                    </select>
-                                                </div>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">کارت ملی</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا عکس روی کارت ملی خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">صفحه اول شناسنامه</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">صفحه دوم شناسنامه</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">کارت معافیت یا پایان خدمت سربازی</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">عکس 3*4 </small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">گواهی عدم اعتیاد</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">گواهی عدم سوء پیشینه</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">نتیجه معاینات طب صنعتی</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">تاییدیه آموزش ایمنی اداره کار</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">سوابق بیمه تامین اجتماعی</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PDF) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="align-middle"><small class="text-light fw-semibold">تعهد نامه محضری( در صورتی که حساب بانکی به نام شخص نباشد)</small></td>
+                                                        <td class="py-3">
+                                                            <div class="mb-3">
+                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                                                                <input class="form-control" type="file" id="formFile">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-primary btn-prev">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
