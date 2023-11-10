@@ -23,72 +23,253 @@
                         <div class="col-12">
                             <div class="bs-stepper vertical wizard-modern wizard-modern-vertical wizard-modern-vertical-icons-example mt-2">
                                 <div class="bs-stepper-header">
-                                    <div class="step" data-target="#account-details-vertical-modern">
+                                    <div class="step" data-target="#info-details">
                                         <button type="button" class="step-trigger">
-                          <span class="bs-stepper-circle">
-                            <i class="bx bx-detail"></i>
-                          </span>
+                                            <span class="bs-stepper-circle"><i class="bx bx-detail"></i></span>
                                             <span class="bs-stepper-label">
-                            <span class="bs-stepper-title">جزئیات حساب</span>
-                            <span class="bs-stepper-subtitle">تنظیم جزئیات حساب</span>
-                          </span>
+                                                <span class="bs-stepper-title">اطلاعات هویتی</span>
+                                            </span>
                                         </button>
                                     </div>
                                     <div class="line"></div>
-                                    <div class="step" data-target="#personal-info-vertical-modern">
+                                    <div class="step" data-target="#document-upload">
                                         <button type="button" class="step-trigger">
-                          <span class="bs-stepper-circle">
-                            <i class="bx bx-user"></i>
-                          </span>
+                                            <span class="bs-stepper-circle"><i class="bx bx-user"></i></span>
                                             <span class="bs-stepper-label">
-                            <span class="bs-stepper-title">اطلاعات شخصی</span>
-                            <span class="bs-stepper-subtitle">افزودن اطلاعات شخصی</span>
-                          </span>
+                                                <span class="bs-stepper-title">بارگذاری مدارک هویتی</span>
+                                                <span class="bs-stepper-subtitle">شناسنامه،کارت ملی</span>
+                                            </span>
                                         </button>
                                     </div>
                                     <div class="line"></div>
-                                    <div class="step" data-target="#social-links-vertical-modern">
+                                    <div class="step" data-target="#health-details">
                                         <button type="button" class="step-trigger">
-                          <span class="bs-stepper-circle">
-                            <i class="bx bxl-instagram"></i>
-                          </span>
+                                            <span class="bs-stepper-circle"><i class="bx bx-plus-medical"></i></span>
                                             <span class="bs-stepper-label">
-                            <span class="bs-stepper-title">شبکه های اجتماعی</span>
-                            <span class="bs-stepper-subtitle">افزودن لینک‌های اجتماعی</span>
-                          </span>
+                                                <span class="bs-stepper-title">سلامت جسمانی</span>
+                                                <span class="bs-stepper-subtitle">خود اظهاری سلامت</span>
+                                            </span>
                                         </button>
                                     </div>
+
+                                    <div class="line"></div>
+                                    <div class="step" data-target="#bank-info">
+                                        <button type="button" class="step-trigger">
+                                            <span class="bs-stepper-circle"><i class="bx bx-credit-card-front"></i></span>
+                                            <span class="bs-stepper-label">
+                                                <span class="bs-stepper-title">اطلاعات بانکی</span>
+                                                <span class="bs-stepper-subtitle">اطلاعات مالی و بانکی</span>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                    <div class="line"></div>
+                                    <div class="step" data-target="#time-sheet">
+                                        <button type="button" class="step-trigger">
+                                            <span class="bs-stepper-circle"><i class="bx bx-calendar-alt"></i></span>
+                                            <span class="bs-stepper-label">
+                                                <span class="bs-stepper-title">تاریخ آماده کار</span>
+                                                <span class="bs-stepper-subtitle">تعیین زمان همکاری</span>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                    <div class="line"></div>
+                                    <div class="step" data-target="#final-check">
+                                        <button type="button" class="step-trigger">
+                                            <span class="bs-stepper-circle"><i class="bx bx-check-double"></i></span>
+                                            <span class="bs-stepper-label">
+                                                <span class="bs-stepper-title">کنترل نهایی</span>
+                                                <span class="bs-stepper-subtitle">تایید اطلاعات ثبت نام</span>
+                                            </span>
+                                        </button>
+                                    </div>
+
                                 </div>
                                 <div class="bs-stepper-content">
                                     <form onsubmit="return false">
-                                        <!-- Account Details -->
-                                        <div id="account-details-vertical-modern" class="content">
+                                        <div id="info-details" class="content">
                                             <div class="content-header mb-3">
-                                                <h6 class="mb-1">جزئیات حساب</h6>
-                                                <small>جزئیات حساب خود را وارد کنید.</small>
+                                                <h6 class="mb-1">وارد کردن اطلاعات هویتی</h6>
+                                                <small>جزئیات اطلاعات خود را وارد کنید.</small>
                                             </div>
                                             <div class="row g-3">
                                                 <div class="col-sm-6">
-                                                    <label class="form-label" for="username-modern-vertical">نام کاربری</label>
-                                                    <input type="text" id="username-modern-vertical" class="form-control text-start" placeholder="john.doe" dir="ltr">
+                                                    <label class="form-label" for="">نام </label>
+                                                    <input type="text" id="" class="form-control text-start" placeholder="" dir="rtl">
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <label class="form-label" for="email-modern-vertical">ایمیل</label>
-                                                    <input type="text" id="email-modern-vertical" class="form-control text-start" placeholder="john.doe@email.com" aria-label="john.doe@email.com" dir="ltr">
+                                                    <label class="form-label" for="">نام خانوادگی</label>
+                                                    <input type="text" id="" class="form-control text-start">
                                                 </div>
-                                                <div class="col-sm-6 form-password-toggle">
-                                                    <label class="form-label" for="password-modern-vertical">رمز عبور</label>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">نام پدر</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="password" id="password-modern-vertical" class="form-control text-start" placeholder="············" dir="ltr" aria-describedby="password-modern-vertical1">
-                                                        <span class="input-group-text cursor-pointer" id="password-modern-vertical1"><i class="bx bx-hide"></i></span>
+                                                        <input type="text" id="" class="form-control text-start">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 form-password-toggle">
-                                                    <label class="form-label" for="confirm-password-modern-vertical2">تایید رمز عبور</label>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">کدملی</label>
                                                     <div class="input-group input-group-merge">
-                                                        <input type="password" id="confirm-password-modern-vertical2" class="form-control text-start" placeholder="············" dir="ltr" aria-describedby="confirm-password-modern-vertical3">
-                                                        <span class="input-group-text cursor-pointer" id="confirm-password-modern-vertical3"><i class="bx bx-hide"></i></span>
+                                                        <input type="text" id="" class="form-control text-start">
                                                     </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">شماره شناسنامه</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">محل صدور</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">تاریخ تولد</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">وضعیت تاهل</label>
+                                                        <select class="form-select">
+                                                            <option>مجرد</option>
+                                                            <option>متاهل</option>
+                                                        </select>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">وضعیت نظام وظیفه</label>
+                                                    <select class="form-select">
+                                                        <option>مشمول</option>
+                                                        <option>درحال خدمت</option>
+                                                        <option>پایان خدمت</option>
+                                                        <option>معافیت پزشکی</option>
+                                                        <option>معافیت غیره</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">دلیل معافیت</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4"></div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">زیان مادری</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">تلفن ثابت</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">تلفن همراه</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">پست الکترونیک</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">وضعیت سکونت</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <label class="form-label" for="">نشانی محل سکونت</label>
+                                                    <textarea class="form-control" id="" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">کدپستی</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <hr class="mt-5">
+
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">وضعیت اشتغال</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">نوع اشتغال فعلی</label>
+                                                    <select class="form-select">
+                                                        <option>دولتی</option>
+                                                        <option>خصوصی</option>
+                                                        <option>آزاد</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">نام محل اشتغال فعلی</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <hr class="mt-5 mb-5">
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">وضعیت بیمه تامین اجتماعی</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">شماره بیمه تامین اجتماعی</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="">روش دسترسی به سامانه</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">قد</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">وزن</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">سایز کفش</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" id="" class="form-control text-start">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">سایز لباس</label>
+                                                    <select class="form-select">
+                                                        <option selected>-</option>
+                                                        <option>S</option>
+                                                        <option>M</option>
+                                                        <option>L</option>
+                                                        <option>XL</option>
+                                                        <option>XXL</option>
+                                                        <option>3XL</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-label-secondary btn-prev" disabled>
@@ -102,8 +283,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Personal Info -->
-                                        <div id="personal-info-vertical-modern" class="content">
+                                        <div id="document-upload" class="content">
                                             <div class="content-header mb-3">
                                                 <h6 class="mb-1">اطلاعات شخصی</h6>
                                                 <small>اطلاعات شخصی خود را وارد کنید.</small>
@@ -148,8 +328,100 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Social Links -->
-                                        <div id="social-links-vertical-modern" class="content">
+                                        <div id="health-details" class="content">
+                                            <div class="content-header mb-3">
+                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
+                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                            </div>
+                                            <div class="row g-3">
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
+                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
+                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
+                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
+                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <button class="btn btn-primary btn-prev">
+                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                        <span class="d-sm-inline-block d-none">قبلی</span>
+                                                    </button>
+                                                    <button class="btn btn-success btn-submit">ثبت</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="bank-info" class="content">
+                                            <div class="content-header mb-3">
+                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
+                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                            </div>
+                                            <div class="row g-3">
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
+                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
+                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
+                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
+                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <button class="btn btn-primary btn-prev">
+                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                        <span class="d-sm-inline-block d-none">قبلی</span>
+                                                    </button>
+                                                    <button class="btn btn-success btn-submit">ثبت</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="time-sheet" class="content">
+                                            <div class="content-header mb-3">
+                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
+                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                            </div>
+                                            <div class="row g-3">
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
+                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
+                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
+                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
+                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <button class="btn btn-primary btn-prev">
+                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                        <span class="d-sm-inline-block d-none">قبلی</span>
+                                                    </button>
+                                                    <button class="btn btn-success btn-submit">ثبت</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="final-check" class="content">
                                             <div class="content-header mb-3">
                                                 <h6 class="mb-1">شبکه های اجتماعی</h6>
                                                 <small>لینک های اجتماعی خود را وارد کنید.</small>
