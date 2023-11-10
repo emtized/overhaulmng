@@ -11,4 +11,10 @@ class AuthController extends Controller
     {
         return view('layouts.auth');
     }
+
+
+    public function showRegister()
+    {
+        return view('user.register.first');
+    }
 }

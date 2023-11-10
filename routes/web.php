@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin']);
+Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRegister']);
 Route::get('/', function () {
     return view('layouts.app');
 });

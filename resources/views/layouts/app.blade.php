@@ -30,6 +30,7 @@
 
     <!-- Helpers -->
     <script src="{!! asset('js/helpers.js') !!}"></script>
+    <script src="{!! asset('js/config.js') !!}"></script>
 
 
 </head>
@@ -49,7 +50,7 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-
+@stack('js')
 <!-- Main JS -->
 <script src="{!! asset('js/main.js') !!}"></script>
 
