@@ -576,12 +576,16 @@
                                                 </div>
                                                 <div class="col-sm-3"></div>
 
+
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-primary btn-prev">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-success btn-submit">ثبت</button>
+                                                    <button class="btn btn-primary btn-next">
+                                                        <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
+                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
@@ -595,6 +599,17 @@
                                             <div class="row g-3">
 
                                             </div>
+
+                                            <div class="col-12 d-flex justify-content-between">
+                                                <button class="btn btn-primary btn-prev">
+                                                    <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                    <span class="d-sm-inline-block d-none">قبلی</span>
+                                                </button>
+                                                <button class="btn btn-primary btn-next">
+                                                    <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
+                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                         <div id="time-sheet" class="content">
                                             <div class="content-header mb-3">
@@ -604,9 +619,30 @@
                                             <div class="row g-3">
 
                                             </div>
+
+                                            <div class="col-12 d-flex justify-content-between">
+                                                <button class="btn btn-primary btn-prev">
+                                                    <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                    <span class="d-sm-inline-block d-none">قبلی</span>
+                                                </button>
+                                                <button class="btn btn-primary btn-next">
+                                                    <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
+                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                         <div id="final-check" class="content">
 
+                                            <div class="col-12 d-flex justify-content-between">
+                                                <button class="btn btn-primary btn-prev">
+                                                    <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                    <span class="d-sm-inline-block d-none">قبلی</span>
+                                                </button>
+                                                <button class="btn btn-success btn-next">
+                                                    <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
+                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
