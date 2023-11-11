@@ -589,96 +589,24 @@
                                         </div>
                                         <div id="bank-info" class="content">
                                             <div class="content-header mb-3">
-                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
-                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                                <h6 class="mb-1">اطلاعات حساب بانکی</h6>
+                                                <small>لطفا اطلاعات خواسته شده را با دقت وارد نمایید.</small>
                                             </div>
                                             <div class="row g-3">
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
-                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
-                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
-                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
-                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
-                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                                        <span class="d-sm-inline-block d-none">قبلی</span>
-                                                    </button>
-                                                    <button class="btn btn-success btn-submit">ثبت</button>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div id="time-sheet" class="content">
                                             <div class="content-header mb-3">
-                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
-                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
+                                                <h6 class="mb-1">تاریخ آماده بکار</h6>
+                                                <small></small>
                                             </div>
                                             <div class="row g-3">
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
-                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
-                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
-                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
-                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
-                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                                        <span class="d-sm-inline-block d-none">قبلی</span>
-                                                    </button>
-                                                    <button class="btn btn-success btn-submit">ثبت</button>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div id="final-check" class="content">
-                                            <div class="content-header mb-3">
-                                                <h6 class="mb-1">شبکه های اجتماعی</h6>
-                                                <small>لینک های اجتماعی خود را وارد کنید.</small>
-                                            </div>
-                                            <div class="row g-3">
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="twitter-vertical-modern">توییتر</label>
-                                                    <input type="text" id="twitter-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://twitter.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="facebook-vertical-modern">فیسبوک</label>
-                                                    <input type="text" id="facebook-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://facebook.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="google-vertical-modern">گوگل+</label>
-                                                    <input type="text" id="google-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://plus.google.com/abc">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label class="form-label" for="linkedin-vertical-modern">لینکدین</label>
-                                                    <input type="text" id="linkedin-vertical-modern" class="form-control text-start" dir="ltr" placeholder="https://linkedin.com/abc">
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
-                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                                        <span class="d-sm-inline-block d-none">قبلی</span>
-                                                    </button>
-                                                    <button class="btn btn-success btn-submit">ثبت</button>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
@@ -708,15 +636,11 @@
             </div>
             <!-- / Layout page -->
         </div>
-
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
-
-        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
-
 @endsection
 @push('js')
     <script src="{!! asset('libs/bs-stepper/bs-stepper.js') !!}"></script>
