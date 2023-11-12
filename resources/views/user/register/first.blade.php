@@ -597,18 +597,103 @@
                                                 <small>لطفا اطلاعات خواسته شده را با دقت وارد نمایید.</small>
                                             </div>
                                             <div class="row g-3">
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for=""> 12.آیا حساب بانکی به نام خود دارید؟</label>
+                                                    <select class="form-select">
+                                                        <option>خیر</option>
+                                                        <option selected>بله</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-9"></div>
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">بانک</label>
+                                                    <select class="form-select">
+                                                        <option selected>-</option>
+                                                        <option>ملی</option>
+                                                        <option>ملت</option>
+                                                        <option>تجارت</option>
+                                                        <option>شهر</option>
+                                                        <option>سپه</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text">IR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                </div>
 
-                                            </div>
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">بانک</label>
+                                                    <select class="form-select">
+                                                        <option selected>-</option>
+                                                        <option>ملی</option>
+                                                        <option>ملت</option>
+                                                        <option>تجارت</option>
+                                                        <option>شهر</option>
+                                                        <option>سپه</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text">IR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                </div>
 
-                                            <div class="col-12 d-flex justify-content-between">
-                                                <button class="btn btn-primary btn-prev">
-                                                    <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                                    <span class="d-sm-inline-block d-none">قبلی</span>
-                                                </button>
-                                                <button class="btn btn-primary btn-next">
-                                                    <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                </button>
+
+                                                <div class="col-sm-3">
+                                                    <label class="form-label" for="">بانک</label>
+                                                    <select class="form-select">
+                                                        <option selected>-</option>
+                                                        <option>ملی</option>
+                                                        <option>ملت</option>
+                                                        <option>تجارت</option>
+                                                        <option>شهر</option>
+                                                        <option>سپه</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text">IR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                        <span class="input-group-text"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <button class="btn btn-primary btn-prev">
+                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                        <span class="d-sm-inline-block d-none">قبلی</span>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-next">
+                                                        <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
+                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div id="time-sheet" class="content">
@@ -638,7 +723,7 @@
                                                     <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                     <span class="d-sm-inline-block d-none">قبلی</span>
                                                 </button>
-                                                <button class="btn btn-success btn-next">
+                                                <button class="btn btn-successloca btn-next">
                                                     <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
                                                     <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
                                                 </button>
