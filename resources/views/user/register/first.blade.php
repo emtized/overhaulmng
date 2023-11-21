@@ -729,16 +729,209 @@
                                         </div>
                                         <div id="final-check" class="content">
 
-                                            <div class="col-12 d-flex justify-content-between">
-                                                <button class="btn btn-primary btn-prev">
-                                                    <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                                                    <span class="d-sm-inline-block d-none">قبلی</span>
-                                                </button>
-                                                <button class="btn btn-successloca btn-next">
-                                                    <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
-                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                </button>
+                                            <div class="content-header mb-3">
+                                                <h6 class="mb-1">کنترل نهایی</h6>
+                                                <small>لطفا اطلاعات وارد شده را با دقت کنترل نمایید، ثبت نهایی اطلاعات پس از کنترل و تایید تیم پشتبیانی انجام خواهد گرفت.</small>
                                             </div>
+                                            <hr class="my-4 mx-n4">
+
+                                            <div class="row g-3 mt-3">
+                                                <div class="row">
+                                                    <div class="alert alert-primary" role="alert">1.اطلاعات هویتی</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-7 col-12">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">نام :</dt>
+                                                            <dd class="col-sm-8">تست</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">نام خانوادگی:</dt>
+                                                            <dd class="col-sm-8">تست</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">نام پدر :</dt>
+                                                            <dd class="col-sm-8">تست</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">کدملی:</dt>
+                                                            <dd class="col-sm-8">000000000</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">شماره شناسنامه:</dt>
+                                                            <dd class="col-sm-8">9999</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="col-xl-5 col-12">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تماس:</dt>
+                                                            <dd class="col-sm-8"><span class="d-inline-block" dir="ltr">+1 (605) 977-32-65</span></dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">کشور:</dt>
+                                                            <dd class="col-sm-8">ایران</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">استان:</dt>
+                                                            <dd class="col-sm-8">تهران</dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">کدپستی:</dt>
+                                                            <dd class="col-sm-8">403114</dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-3 mt-3">
+                                                <div class="row">
+                                                    <div class="alert alert-info" role="alert">2.مدارک هویتی</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تصویر کارت ملی :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">صفحه اول شناسنامه :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/11.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">صفحه دوم شناسنامه :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/14.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">کارت معافیت یا پایان خدمت سربازی :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/16.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">عکس 3*4 :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">گواهی عدم اعتیاد :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/11.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                        </dl>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">گواهی عدم سوء پیشینه :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/14.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">نتیجه معاینات طب صنعتی :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/16.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تاییدیه آموزش ایمنی اداره کار :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">سوابق بیمه تامین اجتماعی :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تعهد نامه محضری( در صورتی که حساب بانکی به نام شخص نباشد) :</dt>
+                                                            <dd class="col-sm-8">
+                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                            </dd>
+
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-3 mt-3">
+                                                <div class="row">
+                                                    <div class="alert alert-secondary" role="alert">3.سلامت جسمانی</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-7 col-12">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">1. آیا سابقه بیماری دارید :</dt>
+                                                            <dd class="col-sm-8">خیر</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-wrap">2. در صورت ابتلا به بیماری، آیا علایم شما در محیط کار تغییر می کند?</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-wrap">3. آیا به غذا، دارو یا ماده خاصی حساسیت دارید؟ </dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-wrap">4. آیا سابقه بستری در بیمارستان دارید؟</dt>
+                                                            <dd class="col-sm-2">بلی</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">5. آیا سابقه عمل جراحی دارید؟</dt>
+                                                            <dd class="col-sm-2">9999</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">6. آیا داروی خاصی مصرف می کنید؟</dt>
+                                                            <dd class="col-sm-2">9999</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">7. آیا اکنون سیگار می کشید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">8. آیا سابقه قبلی مصرف سیگار دارید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">9.آیا در اوقات فراغت ورزش خاصی انجام می دهید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">10. آیا تاکنون دچار حادثه شغلی شده اید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">11. آیا سابقه استفاده از استعلاجی برای مدت بیش از 3 روز دارید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">12.آیا سابقه معرفی به کمیسیون پزشکی دارید؟</dt>
+                                                            <dd class="col-sm-2">خیر</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="col-xl-5 col-12">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">بیماری:</dt>
+                                                            <dd class="col-sm-2">سرماخوردگی</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">علایم:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">حسایت های دارویی:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">دلایل بستری:</dt>
+                                                            <dd class="col-sm-2">سرماخوردگی</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">جراحی:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">داروها</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">تعداد نخ روزانه؟ مدت استعمال:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">تعداد نخ روزانه؟ مدت استعمال:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">ورزش ها:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">نوع آسیب؟ علت؟</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap"></dt>
+                                                            <dd class="col-sm-2"></dd>
+                                                            <dt class="col-sm-10 mb-2 text-nowrap">علت:</dt>
+                                                            <dd class="col-sm-2">ندارم</dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <button class="btn btn-primary btn-prev">
+                                                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                                        <span class="d-sm-inline-block d-none">قبلی</span>
+                                                    </button>
+                                                    <button class="btn btn-successloca btn-next">
+                                                        <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
+                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
