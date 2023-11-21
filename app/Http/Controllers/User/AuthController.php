@@ -17,4 +17,10 @@ class AuthController extends Controller
     {
         return view('user.register.first');
     }
+
+    public function showforgetPass()
+    {
+        return view('auth.forget-pass');
+
+    }
 }

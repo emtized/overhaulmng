@@ -276,14 +276,14 @@ button.list-group-item-primary.active {
 
 .btn-primary {
   color: #fff;
-  background-color: #5a8dee;
-  border-color: #5a8dee;
+  background-color: #455292;
+  border-color: #2a3a8c;
   box-shadow: 0 0.125rem 0.25rem rgba(147, 158, 170, 0.4);
 }
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #7ba4f1 !important;
-  border-color: #7ba4f1 !important;
+  background-color: #556096 !important;
+  border-color: #556096 !important;
   box-shadow: 0 0.25rem 1rem rgba(147, 158, 170, 0.45) !important;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus, .btn-primary.focus {

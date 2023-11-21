@@ -12,5 +12,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin']);
+Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin'])->name('user.login.get');
 Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRegister']);
+Route::get('/forget-pass',[\App\Http\Controllers\User\AuthController::class,'showforgetPass']);
