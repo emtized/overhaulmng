@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{!! asset('libs/bs-stepper/bs-stepper.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/bootstrap-select/bootstrap-select.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/select2/select2.css') !!}">
+    <link rel="stylesheet" href="{!! asset('libs/flatpickr/flatpickr.css') !!}">
 @endpush
 
 @section('content')
@@ -701,7 +702,17 @@
                                                 <h6 class="mb-1">تاریخ آماده بکار</h6>
                                                 <small></small>
                                             </div>
-                                            <div class="row g-3">
+                                            <hr class="my-4 mx-n4">
+
+                                            <div class="row g-3 mb-5">
+                                            <p class="lead mb-0">برنامه اشتغال خود در سایر پروژه ها را سنجیده و بازه های زمانی آماده به کار بودن خود را از طریق تقویم ذیل مشخص نمایید.</p>
+                                                <p class="lead mb-0">در صورت هر گونه تغییر در زمانبندی آماده به کار بودن ، مراتب را مجددا در پروفایل خود بروز رسانی و ذخیره کنید</p>
+
+
+                                                <div class="col-md-6 col-12 mb-4">
+                                                    <label for="flatpickr-date" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>
+                                                    <input type="text" class="form-control"  id="flatpickr-date">
+                                                </div>
 
                                             </div>
 
@@ -770,5 +781,23 @@
     <script src="{!! asset('libs/select2/select2.js') !!}"></script>
     <script src="{!! asset('libs/select2/i18n/fa.js') !!}"></script>
     <script src="{!! asset('js/form-wizard-icons.js') !!}"></script>
+
+    <script src="{!! asset('libs/moment/moment.js') !!}"></script>
+    <script src="{!! asset('libs/jdate/jdate.js') !!}"></script>
+    <script src="{!! asset('libs/flatpickr/flatpickr-jdate.js') !!}"></script>
+    <script src="{!! asset('libs/flatpickr/l10n/fa-jdate.js') !!}"></script>
+    <script>
+        const flatpickrDate = document.querySelector('#flatpickr-date');
+        if (flatpickrDate) {
+            flatpickrDate.flatpickr({
+                minDate: "today",
+                monthSelectorType: 'static',
+                locale: 'fa',
+                altInput: true,
+                altFormat: 'Y/m/d',
+            });
+        }
+    </script>
+
 
 @endpush
