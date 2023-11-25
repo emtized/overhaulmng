@@ -919,13 +919,86 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row g-3 mt-3">
+                                                <div class="row">
+                                                    <div class="alert alert-primary" role="alert">4.اطلاعات بانکی</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="added-cards">
+                                                        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
+                                                            <div class="d-flex justify-content-between flex-sm-row flex-column">
+                                                                <div class="card-information me-2">
+                                                                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
+                                                                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
+                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
+                                                                        <span class="badge bg-label-primary">صاحب حساب</span>
+                                                                    </div>
+                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
+                                                                </div>
+                                                                <div class="d-flex flex-column text-start text-sm-end">
+                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
+                                                            <div class="d-flex justify-content-between flex-sm-row flex-column">
+                                                                <div class="card-information me-2">
+                                                                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
+                                                                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
+                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
+                                                                        <span class="badge bg-label-primary">صاحب حساب</span>
+                                                                    </div>
+                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
+                                                                </div>
+                                                                <div class="d-flex flex-column text-start text-sm-end">
+                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
+                                                            <div class="d-flex justify-content-between flex-sm-row flex-column">
+                                                                <div class="card-information me-2">
+                                                                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
+                                                                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
+                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
+                                                                        <span class="badge bg-label-primary">صاحب حساب</span>
+                                                                    </div>
+                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
+                                                                </div>
+                                                                <div class="d-flex flex-column text-start text-sm-end">
+                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 mt-3 mb-5">
+                                                <div class="row">
+                                                    <div class="alert alert-success" role="alert">5.تاریخ آماده بکار بودن </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-7 col-12">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تاریخ شروع :</dt>
+                                                            <dd class="col-sm-8">28 آبان 1402</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="col-xl-5 col-12">
+                                                        <dl class="row mb-0">
+
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="row mt-3">
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-primary btn-prev">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-successloca btn-next">
+                                                    <button class="btn btn-success btn-next">
                                                         <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
                                                         <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
                                                     </button>
