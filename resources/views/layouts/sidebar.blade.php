@@ -21,20 +21,20 @@
                 <div data-i18n="dashboar">دشبورد</div>
             </a>
         </li>
-        <li class="menu-item active open">
+        <li class="menu-item">
             <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
                 <div data-i18n="dashboar">درخواست ها</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pages">پروفایل کاربری</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="{!! route('user.show.info') !!}" class="menu-link">
                         <div data-i18n="Profile">اطلاعات هویتی</div>
                     </a>
                 </li>

@@ -12,4 +12,9 @@ class ProfileController extends Controller
         return view('user.profile.index');
     }
 
+    public function info()
+    {
+        return view('user.profile.info');
+    }
+
 }
