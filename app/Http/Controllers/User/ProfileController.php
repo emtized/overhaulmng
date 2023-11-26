@@ -17,4 +17,10 @@ class ProfileController extends Controller
         return view('user.profile.info');
     }
 
+    public function docs()
+    {
+        return view('user.profile.docs');
+
+    }
+
 }
