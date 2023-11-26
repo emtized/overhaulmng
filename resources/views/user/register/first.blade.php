@@ -10,7 +10,7 @@
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-            @include('layouts.sidebar')
+            @include('layouts.sidebar-empty')
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Content wrapper -->

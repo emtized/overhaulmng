@@ -1,5 +1,4 @@
 <!-- Menu -->
-
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{!! url('/') !!}" class="app-brand-link">
@@ -8,27 +7,54 @@
               </span>
             <span class="app-brand-text demo menu-text fw-bold ms-2">سامانه اورهال</span>
         </a>
-
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="bx menu-toggle-icon d-none d-xl-block fs-4 align-middle"></i>
             <i class="bx bx-x d-block d-xl-none bx-sm align-middle"></i>
         </a>
     </div>
-
     <div class="menu-divider mt-0"></div>
-
     <div class="menu-inner-shadow"></div>
-
     <ul class="menu-inner py-1">
-        <!-- Dashboards -->
-        <li class="menu-item">
-        <li class="menu-item active">
-            <a href="{!! url('/register') !!}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user-plus"></i>
-                <div data-i18n="register">ثبت نام</div>
+        <li class="menu-item active open">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="dashboar">دشبورد</div>
             </a>
         </li>
-
+        <li class="menu-item active open">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="dashboar">درخواست ها</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Pages">پروفایل کاربری</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div data-i18n="Profile">اطلاعات هویتی</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div data-i18n="Teams">مدارک</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div data-i18n="Projects">سلامت جسمانی</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div data-i18n="Connections">اطلاعات بانکی</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->
