@@ -55,6 +55,29 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item" style="">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-bell"></i>
+                <div data-i18n="Invoice">اعلان ها</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{!! route('user.notification.unread') !!}" class="menu-link">
+                        <div data-i18n="List">خوانده نشده</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Preview">خوانده شده</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">
+                        <div data-i18n="Edit">همه</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->

@@ -216,7 +216,7 @@
     display: block;
   }
   .app-email .app-email-view {
-    width: calc(100% - 16.2rem);
+    width: calc(100%);
   }
 }
 @media (max-width: 576px) {
