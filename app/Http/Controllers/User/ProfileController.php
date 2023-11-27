@@ -35,4 +35,10 @@ class ProfileController extends Controller
 
     }
 
+
+    public function timesheet()
+    {
+        return view('user.profile.time-info');
+    }
+
 }

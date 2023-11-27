@@ -21,3 +21,4 @@ Route::get('/profile/personal-health',[\App\Http\Controllers\User\ProfileControl
 Route::get('/profile/personal-banks',[\App\Http\Controllers\User\ProfileController::class,'banks'])->name('user.show.bank');
 Route::get('/forget-pass',[\App\Http\Controllers\User\AuthController::class,'showforgetPass']);
 Route::get('/profile/notification-all',[\App\Http\Controllers\User\NotificationController::class,'all'])->name('user.notification.unread');
+Route::get('/profile/timesheet',[\App\Http\Controllers\User\ProfileController::class,'timesheet'])->name('user.show.timesheet');

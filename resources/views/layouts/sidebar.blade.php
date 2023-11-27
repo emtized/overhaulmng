@@ -78,6 +78,13 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-item">
+            <a href="{!! route('user.show.timesheet') !!}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-check-double"></i>
+                <div data-i18n="timesheet">اعلام آماده بکار</div>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- / Menu -->
