@@ -43,8 +43,8 @@
                         <div data-i18n="Teams">مدارک</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
+                <li class="menu-item" >
+                    <a href="{!! route('user.show.health') !!}" class="menu-link">
                         <div data-i18n="Projects">سلامت جسمانی</div>
                     </a>
                 </li>

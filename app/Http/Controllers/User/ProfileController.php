@@ -23,4 +23,9 @@ class ProfileController extends Controller
 
     }
 
+    public function health()
+    {
+        return view('user.profile.health');
+    }
+
 }
