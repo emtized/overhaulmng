@@ -28,4 +28,11 @@ class ProfileController extends Controller
         return view('user.profile.health');
     }
 
+
+    public function banks()
+    {
+        return view('user.profile.bank-info');
+
+    }
+
 }

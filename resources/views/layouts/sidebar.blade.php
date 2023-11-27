@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="{!! route('user.show.bank') !!}" class="menu-link">
                         <div data-i18n="Connections">اطلاعات بانکی</div>
                     </a>
                 </li>

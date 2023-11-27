@@ -1103,3 +1103,4 @@ html .ql-editor.ql-blank::before {
 html .sticky-wrapper.is-sticky .card-header.sticky-element {
   border-radius: 0;
 }
+.card-number {display: block;margin-top: 5px}
