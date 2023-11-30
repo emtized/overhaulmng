@@ -154,7 +154,7 @@
     <script src="{!! asset('libs/flatpickr/flatpickr-jdate.js') !!}"></script>
     <script src="{!! asset('libs/flatpickr/l10n/fa-jdate.js') !!}"></script>
     <script>
-        const flatpickrDate = document.querySelector('#flatpickr-date');
+        const flatpickrDate = document.querySelector('.flatpickr-date');
         if (flatpickrDate) {
             flatpickrDate.flatpickr({
                 minDate: "today",
@@ -164,6 +164,15 @@
                 altFormat: 'Y/m/d',
             });
         }
+
+        //select2
+        $(document).ready(function() {
+            $('#accessMethodsSelect').select2({
+                tags: true,
+                tokenSeparators: [',', ' '],
+            });
+        });
+
     </script>
 
 

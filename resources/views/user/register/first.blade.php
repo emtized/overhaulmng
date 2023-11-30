@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="{!! asset('libs/bootstrap-select/bootstrap-select.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/select2/select2.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/flatpickr/flatpickr.css') !!}">
+    <style>
+        .btn-i{
+        transform: rotate(180deg) !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -88,7 +93,7 @@
 
                                 </div>
                                 <div class="bs-stepper-content">
-                                    <form onsubmit="return false">
+                                    <form onsubmit="return false" id="signupForm">
                                         <div id="info-details" class="content">
                                             <div class="content-header mb-3">
                                                 <h6 class="mb-1">وارد کردن اطلاعات هویتی</h6>
@@ -99,15 +104,20 @@
                                             <h6 class="mb-b fw-normal">1.اطلاعات فردی</h6>
 
                                            @include('forms.user.personal-info')
+
                                             <div class="row mt-3">
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-label-secondary btn-prev" disabled>
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-primary btn-next">
+                                                    <button class="btn btn-primary" id="btn">
                                                         <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2 btn-i"></i>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-next d-none" id="next">
+                                                        <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
+                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2 "></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -272,84 +282,39 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-9"></div>
-                                                <div class="col-sm-3">
-                                                    <label class="form-label" for="">بانک</label>
-                                                    <select class="form-select">
-                                                        <option selected>-</option>
-                                                        <option>ملی</option>
-                                                        <option>ملت</option>
-                                                        <option>تجارت</option>
-                                                        <option>شهر</option>
-                                                        <option>سپه</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text">IR</span>
+
+                                                <div class="row g-3">
+                                                    <div class="col-sm-3">
+                                                        <label class="form-label" for="">بانک</label>
+                                                        <select class="form-select">
+                                                            <option selected>-</option>
+                                                            <option>ملی</option>
+                                                            <option>ملت</option>
+                                                            <option>تجارت</option>
+                                                            <option>شهر</option>
+                                                            <option>سپه</option>
+                                                        </select>
                                                     </div>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text"></span>
+                                                    <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                        <label class="form-label" for="phone-number-mask">شماره شبا</label>
+                                                        <div class="input-group">
+                                                            <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                            <span class="input-group-text">IR</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+                                                        <label class="form-label" for="phone-number-mask">شماره حساب</label>
+                                                        <div class="input-group">
+                                                            <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                            <span class="input-group-text"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-3">
-                                                    <label class="form-label" for="">بانک</label>
-                                                    <select class="form-select">
-                                                        <option selected>-</option>
-                                                        <option>ملی</option>
-                                                        <option>ملت</option>
-                                                        <option>تجارت</option>
-                                                        <option>شهر</option>
-                                                        <option>سپه</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text">IR</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text"></span>
-                                                    </div>
+                                                <div>
+                                                    <button type="button" id="btn-copy" class="btn btn-success btn-sm">+</button>
                                                 </div>
 
-
-                                                <div class="col-sm-3">
-                                                    <label class="form-label" for="">بانک</label>
-                                                    <select class="form-select">
-                                                        <option selected>-</option>
-                                                        <option>ملی</option>
-                                                        <option>ملت</option>
-                                                        <option>تجارت</option>
-                                                        <option>شهر</option>
-                                                        <option>سپه</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره شبا</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text">IR</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-                                                    <label class="form-label" for="phone-number-mask">شماره حساب</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
-                                                        <span class="input-group-text"></span>
-                                                    </div>
-                                                </div>
 
                                                 <div class="col-12 d-flex justify-content-between">
                                                     <button class="btn btn-primary btn-prev">
@@ -370,17 +335,24 @@
                                             </div>
                                             <hr class="my-4 mx-n4">
 
-                                            <div class="row g-3 mb-5">
                                             <p class="lead mb-0">برنامه اشتغال خود در سایر پروژه ها را سنجیده و بازه های زمانی آماده به کار بودن خود را از طریق تقویم ذیل مشخص نمایید.</p>
                                                 <p class="lead mb-0">در صورت هر گونه تغییر در زمانبندی آماده به کار بودن ، مراتب را مجددا در پروفایل خود بروز رسانی و ذخیره کنید</p>
-
+                                            <div class="row g-3 my-2" id="row">
+                                                <div class="col-md-6 col-12 mb-4">
+                                                    <label for="" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>
+                                                    <input type="text" class="form-control start-date">
+                                                </div>
 
                                                 <div class="col-md-6 col-12 mb-4">
-                                                    <label for="flatpickr-date" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>
-                                                    <input type="text" class="form-control"  id="flatpickr-date">
+                                                    <label for="" class="form-label">لطفا آخرین تاریخ  کار خود را انتخاب نمایید.</label>
+                                                    <input type="text" class="form-control end-date">
                                                 </div>
 
                                             </div>
+                                            <div class="mb-4">
+                                                <button type="button" id="btn-copy-date" class="btn btn-success btn-sm">+</button>
+                                            </div>
+
 
                                             <div class="col-12 d-flex justify-content-between">
                                                 <button class="btn btn-primary btn-prev">
@@ -714,12 +686,13 @@
     <script src="{!! asset('libs/select2/i18n/fa.js') !!}"></script>
     <script src="{!! asset('js/form-wizard-icons.js') !!}"></script>
 
+    <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('libs/moment/moment.js') !!}"></script>
     <script src="{!! asset('libs/jdate/jdate.js') !!}"></script>
     <script src="{!! asset('libs/flatpickr/flatpickr-jdate.js') !!}"></script>
     <script src="{!! asset('libs/flatpickr/l10n/fa-jdate.js') !!}"></script>
     <script>
-        const flatpickrDate = document.querySelector('#flatpickr-date');
+        const flatpickrDate = document.querySelector('.flatpickr-date');
         if (flatpickrDate) {
             flatpickrDate.flatpickr({
                 minDate: "today",
@@ -729,7 +702,168 @@
                 altFormat: 'Y/m/d',
             });
         }
+
+
     </script>
 
+    <script>
 
+        function initializeFlatpickr(element) {
+                if (element) {
+                    flatpickr(element, {
+                        minDate: "today",
+                        monthSelectorType: 'static',
+                        locale: 'fa',
+                        altInput: true,
+                        altFormat: 'Y/m/d',
+                    });
+                }
+            }
+
+        initializeFlatpickr(document.querySelector('.start-date'));
+        initializeFlatpickr(document.querySelector('.end-date'));
+
+
+
+        document.getElementById('btn-copy-date').addEventListener('click', function () {
+                var newRow = document.createElement('div');
+                newRow.className = 'row g-3 my-2';
+
+                var newInput1 = document.createElement('div');
+                newInput1.className = 'col-md-6 col-12 mb-4';
+                newInput1.innerHTML = '<label for="" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>' +
+                                    '<input type="text" class="form-control start-date">';
+
+                var newInput2 = document.createElement('div');
+                newInput2.className = 'col-md-6 col-12 mb-4';
+                newInput2.innerHTML = '<label for="" class="form-label">لطفا آخرین تاریخ  کار خود را انتخاب نمایید.</label>' +
+                                    '<input type="text" class="form-control end-date">';
+
+                newRow.appendChild(newInput1);
+                newRow.appendChild(newInput2);
+
+                document.getElementById('row').appendChild(newRow);
+
+                initializeFlatpickr(newRow.querySelector('.start-date'));
+                initializeFlatpickr(newRow.querySelector('.end-date'));
+    });
+
+
+
+    //bank
+     $(function(){
+        $("#btn-copy").on('click', function(){
+          var ele = $(this).parent().prev().clone(true);
+          $(this).before(ele);
+        })
+      })
+
+        $(document).ready(function() {
+            $('#accessMethodsSelect').select2({
+                tags: true,
+                tokenSeparators: [',', ' '],
+            });
+        });
+
+        //validate form
+	$.validator.setDefaults({
+    submitHandler: function (form) {
+        $("#btn").addClass('d-none');
+        $("#next").removeClass('d-none');
+    },
+});
+
+        var currentStep = 1;
+		$( document ).ready( function () {
+			$( "#signupForm" ).validate( {
+				rules: {
+					firstname: "required",
+					lastname: "required",
+                    place: "required",
+                    phone : "required",
+                    flatpickr:"required",
+                    reasons:"required",
+                    mobile1:"required",
+                    mobile2:"required",
+                    email:"required",
+                    address:"required",
+                    postal:"required",
+                    work:"required",
+                    insurance:"required",
+                    hight:"required",
+                    weight:"required",
+                    flatpickr:"required",
+                    moaref:"required",
+                    moarefnumber:"required",
+                    field:"required",
+                    dev:"required",
+					fathername: {
+						required: true,
+						minlength: 2
+					},
+					nationalcode: {
+						required: true,
+						minlength: 10
+					},
+					birthcode: {
+						required: true,
+					},
+
+				},
+				messages: {
+                    field:"لطفا رشته تحصیلی خود را وارد نمایید",
+                    dev:"عنوان تخصص را وارد نمایید",
+                    moarefnumber:"لطفا شماره معرف را وارد نمایید",
+                    moaref:"لطفا نام معرف را وارد کنید",
+					firstname: "لطفا نام را وارد کنید",
+					lastname: "لطفا  نام خانوادگی را وارد کنید",
+                    place: "لطفا محل صدور را وارد کنید",
+                    phone : 'لطفا تلفن  خود را وارد نمایید',
+                    flatpickr:'لطفا تاریخ تولد را وارد نمایید',
+                    reasons:'لطفا دلیل معافیت را وارد نمایید',
+                    mobile1:'لطفا تلفن همراه خود را وارد نمایید',
+                    mobile2:'لطفا تلفن همراه خود را وارد نمایید',
+                    email: 'لطفا پست الکترونیک خود را وارد نمایید',
+                    address:'لطفا نشانی محل سکونت خود را وارد نمایید',
+                    postal:'لطفا کد پستی خود را وارد نمایید',
+                    work:'لطفا نام محل اشتغال فعلی خود را وارد نمایید',
+                    insurance:" لطفا شماره بیمه تامین اجتماعی خود را وارد نمایید ",
+                    hight:"لطفا قد خود را وارد نمایید",
+                    weight:"لطفا وزن خود را وارد نمایید",
+					fathername: {
+						required: "لطفا نام پدر را وارد کنید",
+						minlength: "نباید از 2 کاراکتر کمتر باشد"
+					},
+					nationalcode: {
+						required: "لطفا کدملی را وارد کنید",
+						minlength: "کد ملی از 10 کاراکتر کمتر نباید باشد"
+					},
+					birthcode: {
+						required: "لطفا شماره شناسنامه را وارد کنید",
+					},
+
+				},
+				errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					// Add the `help-block` class to the error element
+                    error.appendTo(element.parent());
+					error.addClass( "help-block" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.parent( "label" ) );
+					} else {
+						error.insertAfter( element );
+					}
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+				}
+			} );
+		} );
+
+
+    </script>
 @endpush
