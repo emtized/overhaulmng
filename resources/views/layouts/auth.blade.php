@@ -27,10 +27,17 @@
                     <h4 class="mb-3 secondary-font">به سامانه اورهال خوش آمدید!</h4>
                     <p class="mb-4">لطفا با استفاده از نام کاربری و رمزعبور خود وارد شوید!</p>
 
-                    <form id="formAuthentication" class="mb-3" action="" method="POST">
+                    <form id="formAuthentication" class="mb-3" action="{{ route('user.login.form')}}" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">ایمیل یا نام کاربری</label>
-                            <input type="text" class="form-control text-start" id="email" name="email-username" placeholder="ایمیل یا نام کاربری خود را وارد کنید" autofocus dir="ltr">
+                            <input type="text" class="form-control text-start" id="email" name="email" value="{{old('email')}}" placeholder="ایمیل یا نام کاربری خود را وارد کنید" autofocus dir="ltr">
+                            @error('email')
+                                <strong class="text-danger">
+                                    {{ $message }}
+                                </strong>
+                            @enderror
+                            @include('alert.alert-section.error')
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
@@ -43,6 +50,12 @@
                                 <input type="password" id="password" class="form-control text-start" name="password" placeholder="············" aria-describedby="password" dir="ltr">
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
+                            @error('password')
+                            <strong class="text-danger">
+                                {{ $message }}
+                            </strong>
+                            @enderror
+                            @include('alert.alert-section.error')
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
@@ -50,7 +63,7 @@
                                 <label class="form-check-label" for="remember-me"> به خاطر سپاری </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary d-grid w-100" disabled>ورود</button>
+                        <button class="btn btn-primary d-grid w-100">ورود</button>
                     </form>
 
                     <p class="text-center">
