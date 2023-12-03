@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin'])->name('user.login.get');
+Route::post('/loginForm', [\App\Http\Controllers\User\AuthController::class,'login'])->name('user.login.form');
 Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRegister']);
-Route::get('/profile',[\App\Http\Controllers\User\ProfileController::class,'showProfile']);
+Route::get('/profile',[\App\Http\Controllers\User\ProfileController::class,'showProfile'])->name('profile');
 Route::get('/profile/personal-info',[\App\Http\Controllers\User\ProfileController::class,'info'])->name('user.show.info');
 Route::get('/profile/personal-docs',[\App\Http\Controllers\User\ProfileController::class,'docs'])->name('user.show.docs');
 Route::get('/profile/personal-health',[\App\Http\Controllers\User\ProfileController::class,'health'])->name('user.show.health');
@@ -22,3 +23,8 @@ Route::get('/profile/personal-banks',[\App\Http\Controllers\User\ProfileControll
 Route::get('/forget-pass',[\App\Http\Controllers\User\AuthController::class,'showforgetPass']);
 Route::get('/profile/notification-all',[\App\Http\Controllers\User\NotificationController::class,'all'])->name('user.notification.unread');
 Route::get('/profile/timesheet',[\App\Http\Controllers\User\ProfileController::class,'timesheet'])->name('user.show.timesheet');
+
+
+Route::get('logout',function(){
+    Auth::logout();
+});
