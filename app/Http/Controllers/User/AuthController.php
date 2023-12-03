@@ -46,7 +46,7 @@ class AuthController extends Controller
          return $this->sendLoginFailedResponse();
 
     }
-    
+
     protected function validateForm(Request $request)
     {
         $request->validate(
@@ -59,7 +59,7 @@ class AuthController extends Controller
 
     protected function attempLogin(Request $request)
     {
-        return Auth::attempt($request->only('email','password'), $request->filled('remember'));
+        return Auth::attempt($request->only('email','password'), $request->filled('remember-me'));
     }
 
     protected function sendSuccessResponse()

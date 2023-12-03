@@ -12,6 +12,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+//admin routes
+Route::prefix('admin')->group(function () {
+
+    //dashboard
+    Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
+
+    //admin login
+    Route::get('/login',[\App\Http\Controllers\Admin\AdminController::class,'showLogin'])->name('admin.show.login');
+    Route::post('/post',[App\Http\Controllers\Admin\AdminController::class,'handleLogin'])->name('admin.post.login');
+    Route::get('/logoutAdmin',[App\Http\Controllers\Admin\AdminController::class,'logout'])->name('admin.logout');
+});
+
+
+
+//auth routes
 Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin'])->name('user.login.get');
 Route::post('/loginForm', [\App\Http\Controllers\User\AuthController::class,'login'])->name('user.login.form');
 Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRegister']);
