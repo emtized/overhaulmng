@@ -12,7 +12,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        dd('you are in admin-panel');
+        return view('admin.index');
     }
 
 
