@@ -4,11 +4,29 @@
         <span class="link-danger">*</span>
         <input type="text" id="firstname" class="form-control text-start" name="firstname" placeholder="" dir="rtl">
     </div>
+
     <div class="col-sm-6">
         <label class="form-label" for="lastname">نام خانوادگی</label>
         <span class="link-danger">*</span>
         <input type="text" id="lastname" name="lastname" class="form-control text-start">
     </div>
+
+    <div class="col-sm-12">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td class="align-middle p-0"><small class="fw-semibold">تصویر کاربری <span class="link-danger">*</span></small></td>
+                    <td class="p-0">
+                        <div class="mb-1">
+                            <label for="formFile" class="form-label">لطفا تصویر کاربری خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
+                            <input class="form-control" type="file" id="formFile" name="image">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div class="col-sm-4">
         <label class="form-label" for="fathername">نام پدر</label>
         <span class="link-danger">*</span>
@@ -72,7 +90,7 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <label class="form-label" for="moaref">نام معرف</label>
+        <label class="form-label" for="moaref">نام و نام خانوادگی معرف</label>
         <span class="link-danger">*</span>
         <input type="text" id="moaref" name="moaref" class="form-control text-start">
         <div class="input-group input-group-merge">
