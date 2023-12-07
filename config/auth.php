@@ -41,9 +41,9 @@ return [
             'provider' => 'users',
         ],
 
-        'admin' => [
+        'customers' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'customers',
         ],
     ],
 
@@ -70,10 +70,11 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'admins' => [
+        'customers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\Customer::class,
         ],
+
     ],
 
     /*

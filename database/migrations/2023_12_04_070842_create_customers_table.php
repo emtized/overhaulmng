@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('first_name');
             $table->string('last_name');
-            $table->text('image');
             $table->string('father_name');
             $table->string('national_code')->unique();
             $table->string('birth_code')->unique();
@@ -28,6 +27,10 @@ return new class extends Migration
             $table->string('mother_lang')->nullable();
             $table->tinyInteger('marital')->default(0)->comment('0 => single, 1 => married');
             $table->tinyInteger('activation')->default(0)->comment('0 => inactive, 1 => active');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     public function showLogin()
     {
         return view('layouts.auth');
@@ -49,17 +44,18 @@ class AuthController extends Controller
 
     protected function validateForm(Request $request)
     {
-        $request->validate(
-            [
-                'email' => ['required', 'email', 'exists:users'],
-                'password' =>  ['required'],
-            ],
-        );
+        $request->validate([
+            'email' => ['required', 'email', 'exists:customers,email'],
+            'password' => ['required'],
+        ]);
     }
 
     protected function attempLogin(Request $request)
     {
-        return Auth::attempt($request->only('email','password'), $request->filled('remember-me'));
+        return Auth::guard('customers')->attempt(
+            $request->only('email', 'password'),
+            $request->filled('remember-me')
+        );
     }
 
     protected function sendSuccessResponse()
@@ -70,6 +66,12 @@ class AuthController extends Controller
     protected function sendLoginFailedResponse()
     {
         return back()->with('wrongCredentials','ایمیل یا رمز عبور نادرست می باشد');
+    }
+
+    public function logout()
+    {
+        Auth::guard('customers')->logout();
+        return redirect()->route('user.login.get');
     }
 
 }

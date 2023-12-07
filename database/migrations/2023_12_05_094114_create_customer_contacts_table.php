@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('mobile1')->unique();
             $table->string('mobile2')->unique();
-            $table->string('email')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
