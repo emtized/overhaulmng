@@ -17,7 +17,7 @@ return new class extends Migration
             $table->tinyInteger('job_status')->default(0);
             $table->tinyInteger('job_type')->default(0);
             $table->string('job_place');
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status_ins')->default(0);
             $table->string('number_insurance');
             $table->string('access');
             $table->decimal('weight', 10, 2);

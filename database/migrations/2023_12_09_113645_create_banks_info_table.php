@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_locations', function (Blueprint $table) {
+        Schema::create('banks_info', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
-            $table->tinyInteger('loc_status')->default(0);
-            $table->text('body');
-            $table->string('postal_code');
+            $table->tinyInteger('bank_name');
+            $table->string('shaba');
+            $table->string('account_number');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_locations');
+        Schema::dropIfExists('banks_info');
     }
 };

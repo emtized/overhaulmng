@@ -2,26 +2,17 @@
 
 namespace App\Models;
 
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Plank\Mediable\Mediable;
 
-class Customer extends Authenticatable
+class Document extends BaseModel
 {
-    use HasApiTokens, HasFactory, Notifiable,Uuids,Mediable,HasRoles;
+    use HasFactory,Uuids,Mediable;
 
+    protected $table = 'documents';
     protected $guarded = ['id'];
-
-
-    //casts
-    protected $casts = [
-        'password' => 'hashed',
-    ];
-
 
     public function getImageAttribute()
     {
@@ -33,13 +24,8 @@ class Customer extends Authenticatable
         return $this->hasMedia('customer') ?$value = 'storage/'.$this->firstMedia('customer')->directory.'/thumb_small_'.$this->firstMedia('customer')->filename.'.'.$this->firstMedia('customer')->extension : $value = 'images/thumb_small_no_image.jpg';
     }
 
-    public function bank()
+    public function customer()
     {
-        return $this->hasMany(Bank::class);
-    }
-
-    public function date()
-    {
-        return $this->hasMany(date::class);
+        return $this->belongsTo(Customer::class,'customer_id');
     }
 }

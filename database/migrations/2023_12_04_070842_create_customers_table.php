@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('birth_place');
             $table->timestamp('birth_day');
             $table->tinyInteger('status')->default(0);
-            $table->tinyInteger('status_detail')->default(0);
+            $table->string('status_detail')->default(0);
             $table->string('name_identifier');
             $table->string('mobile_identifier');
             $table->string('mother_lang')->nullable();
