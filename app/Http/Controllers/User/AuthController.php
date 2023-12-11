@@ -42,64 +42,23 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         //validate
         $inputs = $request->all();
         //create data
         $inputs['password'] = '123456789';
+
         $realTimestampStart = substr($request->birth_day, 0, 10);
         $inputs['birth_day'] = date("Y-m-d H:i:s", (int) $realTimestampStart);
 
+        //create customer
         $customer = Customer::create($inputs);
+
         //upload image with media
         $media = $this->verifyAndUpload($request,'avatar','customer');
         $customer->attachMedia($media,['customer']);
 
-        //contact
-        Contacts::create([
-            'customer_id' => $customer->id,
-            'phone' => $request->phone,
-            'mobile1' => $request->mobile1,
-            'mobile2' => $request->mobile2,
-        ]);
-
-        //location
-        Location::create([
-            'customer_id' => $customer->id,
-            'loc_status' => $request->loc_status,
-            'body' => $request->body,
-            'postal_code' => $request->postal_code
-        ]);
-
-        //ins
-        Insurance::create([
-            'customer_id' => $customer->id,
-            'job_status' => $request->job_status,
-            'job_type' =>$request->job_type,
-            'job_place' =>$request->job_place,
-            'status_ins' =>$request->status_ins,
-            'number_insurance' =>$request->number_insurance,
-            'access' =>$request->access,
-            'weight' =>$request->weight,
-            'height' =>$request->hight,
-            'shoe_size'=>$request->shoe_size,
-            'dress_size' =>$request->dress_size
-        ]);
-
-        Education::create([
-            'customer_id' => $customer->id,
-            'degree' => $request->degree,
-            'field' => $request->field
-        ]);
-
-        Employment::create([
-            'customer_id' => $customer->id,
-            'job_statuss' => $request->job_statuss,
-            'job' => $request->job
-        ]);
-
-        //upload image
         $cart = $this->verifyAndUpload($request,'cart','customer/document');
         $customer->attachMedia($cart,['cart']);
 
@@ -148,6 +107,49 @@ class AuthController extends Controller
         $other_image = $this->verifyAndUpload($request,'other_image','customer/document');
         $customer->attachMedia($other_image,['other_image']);
 
+        //contact
+        Contacts::create([
+            'customer_id' => $customer->id,
+            'phone' => $request->phone,
+            'mobile1' => $request->mobile1,
+            'mobile2' => $request->mobile2,
+        ]);
+
+        //location
+        Location::create([
+            'customer_id' => $customer->id,
+            'loc_status' => $request->loc_status,
+            'body' => $request->body,
+            'postal_code' => $request->postal_code
+        ]);
+
+        //ins
+        Insurance::create([
+            'customer_id' => $customer->id,
+            'job_status' => $request->job_status,
+            'job_type' =>$request->job_type,
+            'job_place' =>$request->job_place,
+            'status_ins' =>$request->status_ins,
+            'number_insurance' =>$request->number_insurance,
+            'access' =>$request->access,
+            'weight' =>$request->weight,
+            'height' =>$request->hight,
+            'shoe_size'=>$request->shoe_size,
+            'dress_size' =>$request->dress_size
+        ]);
+
+        Education::create([
+            'customer_id' => $customer->id,
+            'degree' => $request->degree,
+            'field' => $request->field
+        ]);
+
+        Employment::create([
+            'customer_id' => $customer->id,
+            'job_statuss' => $request->job_statuss,
+            'job' => $request->job
+        ]);
+
         //physical
         Physical::create([
             'customer_id' => $customer->id,
@@ -195,8 +197,7 @@ class AuthController extends Controller
             $inputs['end_date'][$key] = date("Y-m-d H:i:s", (int) $realTimestampStart2);
         }
 
-        $dates = array_combine($request->start_date, $request->end_date);
-        //dd($dates);
+        $dates = array_combine($inputs['start_date'], $inputs['end_date']);
         foreach ($dates as $key => $value){
             $date = Date::create([
                 'start_date' => $key,
@@ -206,7 +207,7 @@ class AuthController extends Controller
         }
 
 
-        //login
+        //login customer
         Auth::guard('customers')->login($customer);
 
         //redirect
@@ -257,7 +258,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('customers')->logout();
-        return redirect()->route('user.login.get');
+        return redirect()->route('user.login.get')->with('swal-success','خروج کردید');
     }
 
 }

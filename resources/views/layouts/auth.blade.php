@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@push('css')<link rel="stylesheet" href="{!! asset('css/pages/page-auth.css') !!}">@endpush
+@push('css')
+<link rel="stylesheet" href="{!! asset('css/pages/page-auth.css') !!}">
+@endpush
 @section('content')
     <!-- Content -->
 

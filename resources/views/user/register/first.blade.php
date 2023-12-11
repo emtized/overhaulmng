@@ -725,46 +725,45 @@
     <script>
 
 var maxCards = 100;
+
 $(".bank-input, .shaba-input, .account-number-input").on("keyup", function() {
-    var bankName = $(".bank-input").val();
-    var shaba = $(".shaba-input").val();
-    var accountNumber = $(".account-number-input").val();
+    var bankName = $(this).closest(".row").find(".bank-input").val();
+    var shaba = $(this).closest(".row").find(".shaba-input").val();
+    var accountNumber = $(this).closest(".row").find(".account-number-input").val();
 
     $(".cardMaster:last-child .card-information h6").text(getBankName(bankName));
     $(".cardMaster:last-child .card-information .card-number").text(accountNumber);
     $(".cardMaster:last-child .text-start small").text("شماره شبای حساب : " + shaba);
 });
 
-
 function createCard(bankName, shaba, accountNumber) {
     var cardHtml = `
-        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
-            <div class="d-flex justify-content-between flex-sm-row flex-column card-information">
-                <div class="me-2">
-                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
-                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
-                        <h6 class="mb-0 me-2">${getBankName(bankName)}</h6>
-                        <span class="badge bg-label-primary">صاحب حساب</span>
-                    </div>
-                    <span class="card-number">${accountNumber}</span>
-                </div>
-                <div class="text-start text-sm-end">
-                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : ${shaba}</small>
-                </div>
+            <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
+            <div class="d-flex justify-content-between flex-sm-row flex-column">
+            <div class="card-information me-2">
+            <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
+            <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
+            <h6 class="mb-0 me-2" id="bank1">${getBankName(bankName)}</h6>
+            <span class="badge bg-label-primary">صاحب حساب</span>
             </div>
-        </div>
+            <span class="card-number" id="nubmer">${accountNumber}</span>
+            </div>
+            <div class="d-flex flex-column text-start text-sm-end">
+            <small class="mt-sm-auto mt-2 order-sm-1 order-0" id="shabaa">شماره شبای حساب : IR ${shaba} </small>
+            </div>
+            </div>
+            </div>
     `;
 
     return cardHtml;
 }
 
 $(document).on("click", "#btn-copy", function() {
-    var bankName = $(".bank-input").val();
-    var shaba = $(".shaba-input").val();
-    var accountNumber = $(".account-number-input").val();
+    var bankName = $(this).closest(".row").find(".bank-input").val();
+    var shaba = $(this).closest(".row").find(".shaba-input").val();
+    var accountNumber = $(this).closest(".row").find(".account-number-input").val();
 
     var newCard = createCard(bankName, shaba, accountNumber);
-
 
     $("#added-cards").append(newCard);
 
@@ -789,6 +788,7 @@ function getBankName(bankCode) {
             return "-";
     }
 }
+
 
 
         // add input value to Dom
@@ -1172,11 +1172,16 @@ function getBankName(bankCode) {
         });
 
         $(function(){
-            $("#btn-copy").on('click', function(){
-                var ele = $(this).parent().prev().clone(true);
-                $(this).before(ele);
-            })
-        })
+    $("#btn-copy").on('click', function(){
+        var ele = $(this).parent().prev().clone(true);
+        $(this).before(ele);
+
+        // به‌روزرسانی مقادیر داخل المان‌های کلون‌شده
+        ele.find('.bank-input').val('');
+        ele.find('.shaba-input').val('');
+        ele.find('.account-number-input').val('');
+    });
+});
 
         //set date
         function initializeFlatpickr(element) {

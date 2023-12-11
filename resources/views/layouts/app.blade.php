@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{!! asset('css/rtl/rtl.css') !!}">
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{!! asset('libs/perfect-scrollbar/perfect-scrollbar.css') !!}">
-
+    <link rel="stylesheet" href="{!! asset('libs/sweetalert/sweetalert2.css') !!}">
     <!-- Page CSS -->
     @stack('css')
 
@@ -43,17 +43,17 @@
 <script src="{!! asset('libs/popper/popper.js') !!}"></script>
 <script src="{!! asset('js/bootstrap.js') !!}"></script>
 <script src="{!! asset('libs/perfect-scrollbar/perfect-scrollbar.js') !!}"></script>
-
+<script src="{!! asset('libs/sweetalert/sweetalert2.min.js') !!}"></script>
 <script src="{!! asset('libs/hammer/hammer.js') !!}"></script>
 
 <script src="{!! asset('js/menu.js') !!}"></script>
 <!-- endbuild -->
-
+@include('alert.sweetalert.error')
+@include('alert.sweetalert.success')
 <!-- Vendors JS -->
 @stack('js')
 <!-- Main JS -->
 <script src="{!! asset('js/main.js') !!}"></script>
-
 <!-- Page JS -->
 </body>
 </html>

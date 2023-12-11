@@ -27,8 +27,8 @@ class RegisterRequest extends FormRequest
             'birth_place'=> "required",
             'avatar'=>"required",
             'status_detail'=>"required",
-            'mobile1'=>"required",
-            'mobile2'=>"required",
+            'mobile1'=>"required|unique:customer_contacts",
+            'mobile2'=>"required|unique:customer_contacts",
             'body'=>"required",
             'postal_code'=>"required",
             'job_place'=>"required",
@@ -41,8 +41,9 @@ class RegisterRequest extends FormRequest
             'field'=>"required",
             'job'=>"required",
             'father_name'=> 'required',
-            'national_code'=> 'required',
-            'birth_code'=> 'required',
+            'national_code'=> 'required|unique:customers',
+            'birth_code'=> 'required|unique:customers',
+            'email' => 'unique:customers'
         ];
     }
 }

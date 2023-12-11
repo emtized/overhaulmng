@@ -854,16 +854,5 @@
 <!-- Page JS -->
 <script src="{!! asset('js/dashboards-analytics.js')!!}"></script>
 
-<!-- Js Alert -->
-<section class="toast-wrapper flex-row-reverse">
-    @include('alert.toast.success')
-    @include('alert.toast.error')
-</section>
-
-@include('alert.sweetalert.error')
-@include('alert.sweetalert.success')
-
-
-
 </body>
 </html>
