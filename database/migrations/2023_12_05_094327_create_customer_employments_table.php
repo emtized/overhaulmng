@@ -17,6 +17,7 @@ return new class extends Migration
             $table->tinyInteger('job_status')->default(0);
             $table->string('job');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

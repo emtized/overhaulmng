@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('customer_locations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('loc_status')->default(0);
             $table->text('body');
             $table->string('postal_code');
             $table->timestamps();

@@ -93,7 +93,8 @@
 
                                 </div>
                                 <div class="bs-stepper-content">
-                                    <form onsubmit="return false" id="signupForm">
+                                    <form action="{{route('user.register.form')}}" method="post" id="signupForm" enctype="multipart/form-data">
+                                        @csrf
                                         <div id="info-details" class="content">
                                             <div class="content-header mb-3">
                                                 <h6 class="mb-1"> وارد کردن اطلاعات هویتی و شغلی</h6>
@@ -107,18 +108,14 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-label-secondary btn-prev" disabled>
+                                                    <button class="btn btn-label-secondary btn-prev" type="button" disabled>
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-primary" id="btn">
+                                                    <button class="btn btn-primary" type="button" id="next1">
                                                         <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2 btn-i"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary btn-next d-none" id="next">
-                                                        <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2 "></i>
-                                                    </button>
+                                                        <i class="bx bx-chevron-left bx-sm me-sm-n2 "></i>
+                                                   </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,7 +132,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا عکس روی کارت ملی خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="cart" name="cart">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -144,7 +141,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="shena" name="shena">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -153,7 +150,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="shena2" name="shena2">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -162,7 +159,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="soldier" name="soldier">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -171,7 +168,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="image" name="image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -180,7 +177,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="smook_image" name="smook_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -189,7 +186,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="police" name="police">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -198,7 +195,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="doctor" name="doctor">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -207,7 +204,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="work_image" name="work_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -216,7 +213,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PDF) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="ins_image" name="ins_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -225,7 +222,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PDF) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="edu_image" name="edu_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -234,7 +231,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="ju_image" name="ju_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -243,16 +240,7 @@
                                                         <td class="py-3">
                                                             <div class="mb-3">
                                                                 <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PDF) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="align-middle"><small class="text-light fw-semibold"> سایر مدارک</small></td>
-                                                        <td class="py-3">
-                                                            <div class="mb-3">
-                                                                <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PDF) بارگذاری نمایید.</label>
-                                                                <input class="form-control" type="file" id="formFile">
+                                                                <input class="form-control" type="file" id="other_image" name="other_image">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -261,14 +249,14 @@
 
 
                                                 <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
+                                                    <button class="btn btn-primary btn-prev" type="button" id="prev1">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-primary btn-next">
+                                                    <button class="btn btn-primary" type="button" id="next2">
                                                         <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                    </button>
+                                                        <i class="bx bx-chevron-left bx-sm me-sm-n2 "></i>
+                                                   </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -282,14 +270,14 @@
                                             @include('forms.user.health-info')
                                             <div class="row mt-3">
                                                 <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
+                                                    <button class="btn btn-primary btn-prev" type="button" id="prev2">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-primary btn-next">
+                                                    <button class="btn btn-primary" type="button" id="next3">
                                                         <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                    </button>
+                                                        <i class="bx bx-chevron-left bx-sm me-sm-n2 "></i>
+                                                   </button>
                                                 </div>
                                             </div>
 
@@ -315,26 +303,26 @@
                                                     <div class="row g-3">
                                                         <div class="col-sm-3">
                                                             <label class="form-label" for="">بانک</label>
-                                                            <select class="form-select">
-                                                                <option selected>-</option>
-                                                                <option>ملی</option>
-                                                                <option>ملت</option>
-                                                                <option>تجارت</option>
-                                                                <option>شهر</option>
-                                                                <option>سپه</option>
+                                                            <select class="form-select bank-input" name="bank_name[]" id>
+                                                            <option selected>-</option>
+                                                            <option value="1">ملی</option>
+                                                            <option value="2">ملت</option>
+                                                            <option value="3">تجارت</option>
+                                                            <option value="4">شهر</option>
+                                                            <option value="5">سپه</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
                                                             <label class="form-label" for="phone-number-mask">شماره شبا</label>
                                                             <div class="input-group">
-                                                                <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                                <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start shaba-input" placeholder="0000 0000 0000" dir="ltr" name="shaba[]">
                                                                 <span class="input-group-text">IR</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
                                                             <label class="form-label" for="phone-number-mask">شماره حساب</label>
                                                             <div class="input-group">
-                                                                <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start" placeholder="0000 0000 0000" dir="ltr">
+                                                                <input type="text" id="phone-number-mask" class="form-control phone-number-mask text-start account-number-input" placeholder="0000 0000 0000" dir="ltr" name="account_number[]">
                                                                 <span class="input-group-text"></span>
                                                             </div>
                                                         </div>
@@ -344,6 +332,7 @@
                                                         <button type="button" id="btn-copy" class="btn btn-success btn-sm">+</button>
                                                     </div>
                                                 </div>
+
 
                                                 <div class="bank-no">
                                                     <div class="row g-3">
@@ -376,14 +365,14 @@
                                                 </div>
 
                                                 <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
+                                                    <button class="btn btn-primary btn-prev" type="button" id="prev3">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-primary btn-next">
+                                                    <button class="btn btn-primary" type="button" id="next4">
                                                         <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                    </button>
+                                                        <i class="bx bx-chevron-left bx-sm me-sm-n2 "></i>
+                                                   </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -399,12 +388,12 @@
                                             <div class="row g-3 my-2" id="row">
                                                 <div class="col-md-6 col-12 mb-4">
                                                     <label for="" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>
-                                                    <input type="text" class="form-control start-date">
+                                                    <input type="text" class="form-control start-date" name="start_date[]" id="t1">
                                                 </div>
 
                                                 <div class="col-md-6 col-12 mb-4">
                                                     <label for="" class="form-label">لطفا آخرین تاریخ  کار خود را انتخاب نمایید.</label>
-                                                    <input type="text" class="form-control end-date">
+                                                    <input type="text" class="form-control end-date" name="end_date[]" id="t2">
                                                 </div>
 
                                             </div>
@@ -414,14 +403,14 @@
 
 
                                             <div class="col-12 d-flex justify-content-between">
-                                                <button class="btn btn-primary btn-prev">
+                                                <button class="btn btn-primary btn-prev" type="button" id="prev4">
                                                     <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                     <span class="d-sm-inline-block d-none">قبلی</span>
                                                 </button>
-                                                <button class="btn btn-primary btn-next">
+                                                <button class="btn btn-primary" type="button" id="next5">
                                                     <span class="d-sm-inline-block d-none me-sm-1">بعدی</span>
-                                                    <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                </button>
+                                                    <i class="bx bx-chevron-left bx-sm me-sm-n2 "></i>
+                                               </button>
                                             </div>
                                         </div>
                                         <div id="final-check" class="content">
@@ -440,34 +429,34 @@
                                                     <div class="col-xl-7 col-12">
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-4 mb-2 text-nowrap">نام :</dt>
-                                                            <dd class="col-sm-8">تست</dd>
+                                                            <dd class="col-sm-8" id="f"></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">نام خانوادگی:</dt>
-                                                            <dd class="col-sm-8">تست</dd>
+                                                            <dd class="col-sm-8" id="m"></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">نام پدر :</dt>
-                                                            <dd class="col-sm-8">تست</dd>
+                                                            <dd class="col-sm-8" id="n"></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">کدملی:</dt>
-                                                            <dd class="col-sm-8">000000000</dd>
+                                                            <dd class="col-sm-8" id="l"></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">شماره شناسنامه:</dt>
-                                                            <dd class="col-sm-8">9999</dd>
+                                                            <dd class="col-sm-8" id="s"></dd>
                                                         </dl>
                                                     </div>
                                                     <div class="col-xl-5 col-12">
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-4 mb-2 text-nowrap">تماس:</dt>
-                                                            <dd class="col-sm-8"><span class="d-inline-block" dir="ltr">+1 (605) 977-32-65</span></dd>
+                                                            <dd class="col-sm-8"><span class="d-inline-block" id="k" dir="ltr"></span></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">کشور:</dt>
                                                             <dd class="col-sm-8">ایران</dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">استان:</dt>
-                                                            <dd class="col-sm-8">تهران</dd>
+                                                            <dd class="col-sm-8" id="c"></dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">کدپستی:</dt>
-                                                            <dd class="col-sm-8">403114</dd>
+                                                            <dd class="col-sm-8" id="p"></dd>
                                                         </dl>
                                                     </div>
                                                 </div>
@@ -482,31 +471,31 @@
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-4 mb-2 text-nowrap">تصویر کارت ملی :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">صفحه اول شناسنامه :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/11.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage2" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">صفحه دوم شناسنامه :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/14.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage3" height="300" width="300" alt="User avatar">
                                                             </dd>
                                                             <dt class="col-sm-4 mb-2 text-nowrap">کارت معافیت یا پایان خدمت سربازی :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/16.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage4" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">عکس 3*4 :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage5" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">گواهی عدم اعتیاد :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/11.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage6" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                         </dl>
@@ -515,27 +504,27 @@
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-4 mb-2 text-nowrap">گواهی عدم سوء پیشینه :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/14.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage7" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">نتیجه معاینات طب صنعتی :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/16.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage8" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">تاییدیه آموزش ایمنی اداره کار :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage9" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                             <dt class="col-sm-4 mb-2 text-nowrap">سوابق بیمه تامین اجتماعی :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage10" height="300" width="300" alt="User avatar">
                                                             </dd>
 
-                                                            <dt class="col-sm-4 mb-2 text-nowrap">تعهد نامه محضری( در صورتی که حساب بانکی به نام شخص نباشد) :</dt>
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تعهد نامه محضری :</dt>
                                                             <dd class="col-sm-8">
-                                                                <img class="img-fluid rounded my-4" src="{!! asset('img/backgrounds/7.jpg') !!}" height="300" width="300" alt="User avatar">
+                                                                <img class="img-fluid rounded my-4" id="previewImage11" height="300" width="300" alt="User avatar">
                                                             </dd>
 
                                                         </dl>
@@ -550,68 +539,68 @@
                                                 <div class="row">
                                                     <div class="col-xl-7 col-12">
                                                         <dl class="row mb-0">
-                                                            <dt class="col-sm-4 mb-2 text-nowrap">1. آیا سابقه بیماری دارید :</dt>
-                                                            <dd class="col-sm-8">خیر</dd>
+                                                            <dt class="col-sm-8 mb-2 text-nowrap">1. آیا سابقه بیماری دارید :</dt>
+                                                            <dd class="col-sm-4" id="op1"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">2. در صورت ابتلا به بیماری، آیا علایم شما در محیط کار تغییر می کند?</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2" id="op2"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">3. آیا به غذا، دارو یا ماده خاصی حساسیت دارید؟ </dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2" id="op3"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">4. آیا سابقه بستری در بیمارستان دارید؟</dt>
-                                                            <dd class="col-sm-2">بلی</dd>
+                                                            <dd class="col-sm-2" id="op4"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">5. آیا سابقه عمل جراحی دارید؟</dt>
-                                                            <dd class="col-sm-2">9999</dd>
+                                                            <dd class="col-sm-2" id="op5"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">6. آیا داروی خاصی مصرف می کنید؟</dt>
-                                                            <dd class="col-sm-2">9999</dd>
+                                                            <dd class="col-sm-2"  id="op6"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">7. آیا اکنون سیگار می کشید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op7"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">8. آیا سابقه قبلی مصرف سیگار دارید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op8"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">9.آیا در اوقات فراغت ورزش خاصی انجام می دهید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op9"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">10. آیا تاکنون دچار حادثه شغلی شده اید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op9"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">11. آیا سابقه استفاده از استعلاجی برای مدت بیش از 3 روز دارید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op10"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">12.آیا سابقه معرفی به کمیسیون پزشکی دارید؟</dt>
-                                                            <dd class="col-sm-2">خیر</dd>
+                                                            <dd class="col-sm-2"  id="op11"></dd>
                                                         </dl>
                                                     </div>
                                                     <div class="col-xl-5 col-12">
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-10 mb-2 text-nowrap">بیماری:</dt>
-                                                            <dd class="col-sm-2">سرماخوردگی</dd>
+                                                            <dd class="col-sm-2" id="w1"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">علایم:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w2"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">حسایت های دارویی:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w3"></dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">دلایل بستری:</dt>
-                                                            <dd class="col-sm-2">سرماخوردگی</dd>
+                                                            <dd class="col-sm-2" id="w4"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">جراحی:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w5"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">داروها</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w6"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">تعداد نخ روزانه؟ مدت استعمال:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2"id="w7"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">تعداد نخ روزانه؟ مدت استعمال:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w8"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">ورزش ها:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w9"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">نوع آسیب؟ علت؟</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w10"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap"></dt>
                                                             <dd class="col-sm-2"></dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">علت:</dt>
-                                                            <dd class="col-sm-2">ندارم</dd>
+                                                            <dd class="col-sm-2" id="w11"></dd>
                                                         </dl>
                                                     </div>
                                                 </div>
@@ -622,49 +611,19 @@
                                                     <div class="alert alert-primary" role="alert">4.اطلاعات بانکی</div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="added-cards">
+                                                    <div class="added-cards" id="added-cards">
                                                         <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
                                                             <div class="d-flex justify-content-between flex-sm-row flex-column">
                                                                 <div class="card-information me-2">
                                                                     <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
                                                                     <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
-                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
+                                                                        <h6 class="mb-0 me-2" id="bank1"> پاسارگاد</h6>
                                                                         <span class="badge bg-label-primary">صاحب حساب</span>
                                                                     </div>
-                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
+                                                                    <span class="card-number" id="nubmer">****</span>
                                                                 </div>
                                                                 <div class="d-flex flex-column text-start text-sm-end">
-                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
-                                                            <div class="d-flex justify-content-between flex-sm-row flex-column">
-                                                                <div class="card-information me-2">
-                                                                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
-                                                                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
-                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
-                                                                        <span class="badge bg-label-primary">صاحب حساب</span>
-                                                                    </div>
-                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
-                                                                </div>
-                                                                <div class="d-flex flex-column text-start text-sm-end">
-                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
-                                                            <div class="d-flex justify-content-between flex-sm-row flex-column">
-                                                                <div class="card-information me-2">
-                                                                    <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
-                                                                    <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
-                                                                        <h6 class="mb-0 me-2">بانک پاسارگاد</h6>
-                                                                        <span class="badge bg-label-primary">صاحب حساب</span>
-                                                                    </div>
-                                                                    <span class="card-number">∗∗∗∗ ∗∗∗∗ 9856</span>
-                                                                </div>
-                                                                <div class="d-flex flex-column text-start text-sm-end">
-                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0">شماره شبای حساب : IR57000000000000000000</small>
+                                                                    <small class="mt-sm-auto mt-2 order-sm-1 order-0" id="shabaa">شماره شبای حساب : IR </small>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -676,29 +635,27 @@
                                                     <div class="alert alert-success" role="alert">5.تاریخ آماده بکار بودن </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-xl-7 col-12">
+                                                    <div class="col-xl-5 col-12">
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-4 mb-2 text-nowrap">تاریخ شروع :</dt>
-                                                            <dd class="col-sm-8">28 آبان 1402</dd>
+                                                            <dd class="col-sm-8" id="wt1"></dd>
                                                         </dl>
                                                     </div>
                                                     <div class="col-xl-5 col-12">
                                                         <dl class="row mb-0">
-
+                                                            <dt class="col-sm-4 mb-2 text-nowrap">تاریخ پایان :</dt>
+                                                            <dd class="col-sm-8" id="wt2"></dd>
                                                         </dl>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row mt-3">
                                                 <div class="col-12 d-flex justify-content-between">
-                                                    <button class="btn btn-primary btn-prev">
+                                                    <button class="btn btn-primary btn-prev" type="button" id="prev5">
                                                         <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                                                         <span class="d-sm-inline-block d-none">قبلی</span>
                                                     </button>
-                                                    <button class="btn btn-success btn-next">
-                                                        <span class="d-sm-inline-block d-none me-sm-1">ثبت نهایی</span>
-                                                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                                                    </button>
+                                                    <input type="submit" class="btn btn-success" value="ثبت نهایی">
                                                 </div>
                                             </div>
 
@@ -767,6 +724,438 @@
 
     <script>
 
+var maxCards = 100;
+
+$(".bank-input, .shaba-input, .account-number-input").on("keyup", function() {
+    var bankName = $(this).closest(".row").find(".bank-input").val();
+    var shaba = $(this).closest(".row").find(".shaba-input").val();
+    var accountNumber = $(this).closest(".row").find(".account-number-input").val();
+
+    $(".cardMaster:last-child .card-information h6").text(getBankName(bankName));
+    $(".cardMaster:last-child .card-information .card-number").text(accountNumber);
+    $(".cardMaster:last-child .text-start small").text("شماره شبای حساب : " + shaba);
+});
+
+function createCard(bankName, shaba, accountNumber) {
+    var cardHtml = `
+            <div class="cardMaster bg-lighter rounded-3 p-3 mb-3">
+            <div class="d-flex justify-content-between flex-sm-row flex-column">
+            <div class="card-information me-2">
+            <img class="mb-3 img-fluid" width="48" height="48" src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="Master Card">
+            <div class="d-flex align-items-center mb-1 flex-wrap gap-2">
+            <h6 class="mb-0 me-2" id="bank1">${getBankName(bankName)}</h6>
+            <span class="badge bg-label-primary">صاحب حساب</span>
+            </div>
+            <span class="card-number" id="nubmer">${accountNumber}</span>
+            </div>
+            <div class="d-flex flex-column text-start text-sm-end">
+            <small class="mt-sm-auto mt-2 order-sm-1 order-0" id="shabaa">شماره شبای حساب : IR ${shaba} </small>
+            </div>
+            </div>
+            </div>
+    `;
+
+    return cardHtml;
+}
+
+$(document).on("click", "#btn-copy", function() {
+    var bankName = $(this).closest(".row").find(".bank-input").val();
+    var shaba = $(this).closest(".row").find(".shaba-input").val();
+    var accountNumber = $(this).closest(".row").find(".account-number-input").val();
+
+    var newCard = createCard(bankName, shaba, accountNumber);
+
+    $("#added-cards").append(newCard);
+
+    if ($("#added-cards > .cardMaster").length >= maxCards) {
+        $("#btn-copy").prop("disabled", true);
+    }
+});
+
+function getBankName(bankCode) {
+    switch (bankCode) {
+        case "1":
+            return "ملی";
+        case "2":
+            return "ملت";
+        case "3":
+            return "تجارت";
+        case "4":
+            return "شهر";
+        case "5":
+            return "سپه";
+        default:
+            return "-";
+    }
+}
+
+
+
+        // add input value to Dom
+        $(document).ready(function() {
+;
+            $("#t1").on("input", function() {
+                var inputValue = $(this).val();
+                $("#wt1").text(inputValue);
+            });
+
+
+            $("#t2").on("input", function() {
+                var inputValue = $(this).val();
+                $("#wt2").text(inputValue);
+            });
+
+
+
+            $("#a1").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w1").text(inputValue);
+            });
+
+            $("#a2").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w2").text(inputValue);
+            });
+
+            $("#a3").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w3").text(inputValue);
+            });
+
+            $("#a4").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w4").text(inputValue);
+            });
+
+            $("#a5").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w5").text(inputValue);
+            });
+
+            $("#a6").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w6").text(inputValue);
+            });
+
+            $("#a7").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w7").text(inputValue);
+            });
+
+            $("#a8").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w8").text(inputValue);
+            });
+
+            $("#a9").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w9").text(inputValue);
+            });
+
+            $("#a10").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w10").text(inputValue);
+            });
+
+            $("#a11").on("input", function() {
+                var inputValue = $(this).val();
+                $("#w11").text(inputValue);
+            });
+
+             $("#s1").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op1").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s2").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op2").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s3").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op3").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s4").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op4").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s5").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op5").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s6").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op6").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s7").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op7").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s8").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op8").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s9").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op9").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s10").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op10").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+              $("#s11").on("change", function() {
+                    var selectedValue = $(this).val();
+                    $("#op11").text(selectedValue == "1" ? "بله" : "خیر");
+              });
+
+
+
+            $("#firstname").on("input", function() {
+                var inputValue = $(this).val();
+                $("#f").text(inputValue);
+            });
+
+            $("#lastname").on("input", function() {
+                var inputValue = $(this).val();
+                $("#m").text(inputValue);
+            });
+
+            $("#fathername").on("input", function() {
+                var inputValue = $(this).val();
+                $("#n").text(inputValue);
+            });
+
+            $("#national_code").on("input", function() {
+                var inputValue = $(this).val();
+                $("#l").text(inputValue);
+            });
+
+            $("#birth_code").on("input", function() {
+                var inputValue = $(this).val();
+                $("#s").text(inputValue);
+            });
+
+            $("#mobile1").on("input", function() {
+                var inputValue = $(this).val();
+                $("#k").text(inputValue);
+            });
+
+            $("#place").on("input", function() {
+                var inputValue = $(this).val();
+                $("#c").text(inputValue);
+            });
+
+            $("#postal").on("input", function() {
+                var inputValue = $(this).val();
+                $("#p").text(inputValue);
+            });
+
+            $("#cart").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage").attr("src", "");
+                    }
+             });
+
+             $("#shena").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage2").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage2").attr("src", "");
+                    }
+             });
+
+             $("#shena2").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage3").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage3").attr("src", "");
+                    }
+             });
+
+
+             $("#soldier").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage4").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage4").attr("src", "");
+                    }
+             });
+
+
+             $("#image").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage5").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage5").attr("src", "");
+                    }
+             });
+
+
+             $("#smook_image").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage6").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage6").attr("src", "");
+                    }
+             });
+
+
+             $("#police").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage7").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage7").attr("src", "");
+                    }
+             });
+
+
+             $("#doctor").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage8").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage8").attr("src", "");
+                    }
+             });
+
+
+             $("#work_image").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage9").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage9").attr("src", "");
+                    }
+             });
+
+
+             $("#ins_image").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage10").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage10").attr("src", "");
+                    }
+             });
+
+
+             $("#ju_image").on("change", function() {
+                    var input = $(this)[0];
+                    var file = input.files[0];
+
+                    if (file && file.type.match('image.*')) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#previewImage11").attr("src", e.target.result);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else {
+                        $("#previewImage11").attr("src", "");
+                    }
+             });
+
+     });
+
         //bank
         $('.bank-no').hide();
 
@@ -783,11 +1172,16 @@
         });
 
         $(function(){
-            $("#btn-copy").on('click', function(){
-                var ele = $(this).parent().prev().clone(true);
-                $(this).before(ele);
-            })
-        })
+    $("#btn-copy").on('click', function(){
+        var ele = $(this).parent().prev().clone(true);
+        $(this).before(ele);
+
+        // به‌روزرسانی مقادیر داخل المان‌های کلون‌شده
+        ele.find('.bank-input').val('');
+        ele.find('.shaba-input').val('');
+        ele.find('.account-number-input').val('');
+    });
+});
 
         //set date
         function initializeFlatpickr(element) {
@@ -817,12 +1211,12 @@
                     var newInput1 = document.createElement('div');
                     newInput1.className = 'col-md-6 col-12 mb-4';
                     newInput1.innerHTML = '<label for="" class="form-label">لطفا اولین تاریخ شروع بکار خود را انتخاب نمایید.</label>' +
-                                        '<input type="text" class="form-control start-date">';
+                                        '<input type="text" class="form-control start-date" name="start_date[]">';
 
                     var newInput2 = document.createElement('div');
                     newInput2.className = 'col-md-6 col-12 mb-4';
                     newInput2.innerHTML = '<label for="" class="form-label">لطفا آخرین تاریخ  کار خود را انتخاب نمایید.</label>' +
-                                        '<input type="text" class="form-control end-date">';
+                                        '<input type="text" class="form-control end-date" name="end_date[]">';
 
                     newRow.appendChild(newInput1);
                     newRow.appendChild(newInput2);
@@ -835,8 +1229,6 @@
 
 
 
-
-
             //select2
             $(document).ready(function() {
                 $('#accessMethodsSelect').select2({
@@ -845,87 +1237,103 @@
                 });
             });
 
-            //validate form
-            $.validator.setDefaults({
-                submitHandler: function (form) {
-                    $("#btn").addClass('d-none');
-                    $("#next").removeClass('d-none');
-                },
-            });
 
-            var currentStep = 1;
+            //valiadte
             $( document ).ready( function () {
                 $( "#signupForm" ).validate( {
                     rules: {
-                        firstname: "required",
-                        lastname: "required",
-                        place: "required",
-                        image:"required",
-                        flatpickr:"required",
-                        reasons:"required",
-                        mobile1:"required",
-                        mobile2:"required",
-                        address:"required",
-                        postal:"required",
-                        work:"required",
-                        insurance:"required",
-                        hight:"required",
-                        weight:"required",
-                        flatpickr:"required",
-                        moaref:"required",
-                        moarefnumber:"required",
-                        field:"required",
-                        dev:"required",
-                        fathername: {
-                            required: true,
-                            minlength: 2
-                        },
-                        nationalcode: {
-                            required: true,
-                            minlength: 10
-                        },
-                        birthcode: {
-                            required: true,
-                        },
-
+                        cart: "required",
+                        shena: "required",
+                        shena2: "required",
+                        soldier: "required",
+                        image: "required",
+                        smook_image: "required",
+                        police: "required",
+                        doctor: "required",
+                        work_image: "required",
+                        ins_image: "required",
+                        edu_image: "required",
+                        ju_image: "required",
+                        other_image: "required",
+                         first_name: "required",
+                         last_name: "required",
+                         birth_place: "required",
+                         avatar:"required",
+                         status_detail:"required",
+                         mobile1:"required",
+                         mobile2:"required",
+                         body:"required",
+                         postal_code:"required",
+                         job_place:"required",
+                         number_insurance:"required",
+                         hight:"required",
+                         weight:"required",
+                         birth_day:"required",
+                         name_identifier:"required",
+                         mobile_identifier:"required",
+                         field:"required",
+                         job:"required",
+                         father_name: {
+                             required: true,
+                             minlength: 2
+                         },
+                         national_code: {
+                             required: true,
+                             minlength: 10
+                         },
+                         birth_code: {
+                             required: true,
+                         },
                     },
                     messages: {
+                        cart: "عکس  کارت ملی اجباری است",
+                        shena:"مدرک موردنظراجباری است",
+                        shena2: " مدرک مورد نظر اجباری است",
+                        soldier: " مدرک مورد نظر اجباری است",
+                        image: " مدرک مورد نظر اجباری است",
+                        smook_image:" مدرک مورد نظر اجباری است",
+                        police: " مدرک مورد نظر اجباری است",
+                        doctor: " مدرک مورد نظر اجباری است",
+                        work_image: " مدرک مورد نظر اجباری است",
+                        ins_image: " مدرک مورد نظر اجباری است",
+                        edu_image: " مدرک مورد نظر اجباری است",
+                        ju_image: " مدرک مورد نظر اجباری است",
+                        other_image:" مدرک مورد نظر اجباری است",
                         field:"لطفا رشته تحصیلی خود را وارد نمایید",
-                        image : "لطفا تصویر کاربری خود را وارد نمایید",
-                        dev:"عنوان تخصص را وارد نمایید",
-                        moarefnumber:"لطفا شماره معرف را وارد نمایید",
-                        moaref:"لطفا نام معرف را وارد کنید",
-                        firstname: "لطفا نام را وارد کنید",
-                        lastname: "لطفا  نام خانوادگی را وارد کنید",
-                        place: "لطفا محل صدور را وارد کنید",
+                        avatar : "لطفا تصویر کاربری خود را وارد نمایید",
+                        job:"عنوان تخصص را وارد نمایید",
+                        mobile_identifier:"لطفا شماره معرف را وارد نمایید",
+                        name_identifier:"لطفا نام و نام خانوادگی معرف را وارد کنید",
+                        first_name: "لطفا نام را وارد کنید",
+                        last_name: "لطفا  نام خانوادگی را وارد کنید",
+                        birth_place: "لطفا محل صدور را وارد کنید",
                         phone : 'لطفا تلفن  خود را وارد نمایید',
-                        flatpickr:'لطفا تاریخ تولد را وارد نمایید',
-                        reasons:'لطفا دلیل معافیت را وارد نمایید',
+                        birth_day:'لطفا تاریخ تولد را وارد نمایید',
                         mobile1:'لطفا تلفن همراه خود را وارد نمایید',
                         mobile2:'لطفا تلفن همراه خود را وارد نمایید',
                         email: 'لطفا پست الکترونیک خود را وارد نمایید',
-                        address:'لطفا نشانی محل سکونت خود را وارد نمایید',
-                        postal:'لطفا کد پستی خود را وارد نمایید',
-                        work:'لطفا نام محل اشتغال فعلی خود را وارد نمایید',
-                        insurance:" لطفا شماره بیمه تامین اجتماعی خود را وارد نمایید ",
+                        body:'لطفا نشانی محل سکونت خود را وارد نمایید',
+                        postal_code:'لطفا کد پستی خود را وارد نمایید',
+                        job_place:'لطفا نام محل اشتغال فعلی خود را وارد نمایید',
+                        number_insurance:" لطفا شماره بیمه تامین اجتماعی خود را وارد نمایید ",
                         hight:"لطفا قد خود را وارد نمایید",
                         weight:"لطفا وزن خود را وارد نمایید",
-                        fathername: {
+                        status_detail:"لطفا دلیل معلفیت خود را وارد نمایید",
+                        father_name: {
                             required: "لطفا نام پدر را وارد کنید",
                             minlength: "نباید از 2 کاراکتر کمتر باشد"
                         },
-                        nationalcode: {
+                        national_code: {
                             required: "لطفا کدملی را وارد کنید",
                             minlength: "کد ملی از 10 کاراکتر کمتر نباید باشد"
                         },
-                        birthcode: {
+                        birth_code: {
                             required: "لطفا شماره شناسنامه را وارد کنید",
                         },
 
                     },
                     errorElement: "em",
                     errorPlacement: function ( error, element ) {
-                        // Add the `help-block` class to the error element
                         error.appendTo(element.parent());
                         error.addClass( "help-block" );
 
@@ -944,6 +1352,75 @@
                 } );
             } );
 
+            //validate handler form
+            $.validator.setDefaults({
+                 submitHandler: function (form) {
+                    form.submit();
+                 },
+             });
+
+            //customize next step
+            $('#next1').click(function(){
+                if ($("#signupForm").valid()) {
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(2)
+                } else {
+                    console.log("لطفاً اطلاعات را به درستی وارد کنید.");
+                }
+            });
+            $('#next2').click(function(){
+                if ($("#signupForm").valid()) {
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(3)
+               } else {
+                console.log("لطفاً اطلاعات را به درستی وارد کنید.");
+              }
+            });
+            $('#next3').click(function(){
+                if ($("#signupForm").valid()) {
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(4)
+                } else {
+                    console.log("لطفاً اطلاعات را به درستی وارد کنید.");
+                }
+            });
+            $('#next4').click(function(){
+                if ($("#signupForm").valid()) {
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(5)
+                } else {
+                    console.log("لطفاً اطلاعات را به درستی وارد کنید.");
+                }
+            });
+            $('#next5').click(function(){
+                if ($("#signupForm").valid()) {
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(6)
+                } else {
+                    console.log("لطفاً اطلاعات را به درستی وارد کنید.");
+                }
+            });
+            //customize prev step
+            $('#prev1').click(function(){
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(1)
+            });
+            $('#prev2').click(function(){
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(2)
+            });
+            $('#prev3').click(function(){
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(3)
+            });
+            $('#prev4').click(function(){
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(4)
+            });
+            $('#prev5').click(function(){
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+                    stepper.to(5)
+            });
 
     </script>
 @endpush

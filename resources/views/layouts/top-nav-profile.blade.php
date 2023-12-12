@@ -89,7 +89,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <div class="avatar avatar-online">
-                            <img src="{!! asset('img/avatars/1.png') !!}" alt class="rounded-circle">
+                            <img src="{{ asset($user->image_small) }}" alt class="rounded-circle">
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -98,11 +98,11 @@
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar avatar-online">
-                                            <img src="{!! asset('img/avatars/1.png') !!}" alt class="rounded-circle">
+                                            <img src="{{ asset($user->image_small) }}" alt class="rounded-circle">
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <span class="fw-semibold d-block">علی علیزاده</span>
+                                        <span class="fw-semibold d-block">{{$user->first_name . ' '.$user->last_name}}</span>
                                         <small>کارجو</small>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                             <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{!! url('/') !!}" target="_blank">
+                            <a class="dropdown-item" href="{{ route('profile.logout')}}">
                                 <i class="bx bx-power-off me-2"></i>
                                 <span class="align-middle">خروج</span>
                             </a>

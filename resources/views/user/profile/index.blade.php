@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{!! asset('libs/bootstrap-select/bootstrap-select.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/select2/select2.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/flatpickr/flatpickr.css') !!}">
+
     <style>
         .user-profile-header-banner img {
             width: 100%;
@@ -55,12 +56,11 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-
+                    @include('alert.alert-section.success')
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="py-3 breadcrumb-wrapper mb-4">
                             <span class="text-muted fw-light">پروفایل کاربر /</span> پروفایل
                         </h4>
-
                         <!-- Header -->
                         <div class="row">
                             <div class="col-12">
@@ -70,17 +70,17 @@
                                     </div>
                                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
                                         <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
-                                            <img src="{!! asset('img/avatars/1.png') !!}" alt="user image" class="d-block h-auto ms-0 ms-sm-4 rounded-3 user-profile-img">
+                                            <img src="{{ asset($user->image_small) }}" alt="user image" class="d-block h-auto ms-0 ms-sm-4 rounded-3 user-profile-img">
                                         </div>
                                         <div class="flex-grow-1 mt-3 mt-sm-5">
                                             <div class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                                                 <div class="user-profile-info">
-                                                    <h4>علی علیزاده</h4>
+                                                    <h4>{{$user->first_name . ' '.$user->last_name}}</h4>
                                                     <ul class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2">
-                                                        <li class="list-inline-item fw-semibold"><i class="bx bx-phone"></i> 09120000000</li>
-                                                        <li class="list-inline-item fw-semibold"><i class="bx bx-map"></i> شهر تهران</li>
+                                                        <li class="list-inline-item fw-semibold"><i class="bx bx-phone"></i>{{$user->contact->mobile1}}</li>
+                                                        <li class="list-inline-item fw-semibold"><i class="bx bx-map"></i> شهر {{$user->birth_place}}</li>
                                                         <li class="list-inline-item fw-semibold">
-                                                            <i class="bx bx-calendar-alt"></i> عضویت در28 آبان1401
+                                                            <i class="bx bx-calendar-alt"></i> عضویت در {{jalaliDate($user->created_at)}}
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -124,10 +124,10 @@
                                         <ul class="list-unstyled mb-4 mt-3">
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-user"></i><span class="fw-semibold mx-2">نام کامل:</span>
-                                                <span>جان اسنو</span>
+                                                <span>{{$user->first_name . ' '.$user->last_name}}</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
-                                                <i class="bx bx-check"></i><span class="fw-semibold mx-2">وضعیت:</span> <span>فعال</span>
+                                                <i class="bx bx-check"></i><span class="fw-semibold mx-2">وضعیت:</span> <span>@if($user->activation == 0) غیرفعال  @else فعال @endif</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-star"></i><span class="fw-semibold mx-2">نقش:</span> <span>توسعه دهنده</span>
@@ -144,14 +144,14 @@
                                         <ul class="list-unstyled mb-4 mt-3">
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-phone"></i><span class="fw-semibold mx-2">تماس:</span>
-                                                <span class="d-inline-block" dir="ltr">(123) 456-7890</span>
+                                                <span class="d-inline-block" dir="ltr">{{$user->contact->mobile1}}</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-chat"></i><span class="fw-semibold mx-2">تلگرام:</span> <span>john.doe</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-envelope"></i><span class="fw-semibold mx-2">ایمیل:</span>
-                                                <span>john.doe@example.com</span>
+                                                <span>{{$user->email}}</span>
                                             </li>
                                         </ul>
                                         <small class="text-muted text-uppercase">تیم‌ها</small>
@@ -179,11 +179,11 @@
                                         <ul class="list-unstyled mt-3 mb-0">
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-customize"></i><span class="fw-semibold mx-2">ثبت اولیه اطلاعات</span>
-                                                <span>1402/08/28</span>
+                                                <span>{{jalaliDate($user->created_at)}}</span>
                                             </li>
                                             <li class="d-flex align-items-center mb-3">
                                                 <i class="bx bx-check"></i><span class="fw-semibold mx-2">اطلاعات تایید شده</span>
-                                                <span>1402/08/28</span>
+                                                <span>{{jalaliDate($user->updated_at)}}</span>
                                             </li>
                                             <li class="d-flex align-items-center">
                                                 <i class="bx bx-user"></i><span class="fw-semibold mx-2">تاریخ آماده بکار:</span>
@@ -390,6 +390,7 @@
         <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
+
 @endsection
 @push('js')
     <script src="{!! asset('libs/bs-stepper/bs-stepper.js') !!}"></script>
@@ -418,3 +419,5 @@
 
 
 @endpush
+
+

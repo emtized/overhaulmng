@@ -140,7 +140,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <span class="fw-semibold d-block">علی علیزاده</span>
+                                                <span class="fw-semibold d-block">{{ auth()->user()->first_name .' '. auth()->user()->last_name  }}</span>
                                                 <small>کارجو</small>
                                             </div>
                                         </div>
@@ -853,5 +853,6 @@
 
 <!-- Page JS -->
 <script src="{!! asset('js/dashboards-analytics.js')!!}"></script>
+
 </body>
 </html>

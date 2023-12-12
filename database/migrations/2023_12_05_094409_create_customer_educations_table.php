@@ -17,6 +17,7 @@ return new class extends Migration
             $table->tinyInteger('degree')->default(0);
             $table->string('field');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

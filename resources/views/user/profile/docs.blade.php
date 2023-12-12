@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->cart) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <div class="alert alert-primary">
@@ -54,7 +54,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/1.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->shena) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <div class="alert alert-primary">
@@ -76,8 +76,6 @@
                                             </div>
 
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +85,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/2.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->shena2) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -113,7 +111,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->soldier) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -137,7 +135,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->img) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -162,7 +160,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->smook_image) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -188,7 +186,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->police) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -212,7 +210,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->doctor) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -236,7 +234,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->work) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -263,7 +261,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->ins) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">
@@ -288,7 +286,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12 mb-5">
-                                                <img src="{!! asset('img/backgrounds/4.jpg') !!}" class="img-thumbnail  border rounded-2 bx-pull-left">
+                                                <img src="{{ asset($user->ju) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
                                                 <form id="" onsubmit="return false">

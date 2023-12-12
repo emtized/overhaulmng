@@ -27,15 +27,16 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="added-cards">
+                                            @foreach ($user->banks as $bank)
                                             <div class="cardMaster border p-3 rounded mb-3">
                                                 <div class="d-flex justify-content-between flex-sm-row flex-column">
                                                     <div class="card-information">
                                                         <div class="avatar avatar-xl">
-                                                            <img src="https://myket.ir/app-icon/ir.mobillet.app_1d5ae907-a5e4-400a-a80b-385e4968f947.png" alt="آواتار" class="rounded-circle">
+                                                            <img src="" alt="{{$bank->bank_value}}" class="rounded-circle">
                                                         </div>
 
-                                                        <h6 class="mb-0 me-3">علی علیزاده</h6>
-                                                        <span class="card-number">∗∗∗∗ ∗∗∗∗ ∗∗∗∗ 9856</span>
+                                                        <h6 class="mb-0 me-3">{{$user->first_name . ' '.$user->last_name}}</h6>
+                                                        <span class="card-number">{{ $bank->account_number}}</span>
                                                     </div>
                                                     <div class="d-flex flex-column text-start text-lg-end">
                                                         <div class="d-flex order-sm-0 order-1 mt-3">
@@ -48,54 +49,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="cardMaster border p-3 rounded mb-3">
-                                                <div class="d-flex justify-content-between flex-sm-row flex-column">
-                                                    <div class="card-information">
-                                                        <div class="avatar avatar-xl">
-                                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeTS0s109ngnbTxYhDdJHNwQy5KTZBW7Sbaz99aFM-Caw88gUl_TD3-vEFIgftca4Th20&usqp=CAU" alt="آواتار" class="rounded-circle">
-                                                        </div>
-                                                        <div class="d-flex align-items-center mb-1">
-                                                            <h6 class="mb-0 me-3">علی علیزاده</h6>
-                                                            <span class="badge bg-label-primary me-1">حساب پیش فرض</span>
-                                                        </div>
-                                                        <span class="card-number"> شماره کارت : ∗∗∗∗ ∗∗∗∗ ∗∗∗∗ 6542</span>
-                                                        <span class="card-number">شماره شبای حساب : IR0000000000000000000000</span>
-                                                    </div>
-                                                    <div class="d-flex flex-column text-start text-lg-end">
-                                                        <div class="d-flex order-sm-0 order-1 mt-3">
-                                                            <button class="btn btn-label-primary me-3" data-bs-toggle="modal" data-bs-target="#editCCModal">
-                                                                ویرایش
-                                                            </button>
-                                                            <button class="btn btn-label-secondary">حذف</button>
-                                                        </div>
-                                                        <small class="mt-sm-auto mt-2 order-sm-1 order-0">تاریخ انقضای کارت 1402/08</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cardMaster border p-3 rounded mb-3">
-                                                <div class="d-flex justify-content-between flex-sm-row flex-column">
-                                                    <div class="card-information">
-                                                        <div class="avatar avatar-xl">
-                                                            <img src="https://www.androidcloob.com/wp-content/uploads/Mellat-Mobile-Bank-100x100.png" alt="آواتار" class="square">
-                                                        </div>
-                                                        <div class="d-flex align-items-center mb-1">
-                                                            <h6 class="mb-0 me-3">علی علیزاده</h6>
-                                                            <span class="badge bg-label-primary me-1">حساب پیش فرض</span>
-                                                        </div>
-                                                        <span class="card-number"> شماره کارت : ∗∗∗∗ ∗∗∗∗ ∗∗∗∗ 6542</span>
-                                                        <span class="card-number">شماره شبای حساب : IR0000000000000000000000</span>
-                                                    </div>
-                                                    <div class="d-flex flex-column text-start text-lg-end">
-                                                        <div class="d-flex order-sm-0 order-1 mt-3">
-                                                            <button class="btn btn-label-primary me-3" data-bs-toggle="modal" data-bs-target="#editCCModal">
-                                                                ویرایش
-                                                            </button>
-                                                            <button class="btn btn-label-secondary">حذف</button>
-                                                        </div>
-                                                        <small class="mt-sm-auto mt-2 order-sm-1 order-0">تاریخ انقضای کارت 1402/08</small>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

@@ -27,7 +27,7 @@
                 <div data-i18n="dashboar">درخواست ها</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ request()->is('profile/personal-info') ? 'open' : ''}} {{ request()->is('profile/personal-docs') ? 'open' : ''}} {{ request()->is('profile/personal-health') ? 'open' : ''}} {{ request()->is('profile/personal-banks') ? 'open' : ''}}">
             <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Pages">پروفایل کاربری</div>

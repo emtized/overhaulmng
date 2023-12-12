@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
 
+
     public function index()
     {
         return view('admin.index');
@@ -26,29 +27,43 @@ class AdminController extends Controller
     {
         $this->validateForm($request);
 
-         $credentials = $request->only('email', 'password',$request->filled('remember-me'));
+        if($this->attempLogin($request))
+        {
+            return $this->sendSuccessResponse();
+        }
 
-         if (Auth::guard('admin')->attempt($credentials)) {
-             return redirect()->intended('/admin');
-         }
-         return redirect()->route('admin.show.login')->withErrors(['email' => 'اطلاعات وارد شده معتبر نیستند']);
+        return $this->sendLoginFailedResponse();
     }
 
     protected function validateForm(Request $request)
     {
         $request->validate(
             [
-                'email' => ['required', 'email', 'exists:admin_users'],
+                'email' => ['required', 'email', 'exists:users'],
                 'password' =>  ['required'],
             ],
         );
     }
 
-    public function logout()
+    protected function attempLogin(Request $request)
     {
-        Auth::guard('admin')->logout();
-        return redirect()->route('admin.show.login');
+        return Auth::attempt($request->only('email','password'), $request->filled('remember-me'));
     }
 
+    protected function sendSuccessResponse()
+    {
+        return redirect()->route('admin');
+    }
+
+    protected function sendLoginFailedResponse()
+    {
+        return back()->with('wrongCredentials','ایمیل یا رمز عبور نادرست می باشد');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('admin.show.login');
+    }
 
 }

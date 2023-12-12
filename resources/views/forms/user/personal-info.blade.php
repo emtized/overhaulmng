@@ -2,13 +2,13 @@
     <div class="col-sm-6">
         <label class="form-label" for="firstname">نام </label>
         <span class="link-danger">*</span>
-        <input type="text" id="firstname" class="form-control text-start" name="firstname" placeholder="" dir="rtl">
+        <input type="text" id="firstname" class="form-control text-start" name="first_name" placeholder="" dir="rtl">
     </div>
 
     <div class="col-sm-6">
         <label class="form-label" for="lastname">نام خانوادگی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="lastname" name="lastname" class="form-control text-start">
+        <input type="text" id="lastname" name="last_name" class="form-control text-start">
     </div>
 
     <div class="col-sm-12">
@@ -19,7 +19,7 @@
                     <td class="p-0">
                         <div class="mb-1">
                             <label for="formFile" class="form-label">لطفا تصویر کاربری خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                            <input class="form-control" type="file" id="formFile" name="image">
+                            <input class="form-control" type="file" id="formFile" name="avatar">
                         </div>
                     </td>
                 </tr>
@@ -30,21 +30,21 @@
     <div class="col-sm-4">
         <label class="form-label" for="fathername">نام پدر</label>
         <span class="link-danger">*</span>
-        <input type="text" id="fathername" name="fathername" class="form-control text-start">
+        <input type="text" id="fathername" name="father_name" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="nationalcode">کدملی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="nationalcode" name="nationalcode" class="form-control text-start">
+        <input type="text" id="national_code" name="national_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
-        <label class="form-label" for="birthcode">شماره شناسنامه</label>
+        <label class="form-label" for="birth_code">شماره شناسنامه</label>
         <span class="link-danger">*</span>
-        <input type="text" id="birthcode" name="birthcode" class="form-control text-start">
+        <input type="text" id="birth_code" name="birth_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -52,61 +52,61 @@
     <div class="col-sm-4">
         <label class="form-label" for="place">محل صدور</label>
         <span class="link-danger">*</span>
-        <input type="text" id="place" name="place" class="form-control text-start">
+        <input type="text" id="place" name="birth_place" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="flatpickr">تاریخ تولد</label>
         <span class="link-danger">*</span>
-        <input type="text" class="form-control flatpickr-date" name="flatpickr">
+        <input type="text" class="form-control flatpickr-date" name="birth_day">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="">وضعیت تاهل</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>مجرد</option>
-            <option>متاهل</option>
+        <select class="form-select" name="marital">
+            <option value="0">مجرد</option>
+            <option value="1">متاهل</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="">وضعیت نظام وظیفه</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>مشمول</option>
-            <option>درحال خدمت</option>
-            <option>پایان خدمت</option>
-            <option>معافیت پزشکی</option>
-            <option>معافیت غیره</option>
+        <select class="form-select" name="status">
+            <option value="1">مشمول</option>
+            <option value="2">درحال خدمت</option>
+            <option value="3">پایان خدمت</option>
+            <option value="4">معافیت پزشکی</option>
+            <option value="5">معافیت غیره</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="reasons">دلیل معافیت (در صورت معافیت پزشکی)</label>
         <span class="link-danger">*</span>
-        <input type="text" id="reasons" name="reasons" class="form-control text-start">
+        <input type="text" id="reasons" name="status_detail" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="moaref">نام و نام خانوادگی معرف</label>
         <span class="link-danger">*</span>
-        <input type="text" id="moaref" name="moaref" class="form-control text-start">
+        <input type="text" id="moaref" name="name_identifier" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="moarefnumber">شماره همراه معرف</label>
         <span class="link-danger">*</span>
-        <input type="text" id="moarefnumber" name="moarefnumber" class="form-control text-start">
+        <input type="text" id="moarefnumber" name="mobile_identifier" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="">زبان مادری</label>
         <div class="input-group input-group-merge">
-            <input type="text" id="" class="form-control text-start">
+            <input type="text" id="" class="form-control text-start" name="mother_lang">
         </div>
     </div>
 
@@ -146,21 +146,22 @@
     <div class="col-sm-4">
         <label class="form-label" for="">وضعیت سکونت</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option></option>
-            <option>شخصی</option>
-            <option>مستاجر</option>
+
+        <select class="form-select" name="loc_status">
+            <option value="0"></option>
+            <option value="1">شخصی</option>
+            <option value="2">مستاجر</option>
         </select>
     </div>
     <div class="col-sm-8">
         <label class="form-label" for="address">نشانی محل سکونت</label>
         <span class="link-danger">*</span>
-        <textarea class="form-control" id="address" name="address" rows="3" placeholder="استان-شهرستان-شهر/روستا-خیابان اصلی-خیابان فرعی-پلاک"></textarea>
+        <textarea class="form-control" id="address" name="body" rows="3" placeholder="استان-شهرستان-شهر/روستا-خیابان اصلی-خیابان فرعی-پلاک"></textarea>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="postal">کدپستی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="postal" name="postal" class="form-control text-start">
+        <input type="text" id="postal" name="postal_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -169,43 +170,43 @@
     <div class="col-sm-4">
         <label class="form-label" for="">وضعیت اشتغال</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>شاغل پروژه ای</option>
-            <option>بازنشسته</option>
-            <option>شاغل تمام وقت در بخش دولتی</option>
-            <option>شاغل تمام وقت در بخش خصوصی </option>
-            <option>بیکار</option>
-            <option>آزاد</option>
+        <select class="form-select" name="job_status">
+            <option value="1">شاغل پروژه ای</option>
+            <option value="2">بازنشسته</option>
+            <option value="3">شاغل تمام وقت در بخش دولتی</option>
+            <option value="4">شاغل تمام وقت در بخش خصوصی </option>
+            <option value="5">بیکار</option>
+            <option value="6">آزاد</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="">نوع اشتغال فعلی</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>دولتی</option>
-            <option>خصوصی</option>
-            <option>آزاد</option>
+        <select class="form-select" name="job_type">
+            <option value="1">دولتی</option>
+            <option value="2">خصوصی</option>
+            <option value="3">آزاد</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="work">نام محل اشتغال فعلی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="work" name="work" class="form-control text-start">
+        <input type="text" id="work" name="job_place" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="">وضعیت بیمه تامین اجتماعی</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>سابقه بیمه تامین اجتماعی دارم</option>
-            <option>سابقه بیمه تامین اجتماعی ندارم</option>
+        <select class="form-select" name="status_ins">
+            <option value="0">سابقه بیمه تامین اجتماعی دارم</option>
+            <option value="1">سابقه بیمه تامین اجتماعی ندارم</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="insurance">شماره بیمه تامین اجتماعی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="insurance" name="insurance" class="form-control text-start">
+        <input type="text" id="insurance" name="number_insurance" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -213,11 +214,11 @@
     <div class="col-sm-4">
         <label class="form-label" for="">روش دسترسی به سامانه</label>
         <span class="link-danger">*</span>
-        <select class="form-select"  multiple id="accessMethodsSelect">
-            <option>اپلیکیشن تلفن همراه</option>
-            <option>پیام کوتاه</option>
-            <option>کافی نت</option>
-            <option>تلفن همراه فرزندان</option>
+        <select class="form-select"  multiple id="accessMethodsSelect" name="access">
+            <option value="1">اپلیکیشن تلفن همراه</option>
+            <option value="2">پیام کوتاه</option>
+            <option value="3">کافی نت</option>
+            <option value="4">تلفن همراه فرزندان</option>
         </select>
     </div>
 
@@ -238,38 +239,38 @@
     <div class="col-sm-3">
         <label class="form-label" for="">سایز کفش</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>36</option>
-            <option>38</option>
-            <option>40</option>
-            <option>41</option>
-            <option>42</option>
-            <option>43</option>
-            <option>44</option>
-            <option>45</option>
-            <option>46</option>
-            <option>47</option>
-            <option>48</option>
-            <option>49</option>
-            <option>50</option>
-            <option>51</option>
-            <option>52</option>
-            <option>53</option>
+        <select class="form-select" name="shoe_size">
+            <option value="1">36</option>
+            <option value="2">38</option>
+            <option value="2">40</option>
+            <option value="4">41</option>
+            <option value="5">42</option>
+            <option value="6">43</option>
+            <option value="7">44</option>
+            <option value="8">45</option>
+            <option value="9">46</option>
+            <option value="10">47</option>
+            <option value="11">48</option>
+            <option value="12">49</option>
+            <option value="13">50</option>
+            <option value="14">51</option>
+            <option value="15">52</option>
+            <option value="16">53</option>
         </select>
     </div>
     <div class="col-sm-3">
         <label class="form-label" for="">سایز لباس</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-            <option>XXL</option>
-            <option>3XL</option>
-            <option>4XL</option>
-            <option>5XL</option>
-            <option>6XL</option>
+        <select class="form-select" name="dress_size">
+            <option value="1">S</option>
+            <option value="2">M</option>
+            <option value="3">L</option>
+            <option value="4">XL</option>
+            <option value="5">XXL</option>
+            <option value="6">3XL</option>
+            <option value="7">4XL</option>
+            <option value="8">5XL</option>
+            <option value="9">6XL</option>
         </select>
     </div>
     <hr class="my-4 mx-n4">
@@ -277,15 +278,15 @@
     <div class="col-sm-4">
         <label class="form-label" for="">آخرین مدرک تحصیلی</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>بی سواد</option>
-            <option>ابتدایی</option>
-            <option>سیکل</option>
-            <option>دیپلم</option>
-            <option>فوق دیپلم</option>
-            <option>لیسانس</option>
-            <option>فوق لیسانس</option>
-            <option>دکترا</option>
+        <select class="form-select" name="degree">
+            <option value="1">بی سواد</option>
+            <option value="2">ابتدایی</option>
+            <option value="3">سیکل</option>
+            <option value="4">دیپلم</option>
+            <option value="5">فوق دیپلم</option>
+            <option value="6">لیسانس</option>
+            <option value="7">فوق لیسانس</option>
+            <option value="8">دکترا</option>
         </select>
     </div>
     <div class="col-sm-4">
@@ -300,18 +301,18 @@
     <div class="col-sm-4">
         <label class="form-label" for="">زمینه اشتغال</label>
         <span class="link-danger">*</span>
-        <select class="form-select">
-            <option>بهره برداری</option>
-            <option>ایمنی</option>
-            <option>تعمیرات</option>
-            <option>بازرسی</option>
-            <option>برنامه ریزی</option>
+        <select class="form-select" name="job_statuss">
+            <option value="1">بهره برداری</option>
+            <option value="2">ایمنی</option>
+            <option value="3">تعمیرات</option>
+            <option value="4">بازرسی</option>
+            <option value="5">برنامه ریزی</option>
         </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="field">عنوان تخصص</label>
         <span class="link-danger">*</span>
-        <input type="text" id="dev" name="dev" class="form-control text-start">
+        <input type="text" id="dev" name="job" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
