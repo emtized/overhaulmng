@@ -303,11 +303,12 @@
                                                 <label class="form-label" for="">روش دسترسی به سامانه</label>
                                                 <span class="link-danger">*</span>
                                                 <select class="form-select" multiple id="accessMethodsSelect" name="access[]">
-                                                    <option value="1" {{ in_array(1, old('access', [])) ? 'selected' : '' }}>اپلیکیشن تلفن همراه</option>
-                                                    <option value="2" {{ in_array(2, old('access', [])) ? 'selected' : '' }}>پیام کوتاه</option>
-                                                    <option value="3" {{ in_array(3, old('access', [])) ? 'selected' : '' }}>کافی نت</option>
-                                                    <option value="4" {{ in_array(4, old('access', [])) ? 'selected' : '' }}>تلفن همراه فرزندان</option>
+                                                    <option value="1" @if(in_array('1', explode(',', old('access', $user->insurance->access)))) selected @endif>اپلیکیشن تلفن همراه</option>
+                                                    <option value="2" @if(in_array('2', explode(',', old('access', $user->insurance->access)))) selected @endif>پیام کوتاه</option>
+                                                    <option value="3" @if(in_array('3', explode(',', old('access', $user->insurance->access)))) selected @endif>کافی نت</option>
+                                                    <option value="4" @if(in_array('4', explode(',', old('access', $user->insurance->access)))) selected @endif>تلفن همراه فرزندان</option>
                                                 </select>
+
                                             </div>
 
                                             <div class="col-sm-3">

@@ -214,7 +214,7 @@
     <div class="col-sm-4">
         <label class="form-label" for="">روش دسترسی به سامانه</label>
         <span class="link-danger">*</span>
-        <select class="form-select"  multiple id="accessMethodsSelect" name="access">
+        <select class="form-select"  multiple id="accessMethodsSelect" name="access[]">
             <option value="1">اپلیکیشن تلفن همراه</option>
             <option value="2">پیام کوتاه</option>
             <option value="3">کافی نت</option>
