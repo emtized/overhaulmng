@@ -43,7 +43,11 @@
                                                             <button class="btn btn-label-primary me-3" data-bs-toggle="modal" data-bs-target="#editCCModal">
                                                                 ویرایش
                                                             </button>
-                                                            <button class="btn btn-label-secondary">حذف</button>
+                                                            <form action="{{ route('user.bank.delete',$bank->id)}}" method="post">
+                                                                  @csrf
+                                                                  {{ method_field('delete') }}
+                                                                <button class="btn btn-label-secondary delete" type="submit">حذف</button>
+                                                            </form>
                                                         </div>
                                                         <small class="mt-sm-auto mt-2 order-sm-1 order-0">تاریخ انقضای کارت 1401/12</small>
                                                     </div>
@@ -70,15 +74,36 @@
                             <h3 class="secondary-font">افزودن کارت جدید</h3>
                             <p>کارت جدید را برای تکمیل پرداخت اضافه کنید</p>
                         </div>
-                        <form id="addNewCCForm" class="row g-3" onsubmit="return false">
+                        <form id="addNewCCForm" class="row g-3" method="POST">
+                            <input type="hidden" name="customer_id" value="{{$user->id}}" id="cus">
                             <div class="col-12">
-                                <label class="form-label w-100" for="modalAddCard">شماره کارت</label>
+                                <label class="form-label w-100" for="number">شماره کارت</label>
                                 <div class="input-group input-group-merge">
-                                    <input id="modalAddCard" name="modalAddCard" class="form-control credit-card-mask text-start" type="text" placeholder="1356 3215 6548 7898" aria-describedby="modalAddCard2" dir="ltr">
+                                    <input id="number" name="account_number" class="form-control credit-card-mask text-start" type="text" placeholder="1356 3215 6548 7898" aria-describedby="modalAddCard2" dir="ltr">
                                     <span class="input-group-text cursor-pointer p-1" id="modalAddCard2"><span class="card-type"></span></span>
                                 </div>
+                                <strong class="text-danger" id="InputErrorText1"></strong>
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-sm-6">
+                                <label class="form-label" for="">بانک</label>
+                                <select class="form-select bank-input" name="bank_name" id="bank_name">
+                                <option value="1">ملی</option>
+                                <option value="2">ملت</option>
+                                <option value="3">تجارت</option>
+                                <option value="4">شهر</option>
+                                <option value="5">سپه</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="shaba">شماره شبا</label>
+                                <div class="input-group">
+                                    <input type="text" id="shaba" class="form-control phone-number-mask text-start shaba-input" placeholder="0000 0000 0000" dir="ltr" name="shaba">
+                                    <span class="input-group-text">IR</span>
+                                </div>
+                                <strong class="text-danger" id="InputErrorText2"></strong>
+                            </div>
+
+                            {{-- <div class="col-12 col-md-6">
                                 <label class="form-label" for="modalAddCardName">نام</label>
                                 <input type="text" id="modalAddCardName" class="form-control" placeholder="جان اسنو">
                             </div>
@@ -92,7 +117,7 @@
                                     <input type="text" id="modalAddCardCvv" class="form-control cvv-code-mask text-start" maxlength="4" placeholder="654" dir="ltr">
                                     <span class="input-group-text cursor-pointer" id="modalAddCardCvv2"><i class="bx bx-help-circle text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="شماره CVV کارت"></i></span>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-12">
                                 <label class="switch">
                                     <input type="checkbox" class="switch-input" checked>
@@ -120,7 +145,7 @@
         </div>
         <!--/ Add New Credit Card Modal -->
 
-        <!-- Add New Credit Card Modal -->
+        <!-- update New Credit Card Modal -->
         <div class="modal fade" id="editCCModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-simple modal-add-new-cc">
                 <div class="modal-content p-3 p-md-5">
@@ -178,7 +203,53 @@
                 </div>
             </div>
         </div>
-        <!--/ Add New Credit Card Modal -->
+        <!--/ update New Credit Card Modal -->
 @endsection
 @push('js')
+   <script>
+    $(document).ready(function() {
+    $('#addNewCCForm').submit(function(e) {
+        e.preventDefault();
+
+        var err = false;
+        const errorStyle = 'rgba(233,38,42,.5) 1px solid';
+        const normalStyle = '1px solid rgb(198, 224, 249)';
+
+        var formData = {
+            '_token': "{{ csrf_token() }}",
+            'account_number': $('#number').val(),
+            'bank_name': $('#bank_name').val(),
+            'shaba': $('#shaba').val(),
+            'customer_id': $('#cus').val()
+        };
+
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('user.bank.store') }}",
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                $('#addNewCCModal').hide();
+                $('.modal-backdrop').hide();
+
+                Swal.fire({
+                    title: "با موفقیت انجام شد",
+                    text: "کارت بانکی با موفقیت انجام شد",
+                    icon: "success"
+                });
+
+                location.reload();
+            },
+            error: function(response) {
+                console.error(response.responseJSON.errors);
+                $('#InputErrorText1').html(response.responseJSON.errors.account_number[0]);
+                $('#InputErrorText2').html(response.responseJSON.errors.shaba[0]);
+            }
+        });
+    });
+});
+
+</script>
+@include('alert.sweetalert.delete-confirm', ['className' => 'delete'])
 @endpush

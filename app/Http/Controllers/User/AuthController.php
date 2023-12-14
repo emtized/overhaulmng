@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Services\Api\FinnotechApi;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class AuthController extends Controller
@@ -42,10 +43,10 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
-        //validate
         $inputs = $request->all();
+
         //create data
         $inputs['password'] = '123456789';
 
@@ -54,7 +55,6 @@ class AuthController extends Controller
 
         //create customer
         $customer = Customer::create($inputs);
-
         //upload image with media
         $media = $this->verifyAndUpload($request,'avatar','customer');
         $customer->attachMedia($media,['customer']);
@@ -221,6 +221,7 @@ class AuthController extends Controller
         //login customer
         Auth::guard('customers')->login($customer);
 
+
         //redirect
         return redirect()->route('profile')->with('swal-success', 'حساب شما تشکیل شد');
     }
@@ -269,7 +270,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('customers')->logout();
-        return redirect()->route('user.login.get')->with('swal-success','خروج کردید');
+        return redirect()->route('user.login.get');
     }
 
 }

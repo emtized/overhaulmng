@@ -25,10 +25,10 @@ class Bank extends BaseModel
                   case 3:
                 $result = 'تجارت';
                 break;
-                case 3:
+                case 4:
                     $result = 'شهر';
                     break;
-                    case 3:
+                    case 5:
                         $result = 'سپه';
                         break;
                   default :

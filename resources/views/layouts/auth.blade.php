@@ -70,7 +70,7 @@
 
                     <p class="text-center">
                         <span>کاربر جدید هستید؟</span>
-                        <a href="#">
+                        <a href="{{route('user.register.get')}}">
                             <span>یک حساب بسازید</span>
                         </a>
                     </p>
