@@ -33,10 +33,12 @@
                                                         <li>لورم ایپسوم متن ساختگی با تولید</li>
                                                     </ul>
                                                 </div>
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.cart',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="cart">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -66,10 +68,12 @@
                                                         <li>لورم ایپسوم متن ساختگی با تولید</li>
                                                     </ul>
                                                 </div>
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.shena',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="shena">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -88,10 +92,12 @@
                                                 <img src="{{ asset($user->shena2) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.shena2',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="shena2">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -114,10 +120,12 @@
                                                 <img src="{{ asset($user->soldier) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.soldier',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="soldier">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -138,10 +146,12 @@
                                                 <img src="{{ asset($user->img) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.image',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="image">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -163,10 +173,12 @@
                                                 <img src="{{ asset($user->smook_image) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.smook',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="smook_image">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -189,10 +201,12 @@
                                                 <img src="{{ asset($user->police) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.police',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="police">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -213,10 +227,12 @@
                                                 <img src="{{ asset($user->doctor) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.doctor',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="doctor">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -237,10 +253,12 @@
                                                 <img src="{{ asset($user->work) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.work',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="work_image">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -264,10 +282,12 @@
                                                 <img src="{{ asset($user->ins) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.ins',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="ins_image">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -289,10 +309,12 @@
                                                 <img src="{{ asset($user->ju) }}" class="img-thumbnail  border rounded-2 bx-pull-left">
                                             </div>
                                             <div class="col-12">
-                                                <form id="" onsubmit="return false">
+                                                <form action="{{route('user.update.ju',$user->id)}}" method="post" class="signupForm" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input class="form-control" type="file" id="formFile" name="ju_image">
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>

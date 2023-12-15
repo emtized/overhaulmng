@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Services\Api\FinnotechApi;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class AuthController extends Controller
@@ -42,10 +43,10 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
-        //validate
         $inputs = $request->all();
+
         //create data
         $inputs['password'] = '123456789';
 
@@ -54,7 +55,6 @@ class AuthController extends Controller
 
         //create customer
         $customer = Customer::create($inputs);
-
         //upload image with media
         $media = $this->verifyAndUpload($request,'avatar','customer');
         $customer->attachMedia($media,['customer']);
@@ -124,6 +124,7 @@ class AuthController extends Controller
         ]);
 
         //ins
+        $selectedAccess = implode(',', $request->access);
         Insurance::create([
             'customer_id' => $customer->id,
             'job_status' => $request->job_status,
@@ -131,7 +132,7 @@ class AuthController extends Controller
             'job_place' =>$request->job_place,
             'status_ins' =>$request->status_ins,
             'number_insurance' =>$request->number_insurance,
-            'access' =>$request->access,
+            'access' => $selectedAccess,
             'weight' =>$request->weight,
             'height' =>$request->hight,
             'shoe_size'=>$request->shoe_size,
@@ -187,28 +188,39 @@ class AuthController extends Controller
             ]);
         }
 
-        foreach ($request->start_date as $key => $value) {
-            $realTimestampStart1 = substr($value, 0, 10);
-            $inputs['start_date'][$key] = date("Y-m-d H:i:s", (int) $realTimestampStart1);
+        //date customize
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        if (count($startDate) == count($endDate)) {
+            $dates = [];
+
+            foreach ($startDate as $index => $start) {
+                $end = $endDate[$index];
+
+                $realTimestampStart = substr($start, 0, 10);
+                $realTimestampEnd = substr($end, 0, 10);
+
+                $formattedStartDate = date("Y-m-d H:i:s", (int) $realTimestampStart);
+                $formattedEndDate = date("Y-m-d H:i:s", (int) $realTimestampEnd);
+
+                $dates[] = [
+                    'start_date' => $formattedStartDate,
+                    'end_date' => $formattedEndDate,
+                    'customer_id' => $customer->id
+                ];
+            }
+
+            foreach ($dates as $date) {
+                Date::create($date);
+            }
         }
 
-        foreach ($request->end_date as $key => $value) {
-            $realTimestampStart2 = substr($value, 0, 10);
-            $inputs['end_date'][$key] = date("Y-m-d H:i:s", (int) $realTimestampStart2);
-        }
-
-        $dates = array_combine($inputs['start_date'], $inputs['end_date']);
-        foreach ($dates as $key => $value){
-            $date = Date::create([
-                'start_date' => $key,
-                'end_date' => $value,
-                'customer_id' => $customer->id,
-            ]);
-        }
 
 
         //login customer
         Auth::guard('customers')->login($customer);
+
 
         //redirect
         return redirect()->route('profile')->with('swal-success', 'حساب شما تشکیل شد');
@@ -258,7 +270,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('customers')->logout();
-        return redirect()->route('user.login.get')->with('swal-success','خروج کردید');
+        return redirect()->route('user.login.get');
     }
 
 }
