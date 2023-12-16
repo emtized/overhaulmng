@@ -25,6 +25,7 @@ Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
 
     //admin dashboard
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
+    Route::get('/users',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin');
 
 });
 
