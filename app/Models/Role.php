@@ -1,15 +1,13 @@
 <?php
-
 namespace App\Models;
 
 use App\Traits\Uuids;
-use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Role as SpatieRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Role extends BaseModel
+class Role extends SpatieRole
 {
-    use HasFactory,HasRoles;
+    use HasFactory,Uuids;
 
-    protected $guarded = ['id'];
+    protected $primaryKey = 'uuid';
 }

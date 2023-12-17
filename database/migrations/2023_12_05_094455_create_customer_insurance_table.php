@@ -16,12 +16,12 @@ return new class extends Migration
             $table->uuid('customer_id');
             $table->tinyInteger('job_status')->default(0);
             $table->tinyInteger('job_type')->default(0);
-            $table->string('job_place');
+            $table->string('job_place')->nullable();
             $table->tinyInteger('status_ins')->default(0);
-            $table->string('number_insurance');
-            $table->string('access');
-            $table->decimal('weight', 10, 2);
-            $table->decimal('height', 10, 1)->comment('cm unit');
+            $table->string('number_insurance')->nullable();
+            $table->string('access')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('height')->nullable();
             $table->tinyInteger('shoe_size')->default(0);
             $table->tinyInteger('dress_size')->default(0);
             $table->timestamps();

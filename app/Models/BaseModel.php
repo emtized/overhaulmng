@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BaseModel extends Model
 {
     use Uuids;
-    
-    protected $guarded = ['id'];
+
+    protected $guarded = ['uuid','id'];
 }

@@ -540,36 +540,36 @@
                                                     <div class="col-xl-7 col-12">
                                                         <dl class="row mb-0">
                                                             <dt class="col-sm-8 mb-2 text-nowrap">1. آیا سابقه بیماری دارید :</dt>
-                                                            <dd class="col-sm-4" id="op1"></dd>
+                                                            <dd class="col-sm-4" id="op1">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">2. در صورت ابتلا به بیماری، آیا علایم شما در محیط کار تغییر می کند?</dt>
-                                                            <dd class="col-sm-2" id="op2"></dd>
+                                                            <dd class="col-sm-2" id="op2">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">3. آیا به غذا، دارو یا ماده خاصی حساسیت دارید؟ </dt>
-                                                            <dd class="col-sm-2" id="op3"></dd>
+                                                            <dd class="col-sm-2" id="op3">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-wrap">4. آیا سابقه بستری در بیمارستان دارید؟</dt>
-                                                            <dd class="col-sm-2" id="op4"></dd>
+                                                            <dd class="col-sm-2" id="op4">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">5. آیا سابقه عمل جراحی دارید؟</dt>
-                                                            <dd class="col-sm-2" id="op5"></dd>
+                                                            <dd class="col-sm-2" id="op5">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">6. آیا داروی خاصی مصرف می کنید؟</dt>
-                                                            <dd class="col-sm-2"  id="op6"></dd>
+                                                            <dd class="col-sm-2"  id="op6">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">7. آیا اکنون سیگار می کشید؟</dt>
-                                                            <dd class="col-sm-2"  id="op7"></dd>
+                                                            <dd class="col-sm-2"  id="op7">خیر</dd>
 
                                                             <dt class="col-sm-10 mb-2 text-nowrap">8. آیا سابقه قبلی مصرف سیگار دارید؟</dt>
-                                                            <dd class="col-sm-2"  id="op8"></dd>
+                                                            <dd class="col-sm-2"  id="op8">خیر</dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">9.آیا در اوقات فراغت ورزش خاصی انجام می دهید؟</dt>
-                                                            <dd class="col-sm-2"  id="op9"></dd>
+                                                            <dd class="col-sm-2"  id="op9">خیر</dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">10. آیا تاکنون دچار حادثه شغلی شده اید؟</dt>
-                                                            <dd class="col-sm-2"  id="op9"></dd>
+                                                            <dd class="col-sm-2"  id="op9">خیر</dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">11. آیا سابقه استفاده از استعلاجی برای مدت بیش از 3 روز دارید؟</dt>
-                                                            <dd class="col-sm-2"  id="op10"></dd>
+                                                            <dd class="col-sm-2"  id="op10">خیر</dd>
                                                             <dt class="col-sm-10 mb-2 text-nowrap">12.آیا سابقه معرفی به کمیسیون پزشکی دارید؟</dt>
-                                                            <dd class="col-sm-2"  id="op11"></dd>
+                                                            <dd class="col-sm-2"  id="op11">خیر</dd>
                                                         </dl>
                                                     </div>
                                                     <div class="col-xl-5 col-12">
@@ -1225,7 +1225,23 @@
                     initializeFlatpickr(newRow.querySelector('.end-date'));
         });
 
-
+        function toEnglish(n) {
+    var t = {
+    "۰": "0",
+    "۱": "1",
+    "۲": "2",
+    "۳": "3",
+    "۴": "4",
+    "۵": "5",
+    "۶": "6",
+    "۷": "7",
+    "۸": "8",
+    "۹": "9"
+    };
+    return n.replace(/['۰۱۲۳۴۵۶۷۸۹']/g, function (n) {
+    return t[n]
+    })
+    }
 
             //select2
             $(document).ready(function() {
@@ -1240,48 +1256,117 @@
             $( document ).ready( function () {
                 $( "#signupForm" ).validate( {
                     rules: {
-                        cart: "required",
-                        shena: "required",
-                        shena2: "required",
-                        soldier: "required",
-                        image: "required",
-                        smook_image: "required",
-                        police: "required",
-                        doctor: "required",
-                        work_image: "required",
-                        ins_image: "required",
-                        edu_image: "required",
-                        ju_image: "required",
-                        other_image: "required",
+                        cart:{
+                             required: true,
+                            accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        shena: {
+                             required: true,
+                           accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        shena2: {
+                             required: true,
+                          accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        soldier: {
+                            required: true,
+                          accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        image: {
+                             required: true,
+                            accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        smook_image: {
+                             required: true,
+                          accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        police: {
+                             required: true,
+                          accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        doctor: {
+                             required: true,
+                             accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        work_image: {
+                             required: true,
+                            accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        ins_image: {
+                            required: true,
+                         accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        edu_image: {
+                            required: true,
+                         accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        ju_image: {
+                              required: true,
+                            accept: "image/jpeg, image/png,image/jpg"
+                        },
+                        other_image: {
+                             required: true,
+                             accept: "image/jpeg, image/png,image/jpg"
+                        },
                          first_name: "required",
                          last_name: "required",
                          birth_place: "required",
-                         avatar:"required",
+                         avatar:{
+                            required: true,
+                         accept: "image/jpeg, image/png,image/jpg"
+                         },
                          status_detail:"required",
-                         mobile1:"required",
-                         mobile2:"required",
+                         mobile1: {
+                             required: true,
+                             digits: true,
+                             minlength: 11
+                         },
+                         mobile2: {
+                             required: true,
+                             digits: true,
+                             minlength: 11
+                         },
                          body:"required",
-                         postal_code:"required",
+                         postal_code: {
+                             required: true,
+                             digits: true
+                         },
                          job_place:"required",
-                         number_insurance:"required",
+                         number_insurance: {
+                             required: true,
+                             digits: true
+                         },
                          hight:"required",
                          weight:"required",
                          birth_day:"required",
                          name_identifier:"required",
-                         mobile_identifier:"required",
+                         mobile_identifier:{
+                             required: true,
+                             digits: true,
+                             minlength: 11
+                         },
                          field:"required",
                          job:"required",
                          father_name: {
                              required: true,
                              minlength: 2
                          },
+                         phone:{
+                            digits: true,
+                         },
                          national_code: {
+                                required: true,
+                                digits: true,
+                                minlength: 10
+                        },
+                            birth_code: {
                              required: true,
-                             minlength: 10
+                             digits: true,
                          },
-                         birth_code: {
-                             required: true,
-                         },
+                         email: {
+                            //required: true,
+                            email: true
+                        }
                     },
                     messages: {
                         cart: "عکس  کارت ملی اجباری است",
@@ -1298,36 +1383,65 @@
                         ju_image: " مدرک مورد نظر اجباری است",
                         other_image:" مدرک مورد نظر اجباری است",
                         field:"لطفا رشته تحصیلی خود را وارد نمایید",
-                        avatar : "لطفا تصویر کاربری خود را وارد نمایید",
+                        avatar : {
+                            required:"لطفا تصویر کاربری خود را وارد نمایید",
+                            accept:"لطفا عکس با فرمت مورد نظر وارد کنید"
+                        },
                         job:"عنوان تخصص را وارد نمایید",
-                        mobile_identifier:"لطفا شماره معرف را وارد نمایید",
+                        mobile_identifier:{
+                            required: "وارد کردن  شماره همراه معرف الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                            minlength: "باید حداقل 11 رقم باشد"
+                        },
                         name_identifier:"لطفا نام و نام خانوادگی معرف را وارد کنید",
                         first_name: "لطفا نام را وارد کنید",
                         last_name: "لطفا  نام خانوادگی را وارد کنید",
                         birth_place: "لطفا محل صدور را وارد کنید",
-                        phone : 'لطفا تلفن  خود را وارد نمایید',
+                        phone : "لطفاً فقط از اعداد استفاده کنید",
                         birth_day:'لطفا تاریخ تولد را وارد نمایید',
-                        mobile1:'لطفا تلفن همراه خود را وارد نمایید',
-                        mobile2:'لطفا تلفن همراه خود را وارد نمایید',
+                        mobile1:{
+                            required: "وارد کردن تلفن همراه الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                            minlength: "باید حداقل 11 رقم باشد"
+                        },
+                        mobile2:{
+                            required: "وارد کردن تلفن همراه الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                            minlength: "باید حداقل 11 رقم باشد"
+                        },
                         email: 'لطفا پست الکترونیک خود را وارد نمایید',
                         body:'لطفا نشانی محل سکونت خود را وارد نمایید',
-                        postal_code:'لطفا کد پستی خود را وارد نمایید',
+                        postal_code:{
+                            required: "وارد کردن کدپستی الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                        },
                         job_place:'لطفا نام محل اشتغال فعلی خود را وارد نمایید',
-                        number_insurance:" لطفا شماره بیمه تامین اجتماعی خود را وارد نمایید ",
+                        number_insurance:{
+                            required: "وارد کردن شماره بیمه تامین اجتماعی الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                            minlength: "باید حداقل 11 رقم باشد"
+                        },
                         hight:"لطفا قد خود را وارد نمایید",
                         weight:"لطفا وزن خود را وارد نمایید",
-                        status_detail:"لطفا دلیل معلفیت خود را وارد نمایید",
+                        status_detail:"لطفا دلیل معافیت خود را وارد نمایید",
                         father_name: {
                             required: "لطفا نام پدر را وارد کنید",
                             minlength: "نباید از 2 کاراکتر کمتر باشد"
                         },
                         national_code: {
-                            required: "لطفا کدملی را وارد کنید",
-                            minlength: "کد ملی از 10 کاراکتر کمتر نباید باشد"
+                            remote: "این کدملی قبلاً ثبت شده است",
+                            required: "وارد کردن کدملی الزامی است",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
+                            minlength: "کدملی باید حداقل 10 رقم باشد",
                         },
                         birth_code: {
                             required: "لطفا شماره شناسنامه را وارد کنید",
+                            digits: "لطفاً فقط از اعداد استفاده کنید",
                         },
+                        email: {
+                            //required: "وارد کردن ایمیل الزامی است",
+                            email: "لطفاً یک ایمیل معتبر وارد کنید"
+                        }
 
                     },
                     errorElement: "em",

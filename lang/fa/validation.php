@@ -206,6 +206,7 @@ return [
         'copan' => 'کد تخفیف',
         'subject' => 'عنوان',
         'account_number' => 'شماره کارت',
-        'shaba' => 'شماره شبا'
+        'shaba' => 'شماره شبا',
+        'father_name' => 'نام پدر'
     ],
 ];

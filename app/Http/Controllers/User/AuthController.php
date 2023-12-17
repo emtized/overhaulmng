@@ -43,7 +43,7 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         $inputs = $request->all();
 

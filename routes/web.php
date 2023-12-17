@@ -21,11 +21,18 @@ Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout
 
 
 //admin routes
-Route::prefix('admin')->middleware(['auth','role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth','role:Administrator|Admin'])->group(function () {
 
     //admin dashboard
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
-    Route::get('/users',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin');
+
+    //customer
+    Route::prefix('customer')->group(function () {
+        Route::get('/',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.index');
+        Route::post('/store', [\App\Http\Controllers\Admin\CustomerController::class,'store'])->name('admin.customer.store');
+        Route::get('/edit/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.edit');
+        Route::delete('/destroy/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'destroy'])->name('admin.customer.delete');
+    });
 
 });
 
@@ -75,4 +82,4 @@ Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRe
 Route::post('/RegisterForm', [\App\Http\Controllers\User\AuthController::class,'register'])->name('user.register.form');
 Route::get('/forget-pass',[\App\Http\Controllers\User\AuthController::class,'showforgetPass']);
 Route::get('/customerLogout',[\App\Http\Controllers\User\AuthController::class,'logout'])->name('profile.logout');
-
+Route::post('/checkNationalCode',[\App\Http\Controllers\User\AuthController::class,'checkNationalCode'])->name('checkCode');

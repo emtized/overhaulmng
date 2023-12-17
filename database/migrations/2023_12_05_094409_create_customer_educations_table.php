@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
             $table->tinyInteger('degree')->default(0);
-            $table->string('field');
+            $table->string('field')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

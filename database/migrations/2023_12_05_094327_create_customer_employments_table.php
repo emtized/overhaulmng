@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
             $table->tinyInteger('job_status')->default(0);
-            $table->string('job');
+            $table->string('job')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

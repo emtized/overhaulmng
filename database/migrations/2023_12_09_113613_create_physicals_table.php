@@ -15,41 +15,41 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
 
-            $table->tinyInteger('disease');
-            $table->string('disease_detail');
+            $table->tinyInteger('disease')->default(0);
+            $table->string('disease_detail')->nullable();
 
-            $table->tinyInteger('first_disease');
-            $table->string('first_disease_detail');
+            $table->tinyInteger('first_disease')->default(0);
+            $table->string('first_disease_detail')->nullable();
 
-            $table->tinyInteger('drug');
-            $table->string('drug_detail');
+            $table->tinyInteger('drug')->default(0);
+            $table->string('drug_detail')->nullable();
 
-            $table->tinyInteger('hospital');
-            $table->string('hospital_detail');
+            $table->tinyInteger('hospital')->default(0);
+            $table->string('hospital_detail')->nullable();
 
-            $table->tinyInteger('surgery');
-            $table->string('surgery_detail');
+            $table->tinyInteger('surgery')->default(0);
+            $table->string('surgery_detail')->nullable();
 
-            $table->tinyInteger('specific_drug');
-            $table->string('specific_drug_detail');
+            $table->tinyInteger('specific_drug')->default(0);
+            $table->string('specific_drug_detail')->nullable();
 
-            $table->tinyInteger('smok');
-            $table->string('smok_detail');
+            $table->tinyInteger('smok')->default(0);
+            $table->string('smok_detail')->nullable();
 
-            $table->tinyInteger('smok_past');
-            $table->string('smok_past_detail');
+            $table->tinyInteger('smok_past')->default(0);
+            $table->string('smok_past_detail')->nullable();
 
-            $table->tinyInteger('sport');
-            $table->string('sport_detail');
+            $table->tinyInteger('sport')->default(0);
+            $table->string('sport_detail')->nullable();
 
-            $table->tinyInteger('work');
-            $table->string('work_detail');
+            $table->tinyInteger('work')->default(0);
+            $table->string('work_detail')->nullable();
 
-            $table->tinyInteger('Leave');
+            $table->tinyInteger('Leave')->default(0);
 
 
-            $table->tinyInteger('Commission');
-            $table->string('Commission_detail');
+            $table->tinyInteger('Commission')->default(0);
+            $table->string('Commission_detail')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
