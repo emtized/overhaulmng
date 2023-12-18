@@ -7,7 +7,7 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\InfoRequest;
-use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -17,7 +17,7 @@ class CustomerController extends Controller
         return view('admin.user.index',compact('customers'));
     }
 
-    public function store(UserRequest $request)
+    public function store(CustomerRequest $request)
     {
         $inputs = $request->all();
 

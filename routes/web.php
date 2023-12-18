@@ -26,6 +26,15 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin'])->group(f
     //admin dashboard
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
 
+    //admin-user
+    Route::prefix('users')->group(function () {
+        Route::get('/',[\App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.user.index');
+        Route::post('/store', [\App\Http\Controllers\Admin\UserController::class,'store'])->name('admin.user.store');
+        Route::get('/edit/{user}',[\App\Http\Controllers\Admin\UserController::class,'edit'])->name('admin.user.edit');
+        Route::put('/update/{user}',[\App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
+        Route::delete('/destroy/{user}',[\App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.delete');
+    });
+
     //customer
     Route::prefix('customer')->group(function () {
         Route::get('/',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.index');
