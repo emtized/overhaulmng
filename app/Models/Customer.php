@@ -15,12 +15,13 @@ use Plank\Mediable\Mediable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Customer extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,Uuids,Mediable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable,Uuids,Mediable,HasRoles,SoftDeletes;
 
     protected $guarded = ['id'];
 
@@ -31,80 +32,84 @@ class Customer extends Authenticatable
     ];
 
 
-    public function getImageAttribute()
+    public function getImageByMediaName($mediaAttributeName)
     {
-        return $this->hasMedia('customer') ?$value = 'storage/'.$this->firstMedia('customer')->directory.'/'.$this->firstMedia('customer')->filename.'.'.$this->firstMedia('customer')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getCartAttribute()
-    {
-        return $this->hasMedia('cart') ?$value = 'storage/'.$this->firstMedia('cart')->directory.'/'.$this->firstMedia('cart')->filename.'.'.$this->firstMedia('cart')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getShenaAttribute()
-    {
-        return $this->hasMedia('shena') ?$value = 'storage/'.$this->firstMedia('shena')->directory.'/'.$this->firstMedia('shena')->filename.'.'.$this->firstMedia('shena')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getShena2Attribute()
-    {
-        return $this->hasMedia('shena2') ?$value = 'storage/'.$this->firstMedia('shena2')->directory.'/'.$this->firstMedia('shena2')->filename.'.'.$this->firstMedia('shena2')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getSoldierAttribute()
-    {
-        return $this->hasMedia('soldier') ?$value = 'storage/'.$this->firstMedia('soldier')->directory.'/'.$this->firstMedia('soldier')->filename.'.'.$this->firstMedia('soldier')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getImgAttribute()
-    {
-        return $this->hasMedia('image') ?$value = 'storage/'.$this->firstMedia('image')->directory.'/'.$this->firstMedia('image')->filename.'.'.$this->firstMedia('image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getSmookImageAttribute()
-    {
-        return $this->hasMedia('smook_image') ?$value = 'storage/'.$this->firstMedia('smook_image')->directory.'/'.$this->firstMedia('smook_image')->filename.'.'.$this->firstMedia('smook_image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getPoliceAttribute()
-    {
-        return $this->hasMedia('police') ?$value = 'storage/'.$this->firstMedia('police')->directory.'/'.$this->firstMedia('police')->filename.'.'.$this->firstMedia('police')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getDoctorAttribute()
-    {
-        return $this->hasMedia('doctor') ?$value = 'storage/'.$this->firstMedia('doctor')->directory.'/'.$this->firstMedia('doctor')->filename.'.'.$this->firstMedia('doctor')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getWorkAttribute()
-    {
-        return $this->hasMedia('work_image') ?$value = 'storage/'.$this->firstMedia('work_image')->directory.'/'.$this->firstMedia('work_image')->filename.'.'.$this->firstMedia('work_image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getEduAttribute()
-    {
-        return $this->hasMedia('edu_image') ?$value = 'storage/'.$this->firstMedia('edu_image')->directory.'/'.$this->firstMedia('edu_image')->filename.'.'.$this->firstMedia('edu_image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getInsAttribute()
-    {
-        return $this->hasMedia('ins_image') ?$value = 'storage/'.$this->firstMedia('ins_image')->directory.'/'.$this->firstMedia('ins_image')->filename.'.'.$this->firstMedia('ins_image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getJuAttribute()
-    {
-        return $this->hasMedia('ju_image') ?$value = 'storage/'.$this->firstMedia('ju_image')->directory.'/'.$this->firstMedia('ju_image')->filename.'.'.$this->firstMedia('ju_image')->extension : $value = 'images/no-image.jpg';
-    }
-
-    public function getOtherAttribute()
-    {
-        return $this->hasMedia('other_image') ?$value = 'storage/'.$this->firstMedia('other_image')->directory.'/'.$this->firstMedia('other_image')->filename.'.'.$this->firstMedia('other_image')->extension : $value = 'images/no-image.jpg';
+        return $this->hasMedia($mediaAttributeName)
+            ? 'storage/' . $this->firstMedia($mediaAttributeName)->directory . '/' .
+                $this->firstMedia($mediaAttributeName)->filename . '.' .
+                $this->firstMedia($mediaAttributeName)->extension
+            : 'img/no-image.jpg';
     }
 
 
     public function getImageSmallAttribute()
     {
-        return $this->hasMedia('customer') ?$value = 'storage/'.$this->firstMedia('customer')->directory.'/thumb_small_'.$this->firstMedia('customer')->filename.'.'.$this->firstMedia('customer')->extension : $value = 'images/thumb_small_no_image.jpg';
+        return $this->getImageByMediaName('customer');
+    }
+
+    public function getCartAttribute()
+    {
+        return $this->getImageByMediaName('cart');
+    }
+
+    public function getShenaAttribute()
+    {
+        return $this->getImageByMediaName('shena');
+    }
+
+    public function getShena2Attribute()
+    {
+        return $this->getImageByMediaName('shena2');
+    }
+
+    public function getSoldierAttribute()
+    {
+        return $this->getImageByMediaName('soldier');
+    }
+
+    public function getImgAttribute()
+    {
+        return $this->getImageByMediaName('image');
+    }
+
+    public function getSmookImageAttribute()
+    {
+        return $this->getImageByMediaName('smook_image');
+    }
+
+    public function getPoliceAttribute()
+    {
+        return $this->getImageByMediaName('police');
+    }
+
+    public function getDoctorAttribute()
+    {
+        return $this->getImageByMediaName('doctor');
+    }
+
+    public function getWorkAttribute()
+    {
+        return $this->getImageByMediaName('work');
+    }
+
+    public function getEduAttribute()
+    {
+        return $this->getImageByMediaName('edu');
+    }
+
+    public function getInsAttribute()
+    {
+        return $this->getImageByMediaName('ins');
+    }
+
+    public function getJuAttribute()
+    {
+        return $this->getImageByMediaName('ju');
+    }
+
+    public function getOtherAttribute()
+    {
+        return $this->getImageByMediaName('other');
     }
 
     public function contact()
@@ -145,6 +150,51 @@ class Customer extends Authenticatable
     public function dates()
     {
         return $this->hasMany(Date::class, 'customer_id');
+    }
+
+    public function createRelations(array $data)
+    {
+        $this->contact()->create([
+            'phone' => $data['phone'] ?? null,
+            'mobile1' => $data['mobile1'] ?? null,
+            'mobile2' => $data['mobile2'] ?? null,
+        ]);
+
+        $this->loc()->create([
+            'body' => $data['body'] ?? null,
+            'postal_code' => $data['postal_code'] ?? null,
+        ]);
+
+        $this->insurance()->create([
+            'job_place' => $data['job_place'] ?? null,
+            'number_insurance' => $data['number_insurance'] ?? null,
+            'access' => $data['access'] ?? null,
+            'weight' => $data['weight'] ?? null,
+            'height' => $data['height'] ?? null,
+        ]);
+
+
+        $this->education()->create([
+            'field' => $data['field'] ?? null,
+        ]);
+
+        $this->employ()->create([
+            'job' => $data['job'] ?? null,
+        ]);
+
+        $this->physical()->create([
+            'disease_detail' => $data['disease_detail'] ?? null,
+            'first_disease_detail' => $data['first_disease_detail'] ?? null,
+            'drug_detail' => $data['drug_detail'] ?? null,
+            'hospital_detail' => $data['hospital_detail'] ?? null,
+            'surgery_detail' => $data['surgery_detail'] ?? null,
+            'specific_drug_detail' => $data['specific_drug_detail'] ?? null,
+            'smok_detail' => $data['smok_detail'] ?? '',
+            'smok_past_detail' => $data['smok_past_detail'] ?? null,
+            'sport_detail' => $data['sport_detail'] ?? null,
+            'work_detail' => $data['work_detail'] ?? null,
+            'Commission_detail' => $data['Commission_detail'] ?? null,
+        ]);
     }
 
 }

@@ -35,16 +35,16 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <label class="form-label" for="nationalcode">کدملی</label>
+        <label class="form-label" for="national_code">کدملی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="national_code" name="national_code" class="form-control text-start">
+        <input type="number" id="national_code" name="national_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="birth_code">شماره شناسنامه</label>
         <span class="link-danger">*</span>
-        <input type="text" id="birth_code" name="birth_code" class="form-control text-start">
+        <input type="number" id="birth_code" name="birth_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -99,7 +99,7 @@
     <div class="col-sm-4">
         <label class="form-label" for="moarefnumber">شماره همراه معرف</label>
         <span class="link-danger">*</span>
-        <input type="text" id="moarefnumber" name="mobile_identifier" class="form-control text-start">
+        <input type="number" id="moarefnumber" name="mobile_identifier" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -123,21 +123,21 @@
     <div class="col-sm-4">
         <label class="form-label" for="mobile1">تلفن همراه 1</label>
         <span class="link-danger">*</span>
-        <input type="text" id="mobile1" name="mobile1" class="form-control text-start">
+        <input type="number" id="mobile1" name="mobile1" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="mobile2">تلفن همراه 2</label>
         <span class="link-danger">*</span>
-        <input type="text" id="mobile2" name="mobile2" class="form-control text-start">
+        <input type="number" id="mobile2" name="mobile2" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="email">پست الکترونیک</label>
         <span class="link-danger">*</span>
-        <input type="text" id="email" name="email" class="form-control text-start">
+        <input type="email" id="email" name="email" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -161,7 +161,7 @@
     <div class="col-sm-4">
         <label class="form-label" for="postal">کدپستی</label>
         <span class="link-danger">*</span>
-        <input type="text" id="postal" name="postal_code" class="form-control text-start">
+        <input type="number" id="postal" name="postal_code" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
@@ -225,14 +225,14 @@
     <div class="col-sm-3">
         <label class="form-label" for="hight">قد</label>
         <span class="link-danger">*</span>
-        <input type="text" id="hight" name="hight" class="form-control text-start">
+        <input type="number" id="hight" name="hight" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>
     <div class="col-sm-3">
         <label class="form-label" for="weight">وزن</label>
         <span class="link-danger">*</span>
-        <input type="text" id="weight" name="weight" class="form-control text-start">
+        <input type="number" id="weight" name="weight" class="form-control text-start">
         <div class="input-group input-group-merge">
         </div>
     </div>

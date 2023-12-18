@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('date_working', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
-            $table->timestamp('start_date')->useCurrent();
-            $table->timestamp('end_date')->useCurrent();
+            $table->dateTime('start_date')->useCurrent();
+            $table->dateTime('end_date')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

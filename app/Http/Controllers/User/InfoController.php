@@ -14,6 +14,12 @@ class InfoController extends Controller
 
     public function update(InfoRequest $request, Customer $customer)
     {
+
+
+
+        $realTimestampStart = substr($request->birth_day, 0, 10);
+        $time = date("Y-m-d H:i:s", (int) $realTimestampStart);
+
         $customer->update([
             'first_name'=> $request->first_name,
             'last_name'=> $request->last_name,
@@ -21,7 +27,7 @@ class InfoController extends Controller
             'national_code'=> $request->national_code,
             'birth_code'=>$request->birth_code,
             'birth_place'=> $request->birth_place,
-            'birth_day' => $request->birth_day,
+            'birth_day' => $time,
             'status' => $request->status,
             'status_detail'=> $request->status_detail,
             'name_identifier'=>$request->name_identifier,

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('customer_id');
             $table->tinyInteger('loc_status')->default(0);
-            $table->text('body');
-            $table->string('postal_code');
+            $table->text('body')->nullable();
+            $table->string('postal_code')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{!! asset('libs/perfect-scrollbar/perfect-scrollbar.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/typeahead-js/typeahead.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/apex-charts/apex-charts.css') !!}">
+    <link rel="stylesheet" href="{!! asset('libs/sweetalert/sweetalert2.css') !!}">
     @stack('css')
 
     <!-- Page CSS -->
@@ -239,7 +240,7 @@
                                 <ul class="menu-sub">
                                     <!-- Tables -->
                                     <li class="menu-item">
-                                        <a href="javascript:void(0);" class="menu-link">
+                                        <a href="{{route('admin.customer.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-table"></i>
                                             <div data-i18n="Tables">لیست کاربران</div>
                                         </a>
@@ -346,7 +347,7 @@
 
 <script src="{!! asset('libs/i18n/i18n.js')!!}"></script>
 <script src="{!! asset('libs/typeahead-js/typeahead.js') !!}"></script>
-
+<script src="{!! asset('libs/sweetalert/sweetalert2.min.js') !!}"></script>
 <script src="{!! asset('js/menu.js') !!}"></script>
 <!-- endbuild -->
 
