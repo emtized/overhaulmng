@@ -82,7 +82,7 @@
     <!-- Modal to add new record -->
     <div class="offcanvas offcanvas-end {{ count($errors) > 0 ? 'show' : '' }}" id="add-new-record">
         <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">رکورد جدید</h5>
+            <h5 class="offcanvas-title" id="exampleModalLabel">ایجاد کارجو جدید</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body flex-grow-1">

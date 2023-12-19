@@ -21,13 +21,20 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'father_name' => 'required',
-            'email' => 'required|unique:customers,email',
-            'password' => 'required',
-           // 'mobile1' => 'unique:c,email'
-        ];
+        if($this->isMethod('post')){
+            return [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required|unique:users,email',
+                'password' => 'required',
+            ];
+        } else{
+            return [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required',
+                'password' => 'required',
+            ];
+        }
     }
 }
