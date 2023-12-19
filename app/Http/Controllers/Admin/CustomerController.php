@@ -99,6 +99,8 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         $result = $customer->delete();
+        $customer->deleteRelations();
+        
         return back()->with('swal-success','کاربر مورد نظر با موفقیت حذف شد');
     }
 }

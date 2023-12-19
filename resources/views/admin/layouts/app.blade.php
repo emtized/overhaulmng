@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{!! asset('libs/typeahead-js/typeahead.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/apex-charts/apex-charts.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/sweetalert/sweetalert2.css') !!}">
+    <link rel="stylesheet" href="{!! asset('libs/select2/select2.css') !!}">
     @stack('css')
 
     <!-- Page CSS -->
@@ -242,7 +243,13 @@
                                     <li class="menu-item">
                                         <a href="{{route('admin.customer.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-table"></i>
-                                            <div data-i18n="Tables">لیست کاربران</div>
+                                            <div data-i18n="Tables">لیست کارجویان</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{route('admin.user.index')}}" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-table"></i>
+                                            <div data-i18n="Tables">لیست ادمین ها</div>
                                         </a>
                                     </li>
                                     <li class="menu-item">
@@ -281,9 +288,9 @@
                                 </a>
                                 <ul class="menu-sub">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{route('admin.city.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-support"></i>
-                                            <div data-i18n="Support">پشتیبانی</div>
+                                            <div data-i18n="Support">لیست شهرها</div>
                                         </a>
                                     </li>
                                     <li class="menu-item">
@@ -348,6 +355,7 @@
 <script src="{!! asset('libs/i18n/i18n.js')!!}"></script>
 <script src="{!! asset('libs/typeahead-js/typeahead.js') !!}"></script>
 <script src="{!! asset('libs/sweetalert/sweetalert2.min.js') !!}"></script>
+<script src="{!! asset('libs/select2/select2.js') !!}"></script>
 <script src="{!! asset('js/menu.js') !!}"></script>
 <!-- endbuild -->
 

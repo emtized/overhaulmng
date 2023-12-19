@@ -25,7 +25,6 @@ class Customer extends Authenticatable
 
     protected $guarded = ['id'];
 
-
     //casts
     protected $casts = [
         'password' => 'hashed',
@@ -196,5 +195,17 @@ class Customer extends Authenticatable
             'Commission_detail' => $data['Commission_detail'] ?? null,
         ]);
     }
+
+    public function deleteRelations()
+    {
+        $this->contact()->delete();
+        $this->loc()->delete();
+        $this->insurance()->delete();
+        $this->education()->delete();
+        $this->employ()->delete();
+        $this->physical()->delete();
+
+    }
+
 
 }
