@@ -218,78 +218,109 @@
                         <ul class="menu-inner">
                             <!-- Dashboards -->
                             <li class="menu-item active">
-                                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                <a href="javascript:void(0)" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                                     <div data-i18n="Dashboards">داشبورد</div>
                                 </a>
-                                <ul class="menu-sub">
-                                    <li class="menu-item active">
-                                        <a href="" class="menu-link">
-                                            <i class="menu-icon tf-icons bx bx-pie-chart-alt-2"></i>
-                                            <div data-i18n="Analytics">تجزیه و تحلیل</div>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <!-- Tables -->
                             <li class="menu-item">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bx-group"></i>
-                                    <div data-i18n="Tables">کاربران</div>
+                                    <div data-i18n="Tables">کاربران سیستم</div>
                                 </a>
                                 <ul class="menu-sub">
                                     <!-- Tables -->
                                     <li class="menu-item">
-                                        <a href="{{route('admin.customer.index')}}" class="menu-link">
-                                            <i class="menu-icon tf-icons bx bx-table"></i>
+                                        <a href="{{route('admin.user.index')}}" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-user"></i>
                                             <div data-i18n="Tables">لیست کاربران</div>
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                            <i class="menu-icon tf-icons bx bx-grid"></i>
+                                        <a href="{!! route('admin.user.index') !!}" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-plus"></i>
                                             <div data-i18n="Datatables">کاربرجدید</div>
                                         </a>
-                                        <ul class="menu-sub">
-                                            <li class="menu-item">
-                                                <a href="javascript:void(0);" class="menu-link">
-                                                    <div data-i18n="Basic">منو1</div>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="javascript:void(0);" class="menu-link">
-                                                    <div data-i18n="Advanced">منو2</div>
-                                                </a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="javascript:void(0);" class="menu-link">
-                                                    <div data-i18n="Extensions">منو3</div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bxs-cog"></i>
+                                    <div data-i18n="Misc">تنظیمات</div>
+                                </a>
 
-
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bxs-notification"></i>
+                                    <div data-i18n="Misc">پیام رسان</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bxs-dollar-circle"></i>
+                                    <div data-i18n="Misc">مالی</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bxs-news"></i>
+                                    <div data-i18n="Misc">وبلاگ</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bxs-report"></i>
+                                    <div data-i18n="Misc">گزارشات</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-list-ul"></i>
+                                    <div data-i18n="Misc">درخواست ها</div>
+                                </a>
+                            </li>
 
                             <!-- Misc -->
                             <li class="menu-item">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
-                                    <i class="menu-icon tf-icons bx bx-shape-circle"></i>
-                                    <div data-i18n="Misc">متفرقه</div>
+                                    <i class="menu-icon tf-icons bx bxs-user-account"></i>
+                                    <div data-i18n="Misc">نفشها</div>
                                 </a>
                                 <ul class="menu-sub">
                                     <li class="menu-item">
                                         <a href="#" class="menu-link">
-                                            <i class="menu-icon tf-icons bx bx-support"></i>
-                                            <div data-i18n="Support">پشتیبانی</div>
+                                            <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
+                                            <div data-i18n="Support">لیست نقش ها</div>
                                         </a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="#" class="menu-link">
-                                            <i class="menu-icon tf-icons bx bx-file"></i>
-                                            <div data-i18n="Documentation">مستندات</div>
+                                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                                            <div data-i18n="Documentation">نقش جدید</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Misc -->
+                            <li class="menu-item">
+                                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons bx bxs-group"></i>
+                                    <div data-i18n="Misc">کارجویان</div>
+                                </a>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="#" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bxs-user"></i>
+                                            <div data-i18n="Support">لیست کارجویان</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                                            <div data-i18n="Documentation">کارجوی جدید</div>
                                         </a>
                                     </li>
                                 </ul>
