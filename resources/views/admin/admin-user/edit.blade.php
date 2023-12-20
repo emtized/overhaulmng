@@ -15,7 +15,7 @@
                     @csrf
                     @method('put')
                     <div class="row g-3">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <label class="form-label" for="firstname">نام </label>
                             <span class="link-danger">*</span>
                             <input type="text" id="firstname" class="form-control text-start" name="first_name" placeholder="" dir="rtl" value="{{old('first_name',$user->first_name)}}">
@@ -25,7 +25,7 @@
                             </strong>
                             @enderror
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <label class="form-label" for="lastname">نام خانوادگی</label>
                             <span class="link-danger">*</span>
                             <input type="text" id="lastname" name="last_name" class="form-control text-start" value="{{old('last_name',$user->last_name)}}">
@@ -35,7 +35,7 @@
                             </strong>
                             @enderror
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <label class="form-label" for="email">پست الکترونیک</label>
                             <span class="link-danger">*</span>
                             <input type="text" id="email" name="email" class="form-control text-start" value="{{old('email',$user->email)}}">
@@ -47,17 +47,7 @@
                             </strong>
                             @enderror
                         </div>
-                        <div class="col-sm-6">
-                            <label class="form-label" for="password">رمز عبور </label>
-                            <span class="link-danger">*</span>
-                            <input type="text" id="password" class="form-control text-start" name="password" placeholder="" dir="rtl" value="{{old('password',$user->password)}}">
-                            @error('password')
-                             <strong class="text-danger">
-                                {{ $message }}
-                            </strong>
-                            @enderror
-                        </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <label class="form-label" for="">نقش کاربری</label>
                             <span class="link-danger">*</span>
 
@@ -66,6 +56,26 @@
                                   <option value="{{$role->uuid}}" {{ in_array($role->uuid , $user->roles->pluck('uuid')->toArray()) ? 'selected' : '' }}>{{$role->title}}</option>
                                 @endforeach
                             </select>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label" for="password">رمز عبور </label>
+                            <input type="password" id="password" class="form-control text-start" name="password" placeholder="" dir="rtl" value="{{old('password')}}">
+                            @error('password')
+                             <strong class="text-danger">
+                                {{ $message }}
+                            </strong>
+                            @enderror
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label" for="password_confirmation">تاییدیه رمز عبور</label>
+                            <input type="password" id="password_confirmation" class="form-control text-start" name="password_confirmation" placeholder="" dir="rtl" value="{{ old('password_confirmation') }}">
+                            @error('password_confirmation')
+                            <strong class="text-danger">
+                                {{ $message }}
+                            </strong>
+                            @enderror
                         </div>
                     </div>
                     <div class="mt-4">
@@ -99,10 +109,6 @@
 						required: true,
 						minlength: 2
 					},
-					password: {
-						required: true,
-						minlength: 5
-					},
 					email: {
 						required: true,
 						email: true
@@ -114,10 +120,6 @@
 					father_name: {
 						required: "لطفا نام پدر را وارد کنید",
 						minlength: "تعداد کاراکتر از 2 کمتر نباشد"
-					},
-					password: {
-						required: "لطفا رمز عبور خود را وارد کنید",
-						minlength: "تعداد کاراکتر وارده از 5 کمتر نباشد"
 					},
 					email: {
                         required: 'لطفا ایمیل خود را وارد کنید',
