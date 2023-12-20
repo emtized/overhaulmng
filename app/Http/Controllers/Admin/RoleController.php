@@ -12,13 +12,8 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::latest()->paginate(20);
+        $roles = Role::all();
         return view('admin.roles.index', compact('roles'));
-    }
-
-    public function show(Role $role)
-    {
-        return view('admin.roles.show', compact('role'));
     }
 
     public function create()
@@ -30,6 +25,7 @@ class RoleController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'title' => 'required'
         ]);
 
         try {
@@ -37,9 +33,12 @@ class RoleController extends Controller
 
             $role = Role::create([
                 'name' => $request->name,
+                'title' => $request->title,
                 'guard_name' => 'web'
             ]);
-            $permissions = $request->except('_token', 'name');
+
+            $permissions = $request->except('_token', 'name','title');
+            $role->givePermissionTo($permissions);
 
             DB::commit();
         } catch (\Exception $ex) {
@@ -66,7 +65,9 @@ class RoleController extends Controller
             $role->update([
                 'name' => $request->name,
             ]);
+
             $permissions = $request->except('_token', 'name','_method');
+            $role->syncPermissions($permissions);
 
             DB::commit();
         } catch (\Exception $ex) {
@@ -74,5 +75,11 @@ class RoleController extends Controller
             return redirect()->back();
         }
         return redirect()->route('admin.roles.index');
+    }
+
+    public function destroy(Role $role)
+    {
+        $result = $role->delete();
+        return back()->with('swal-success','نقش شما با موفقیت حذف شد');
     }
 }

@@ -15,15 +15,13 @@
                 <tr>
                     <th><input type="checkbox" class="form-check-input mt-0 align-middle"></th>
                     <th>شناسه</th>
+                    <th>نام سیستمی</th>
                     <th>نام</th>
-                    <th>ایمیل</th>
-                    <th>نقش</th>
-                    <th>تاریخ</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $key => $user)
+                    @foreach($roles as $key => $role)
                     <tr>
                         <td>
                             <input type="checkbox" class="dt-checkboxes form-check-input mt-0 align-middle"></td>
@@ -35,11 +33,11 @@
                             </div>
                         </td>
                         <td>
-                            <span class="emp_name text-truncate">{{$user->first_name . ' '.$user->last_name}}</span>
+                            <span class="emp_name text-truncate">{{$role->name}}</span>
                         </td>
-                        <td>{{ $user->email}}</td>
-                        <td>{{ $user->roles->pluck('title')[0] }}</td>
-                        <td>{{jalaliDate($user->created_at)}}</td>
+                        <td>
+                            <span class="emp_name text-truncate">{{$role->title}}</span>
+                        </td>
                         <td>
                             <div class="d-inline-block">
                                 <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +52,7 @@
                                     </li>
                                     <div class="dropdown-divider"></div>
                                     <li>
-                                        <form class="d-inline" action="{{ route('admin.user.delete',$user->id)}}" method="post">
+                                        <form class="d-inline" action="{{ route('admin.role.delete',$role->uuid)}}" method="post">
                                             @csrf
                                             {{ method_field('delete') }}
                                         <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
@@ -63,7 +61,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="{{route('admin.user.edit',$user->id)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <a href="{{route('admin.role.edit',$role->uuid)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
                         </td>
                     </tr>
                     @endforeach

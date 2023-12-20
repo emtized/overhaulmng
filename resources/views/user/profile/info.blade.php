@@ -154,7 +154,7 @@
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="flatpickr">تاریخ تولد</label>
                                                     <span class="link-danger">*</span>
-                                                    <input type="text" class="form-control flatpickr-date" name="birth_day" value="{{old('birth_day',$user->birth_day)}}">
+                                                    <input type="text" class="form-control flatpickr-date" name="birth_day" value="{{old('birth_day',verta($user->birth_day))}}">
                                                     <div class="input-group input-group-merge">
                                                     </div>
                                                 </div>
@@ -488,7 +488,6 @@
         const flatpickrDate = document.querySelector('.flatpickr-date');
         if (flatpickrDate) {
             flatpickrDate.flatpickr({
-                minDate: "today",
                 monthSelectorType: 'static',
                 locale: 'fa',
                 altInput: true,
