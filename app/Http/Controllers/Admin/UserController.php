@@ -46,7 +46,9 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        $user->roles()->detach();
         $result = $user->delete();
+        
         return back()->with('swal-success','کاربر با موفقیت حذف شد');
     }
 }

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{!! asset('libs/typeahead-js/typeahead.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/apex-charts/apex-charts.css') !!}">
     <link rel="stylesheet" href="{!! asset('libs/sweetalert/sweetalert2.css') !!}">
+    <link rel="stylesheet" href="{!! asset('libs/select2/select2.css') !!}">
     @stack('css')
 
     <!-- Page CSS -->
@@ -312,7 +313,7 @@
                                 </a>
                                 <ul class="menu-sub">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
+                                       <a href="#" class="menu-link">
                                             <i class="menu-icon tf-icons bx bxs-user"></i>
                                             <div data-i18n="Support">لیست کارجویان</div>
                                         </a>
@@ -379,6 +380,7 @@
 <script src="{!! asset('libs/i18n/i18n.js')!!}"></script>
 <script src="{!! asset('libs/typeahead-js/typeahead.js') !!}"></script>
 <script src="{!! asset('libs/sweetalert/sweetalert2.min.js') !!}"></script>
+<script src="{!! asset('libs/select2/select2.js') !!}"></script>
 <script src="{!! asset('js/menu.js') !!}"></script>
 <!-- endbuild -->
 

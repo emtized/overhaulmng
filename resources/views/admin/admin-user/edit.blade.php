@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-datatable table-responsive pt-0">
             <div class="card-body">
-                <form action="{{route('admin.user.update',$user->id)}}" method="post">
+                <form action="{{route('admin.user.update',$user->id)}}" method="post" id="formsubmit">
                     @csrf
                     @method('put')
                     <div class="row g-3">
@@ -80,6 +80,71 @@
     <script src="{!! asset('libs/datatables-bs5/datatables-bootstrap5.js') !!}"></script>
     <script src="{!! asset('libs/datatables-bs5/i18n/fa.js') !!}"></script>
     <script src="{!! asset('js/tables-datatables-basic.js') !!}"></script>
+    <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
+
+    <script>
+
+		$.validator.setDefaults( {
+			submitHandler: function () {
+				form.submit();
+			}
+		} );
+
+		$( document ).ready( function () {
+			$( "#formsubmit" ).validate( {
+				rules: {
+					first_name: "required",
+					last_name: "required",
+					father_name: {
+						required: true,
+						minlength: 2
+					},
+					password: {
+						required: true,
+						minlength: 5
+					},
+					email: {
+						required: true,
+						email: true
+					},
+				},
+				messages: {
+					first_name: "لطفا نام را وارد کنید",
+					last_name: "لطفا نام خانوادگی رو وارد کنید",
+					father_name: {
+						required: "لطفا نام پدر را وارد کنید",
+						minlength: "تعداد کاراکتر از 2 کمتر نباشد"
+					},
+					password: {
+						required: "لطفا رمز عبور خود را وارد کنید",
+						minlength: "تعداد کاراکتر وارده از 5 کمتر نباشد"
+					},
+					email: {
+                        required: 'لطفا ایمیل خود را وارد کنید',
+						email: 'لطفا  ایمیل معتبر وارد کنید'
+                    },
+				},
+                errorElement: "em",
+                    errorPlacement: function ( error, element ) {
+                        error.appendTo(element.parent());
+                        error.addClass( "help-block" );
+
+                        if ( element.prop( "type" ) === "checkbox" ) {
+                            error.insertAfter( element.parent( "label" ) );
+                        } else {
+                            error.insertAfter( element );
+                        }
+                    },
+                    highlight: function ( element, errorClass, validClass ) {
+                        $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+                    }
+			} );
+		} );
+
+    </script>
 
     @include('alert.sweetalert.delete-confirm', ['className' => 'delete'])
 @endpush
