@@ -246,11 +246,25 @@
                                 </ul>
                             </li>
                             <li class="menu-item">
-                                <a href="javascript:void(0)" class="menu-link">
+                                <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bxs-cog"></i>
                                     <div data-i18n="Misc">تنظیمات</div>
                                 </a>
-
+                                <ul class="menu-sub">
+                                    <!-- Tables -->
+                                    <li class="menu-item">
+                                        <a href="" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-current-location"></i>
+                                            <div>شهر/شهرستان</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="" class="menu-link">
+                                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                                            <div>سامانه</div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="menu-item">
                                 <a href="javascript:void(0)" class="menu-link">
