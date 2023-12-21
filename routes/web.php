@@ -21,12 +21,30 @@ Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout
 
 
 //admin routes
-Route::prefix('admin')->middleware(['auth','role:Administrator|Admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Manager'])->group(function () {
 
     //admin dashboard
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
 
-        //customer
+            //role
+            Route::prefix('roles')->group(function () {
+                Route::get('/',[\App\Http\Controllers\Admin\RoleController::class,'index'])->name('admin.role.index');
+                Route::post('/store', [\App\Http\Controllers\Admin\RoleController::class,'store'])->name('admin.role.store');
+                Route::get('/edit/{role}',[\App\Http\Controllers\Admin\RoleController::class,'edit'])->name('admin.role.edit');
+                Route::put('/update/{role}',[\App\Http\Controllers\Admin\RoleController::class,'update'])->name('admin.role.update');
+                Route::delete('/destroy/{role}',[\App\Http\Controllers\Admin\RoleController::class,'destroy'])->name('admin.role.delete');
+            });
+
+         //city
+         Route::prefix('cities')->group(function () {
+            Route::get('/',[\App\Http\Controllers\Admin\CitiesController::class,'index'])->name('admin.city.index');
+            Route::post('/store', [\App\Http\Controllers\Admin\CitiesController::class,'store'])->name('admin.city.store');
+            Route::get('/edit/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'edit'])->name('admin.city.edit');
+            Route::put('/update/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'update'])->name('admin.city.update');
+            Route::delete('/destroy/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'destroy'])->name('admin.city.delete');
+        });
+
+        //users
         Route::prefix('users')->group(function () {
             Route::get('/',[\App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.user.index');
             Route::post('/store', [\App\Http\Controllers\Admin\UserController::class,'store'])->name('admin.user.store');

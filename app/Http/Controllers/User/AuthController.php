@@ -50,8 +50,7 @@ class AuthController extends Controller
         //create data
         $inputs['password'] = '123456789';
 
-        $realTimestampStart = substr($request->birth_day, 0, 10);
-        $inputs['birth_day'] = date("Y-m-d H:i:s", (int) $realTimestampStart);
+        $inputs['birth_day'] = convertToGregorianDate($request->birth_day);
 
         //create customer
         $customer = Customer::create($inputs);

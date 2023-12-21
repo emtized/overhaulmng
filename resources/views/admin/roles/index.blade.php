@@ -15,39 +15,29 @@
                 <tr>
                     <th><input type="checkbox" class="form-check-input mt-0 align-middle"></th>
                     <th>شناسه</th>
+                    <th>نام سیستمی</th>
                     <th>نام</th>
-                    <th>ایمیل</th>
-                    <th>تاریخ</th>
-                    <th>همراه</th>
-                    <th>وضعیت</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($customers as $customer)
+                    @foreach($roles as $key => $role)
                     <tr>
                         <td>
                             <input type="checkbox" class="dt-checkboxes form-check-input mt-0 align-middle"></td>
                         <td>
                             <div class="d-flex justify-content-start align-items-center user-name">
-                                <div class="avatar-wrapper">
-                                    <div class="avatar me-2">
-                                        <img src="{{ asset($customer->image_small) }}" alt="آواتار" class="rounded-circle">
-                                    </div>
-                                </div>
                                 <div class="d-flex flex-column">
-                                    <span class="emp_name text-truncate">{{$customer->first_name . ' '.$customer->last_name}}</span>
-                                    <small class="emp_post text-truncate text-muted">{{$customer->father_name}}</small>
+                                    <span class="emp_name text-truncate">{{ $key += 1 }}</span>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <span class="emp_name text-truncate">{{$customer->first_name . ' '.$customer->last_name}}</span>
+                            <span class="emp_name text-truncate">{{$role->name}}</span>
                         </td>
-                        <td>{{ $customer->email}}</td>
-                        <td>{{jalaliDate($customer->created_at)}}</td>
-                        <td>{{$customer->contact->mobile1 ?? 'وارد نشده است'}}</td>
-                        <td><span class="badge rounded-pill  bg-label-warning">استعفا داده</span></td>
+                        <td>
+                            <span class="emp_name text-truncate">{{$role->title}}</span>
+                        </td>
                         <td>
                             <div class="d-inline-block">
                                 <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +52,7 @@
                                     </li>
                                     <div class="dropdown-divider"></div>
                                     <li>
-                                        <form class="d-inline" action="{{ route('admin.customer.delete',$customer->id)}}" method="post">
+                                        <form class="d-inline" action="{{ route('admin.role.delete',$role->uuid)}}" method="post">
                                             @csrf
                                             {{ method_field('delete') }}
                                         <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
@@ -71,7 +61,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="javascript" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <a href="{{route('admin.role.edit',$role->uuid)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -82,11 +72,11 @@
     <!-- Modal to add new record -->
     <div class="offcanvas offcanvas-end {{ count($errors) > 0 ? 'show' : '' }}" id="add-new-record">
         <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">ایجاد کارجو جدید</h5>
+            <h5 class="offcanvas-title" id="exampleModalLabel">کاربر سیستم جدید</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body flex-grow-1">
-            <form action="{{route('admin.customer.store')}}" method="post" class="add-new-record pt-0 row g-2" id="form-add-new-record">
+            <form action="{{route('admin.user.store')}}" method="post" class="add-new-record pt-0 row g-2" id="form-add-new-record">
                 @csrf
                 <div class="col-sm-12">
                     <label class="form-label" for="first_name">نام </label>
@@ -114,19 +104,6 @@
                 </div>
 
                 <div class="col-sm-12">
-                    <label class="form-label" for="father_name">نام پدر</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="father_name" class="form-control dt-full-name dt-salary" name="father_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('father_name')}}">
-                    </div>
-                    @error('father_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-
-                <div class="col-sm-12">
                     <label class="form-label" for="basicEmail">ایمیل</label>
                     <div class="input-group input-group-merge">
                         <span class="input-group-text"><i class="bx bx-envelope"></i></span>
@@ -138,6 +115,16 @@
                     </strong>
                     @enderror
                 </div>
+
+                <div class="col-sm-12">
+                    <label class="form-label" for="">نقش</label>
+                    <select class="form-select dt-salary" name="role">
+                        @foreach ($roles as $role)
+                             <option value="{{$role->uuid}}">{{$role->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="col-sm-12">
                     <label class="form-label" for="password">رمز عبور</label>
                     <div class="input-group input-group-merge">
@@ -150,57 +137,6 @@
                     </strong>
                     @enderror
                     <div class="form-text">می‌توانید از حروف، اعداد و نقطه استفاده کنید</div>
-                </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
-                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">انصراف</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!--/ DataTable with Buttons -->
-    <div class="offcanvas offcanvas-end" id="add-new-record">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">رکورد جدید</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body flex-grow-1">
-            <form class="add-new-record pt-0 row g-2" id="form-add-new-record" onsubmit="return false">
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicFullname">نام کامل</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="basicFullname" class="form-control dt-full-name" name="basicFullname" placeholder="جان اسنو" aria-label="John Doe" aria-describedby="basicFullname2">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicPost">مطلب</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicPost2" class="input-group-text"><i class="bx bxs-briefcase"></i></span>
-                        <input type="text" id="basicPost" name="basicPost" class="form-control dt-post" placeholder="توسعه دهنده وب" aria-label="Web Developer" aria-describedby="basicPost2">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicEmail">ایمیل</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                        <input type="text" id="basicEmail" name="basicEmail" class="form-control dt-email text-start" placeholder="john.doe@example.com" aria-label="john.doe@example.com" dir="ltr">
-                    </div>
-                    <div class="form-text">می‌توانید از حروف، اعداد و نقطه استفاده کنید</div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicDate">تاریخ عضویت</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicDate2" class="input-group-text"><i class="bx bx-calendar"></i></span>
-                        <input type="text" class="form-control dt-date" id="basicDate" name="basicDate" aria-describedby="basicDate2" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicSalary">حقوق</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicSalary2" class="input-group-text">تومان</span>
-                        <input type="number" id="basicSalary" name="basicSalary" class="form-control dt-salary" placeholder="12000" aria-label="12000" aria-describedby="basicSalary2">
-                    </div>
                 </div>
                 <div class="col-sm-12">
                     <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
@@ -245,7 +181,7 @@
 				},
 				messages: {
 					first_name: "لطفا نام را وارد کنید",
-					last_name: "لطفا نام خانوادگی رو وارد کنید",
+					last_name: "لطفا نام خانوادگی را  وارد کنید",
 					father_name: {
 						required: "لطفا نام پدر را وارد کنید",
 						minlength: "تعداد کاراکتر از 2 کمتر نباشد"
@@ -275,4 +211,73 @@
     </script>
 
     @include('alert.sweetalert.delete-confirm', ['className' => 'delete'])
+    <script>
+        $(function () {
+            var dt_basic_table = $('.datatables-basic'),
+                dt_basic;
+
+            // DataTable with buttons
+            // --------------------------------------------------------------------
+
+            if (dt_basic_table.length) {
+                dt_basic = dt_basic_table.DataTable({
+                    order: [[2, 'asc']],
+                    dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end primary-font pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+                    displayLength: 7,
+                    lengthMenu: [7, 10, 25, 50, 75, 100],
+                    buttons: [
+                        {
+                            text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن کاربر جدید</span>',
+                            className: 'create-new btn btn-primary ms-2'
+                        }
+                    ],
+                });
+                $('div.head-label').html('<h5 class="card-title mb-0">لیست کاربران سیستم</h5>');
+            }
+
+            // Add New record
+            // ? Remove/Update this code as per your requirements
+            var count = 101;
+            // On form submit, if form is valid
+            fv.on('core.form.valid', function () {
+                var $new_name = $('.add-new-record .dt-full-name').val(),
+                    $new_post = $('.add-new-record .dt-post').val(),
+                    $new_email = $('.add-new-record .dt-email').val(),
+                    $new_date = $('.add-new-record .dt-date').val(),
+                    $new_salary = $('.add-new-record .dt-salary').val();
+
+                if ($new_name != '') {
+                    dt_basic.row
+                        .add({
+                            id: count,
+                            full_name: $new_name,
+                            post: $new_post,
+                            email: $new_email,
+                            start_date: $new_date,
+                            salary: '$' + $new_salary,
+                            status: 5
+                        })
+                        .draw();
+                    count++;
+
+                    // Hide offcanvas using javascript method
+                    offCanvasEl.hide();
+                }
+            });
+
+            // Delete Record
+            $('.datatables-basic tbody').on('click', '.delete-record', function () {
+                dt_basic.row($(this).parents('tr')).remove().draw();
+            });
+
+
+            // Filter form control to default size
+            // ? setTimeout used for multilingual table initialization
+            setTimeout(() => {
+                $('.dataTables_filter .form-control').removeClass('form-control-sm');
+                $('.dataTables_length .form-select').removeClass('form-select-sm');
+            }, 300);
+        });
+
+    </script>
 @endpush

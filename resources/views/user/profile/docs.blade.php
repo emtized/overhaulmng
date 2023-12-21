@@ -39,6 +39,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="cart">
+                                                        @error('cart')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -74,6 +77,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="shena">
+                                                        @error('shena')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -98,6 +104,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="shena2">
+                                                        @error('shena2')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -126,6 +135,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="soldier">
+                                                        @error('soldier')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -152,6 +164,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="image">
+                                                        @error('image')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -179,6 +194,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="smook_image">
+                                                        @error('smook_image')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -207,6 +225,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="police">
+                                                        @error('police')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -233,6 +254,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="doctor">
+                                                        @error('doctor')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -259,6 +283,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="work_image">
+                                                        @error('work_image')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -288,6 +315,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="ins_image">
+                                                        @error('ins_image')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>
@@ -315,6 +345,9 @@
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">لطفا مدرک موردنظر خودرا با فرمت (PNG,JPG) بارگذاری نمایید.</label>
                                                         <input class="form-control" type="file" id="formFile" name="ju_image">
+                                                        @error('ju_image')
+                                                           <strong class="text-danger">{{$message}}</strong>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="btn btn-success">بروزرسانی</button>
                                                 </form>

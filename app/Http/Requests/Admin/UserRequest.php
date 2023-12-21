@@ -26,14 +26,13 @@ class UserRequest extends FormRequest
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required|unique:users,email',
-                'password' => 'required',
             ];
         } else{
             return [
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required',
-                'password' => 'required',
+                'password' => ['nullable', 'confirmed'],
             ];
         }
     }

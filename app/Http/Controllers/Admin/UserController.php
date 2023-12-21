@@ -38,6 +38,12 @@ class UserController extends Controller
     {
         $inputs = $request->all();
 
+        if (!empty($request->password)) {
+            $inputs['password'] = bcrypt($request->password);
+        } else {
+            unset($inputs['password']);
+        }
+
         $user->update($inputs);
         $user->syncRoles($request->role);
 
@@ -46,7 +52,9 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        $user->roles()->detach();
         $result = $user->delete();
+
         return back()->with('swal-success','کاربر با موفقیت حذف شد');
     }
 }
