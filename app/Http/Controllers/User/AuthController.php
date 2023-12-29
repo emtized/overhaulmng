@@ -43,13 +43,12 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
         $inputs = $request->all();
 
         //create data
         $inputs['password'] = '123456789';
-
         $inputs['birth_day'] = convertToGregorianDate($request->birth_day);
 
         //create customer
