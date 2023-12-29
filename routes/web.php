@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +28,14 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
 
             //role
+
             Route::prefix('roles')->group(function () {
-                Route::get('/',[\App\Http\Controllers\Admin\RoleController::class,'index'])->name('admin.role.index');
-                Route::post('/store', [\App\Http\Controllers\Admin\RoleController::class,'store'])->name('admin.role.store');
-                Route::get('/edit/{role}',[\App\Http\Controllers\Admin\RoleController::class,'edit'])->name('admin.role.edit');
-                Route::put('/update/{role}',[\App\Http\Controllers\Admin\RoleController::class,'update'])->name('admin.role.update');
-                Route::delete('/destroy/{role}',[\App\Http\Controllers\Admin\RoleController::class,'destroy'])->name('admin.role.delete');
+                Route::get('/',[RoleController::class,'index'])->name('admin.role.index');
+                Route::get('/create',[RoleController::class,'create'])->name('admin.role.create');
+                Route::post('/store', [RoleController::class,'store'])->name('admin.role.store');
+                Route::get('/edit/{role}',[RoleController::class,'edit'])->name('admin.role.edit');
+                Route::put('/update/{role}',[RoleController::class,'update'])->name('admin.role.update');
+                Route::delete('/destroy/{role}',[RoleController::class,'destroy'])->name('admin.role.delete');
             });
 
          //city
