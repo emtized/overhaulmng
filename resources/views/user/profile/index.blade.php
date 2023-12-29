@@ -113,7 +113,28 @@
                             </div>
                         </div>
                         <!--/ Navbar pills -->
-
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <h5 class="card-header heading-color">فعال سازی حساب</h5>
+            <div class="card-body">
+                <div class="mb-3 col-12 mb-0">
+                    <div class="alert alert-warning">
+                        <h6 class="alert-heading mb-1">فعالسازی حساب</h6>
+                        <p class="mb-0">در صورتی که حساب خود را  ظرف مدت 48 ساعت فعال ننماید حساب کاربری شما حذف خواهد شد، بازگشتی وجود نخواهد داشت. لطفاجهت بررسی و تایید حساب کاربری خود هزینه بررسی اطلاعات را پرداخت نمایید.</p>
+                    </div>
+                </div>
+                <form id="formAccountDeactivation" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation">
+                        <label class="form-check-label" for="accountActivation">قوانین و مقررات را خوانده و قبول دارم</label>
+                        <div class="fv-plugins-message-container invalid-feedback"></div></div>
+                    <button type="submit" class="btn btn-danger deactivate-account">پرداخت</button>
+                    <input type="hidden"></form>
+            </div>
+        </div>
+    </div>
+</div>
                         <!-- User Profile Content -->
                         <div class="row">
                             <div class="col-xl-4 col-lg-5 col-md-5">
