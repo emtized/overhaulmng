@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -19,7 +20,8 @@ class ProfileController extends Controller
 
     public function showProfile()
     {
-        return view('user.profile.index',['user' => $this->user]);
+        $transactions = Transaction::where('customer_id', $this->user->id)->get();
+        return view('user.profile.index',['user' => $this->user, 'transactions' => $transactions]);
     }
 
     public function info()

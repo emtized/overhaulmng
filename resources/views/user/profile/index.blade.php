@@ -124,13 +124,16 @@
                         <p class="mb-0">در صورتی که حساب خود را  ظرف مدت 48 ساعت فعال ننماید حساب کاربری شما حذف خواهد شد، بازگشتی وجود نخواهد داشت. لطفاجهت بررسی و تایید حساب کاربری خود هزینه بررسی اطلاعات را پرداخت نمایید.</p>
                     </div>
                 </div>
-                <form id="formAccountDeactivation" onsubmit="return false" class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
+                <form action="{{ route('user.payment')}}" method="POST" id="formAccountDeactivation" class="fv-plugins-bootstrap5 fv-plugins-framework"   novalidate="novalidate">
+                    @csrf
+                    <input type="hidden" name="amount" value="5000">
+
                     <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation">
+                        <input class="form-check-input" type="checkbox" id="accountActivation">
                         <label class="form-check-label" for="accountActivation">قوانین و مقررات را خوانده و قبول دارم</label>
                         <div class="fv-plugins-message-container invalid-feedback"></div></div>
-                    <button type="submit" class="btn btn-danger deactivate-account">پرداخت</button>
-                    <input type="hidden"></form>
+                    <button type="submit" class="btn btn-danger deactivate-account" disabled>پرداخت</button>
+                </form>
             </div>
         </div>
     </div>
@@ -273,6 +276,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <ul class="list-unstyled mb-0">
+                                                    @foreach ($transactions as $t)
                                                     <li class="mb-3">
                                                         <div class="d-flex align-items-start">
                                                             <div class="d-flex align-items-center">
@@ -280,79 +284,20 @@
                                                                     <img src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="آواتار" class="rounded-circle">
                                                                 </div>
                                                                 <div class="me-2">
-                                                                    <h6 class="mb-0">تاییده اطلاعات</h6>
-                                                                    <small class="text-muted">2000 تومان</small>
+                                                                    <h6 class="mb-0">{{ number_format($t->amount) }} تومان</h6>
+                                                                    <small class="mb-0">تاریخ پرداختی : {{jalaliDate($t->created_at)}}</small>
                                                                 </div>
                                                             </div>
                                                             <div class="ms-auto">
+                                                                @if ($t->status == 0)
                                                                 <a href="javascript:;"><span class="mt-1 badge bg-label-danger">پرداخت نشده</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-3">
-                                                                    <img src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="آواتار" class="rounded-circle">
-                                                                </div>
-                                                                <div class="me-2">
-                                                                    <h6 class="mb-0">تیم پشتیبانی</h6>
-                                                                    <small class="text-muted">2000 تومان</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ms-auto">
-                                                                <a href="javascript:;"><span class="mt-1 badge bg-label-primary">تایید شده</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-3">
-                                                                    <img src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="آواتار" class="rounded-circle">
-                                                                </div>
-                                                                <div class="me-2">
-                                                                    <h6 class="mb-0">هزینه</h6>
-                                                                    <small class="text-muted">2000 تومان</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ms-auto">
+                                                                @else
                                                                 <a href="javascript:;"><span class="mt-1 badge bg-label-info">پرداخت شده</span></a>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="mb-3">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-3">
-                                                                    <img src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="آواتار" class="rounded-circle">
-                                                                </div>
-                                                                <div class="me-2">
-                                                                    <h6 class="mb-0">توسعه دهندگان Vue.js</h6>
-                                                                    <small class="text-muted">289 عضو</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ms-auto">
-                                                                <a href="javascript:;"><span class="mt-1 badge bg-label-danger">پرداخت نشده</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="mb-3">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-3">
-                                                                    <img src="https://myket.ir/app-icon/mob.banking.android.pasargad_c834b1f5-1007-437b-97d7-9235629c3afb.png" alt="آواتار" class="rounded-circle">
-                                                                </div>
-                                                                <div class="me-w">
-                                                                    <h6 class="mb-0">هزینه تاییده اطلاعات بانکی</h6>
-                                                                    <small class="text-muted">3000 تومان</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="ms-auto">
-                                                                <a href="javascript:;"><span class="mt-1 badge bg-label-secondary">تایید نشده</span></a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    @endforeach
                                                     <li class="text-center">
                                                         <a href="javascript:;">مشاهده همه پرداخت ها</a>
                                                     </li>
@@ -437,7 +382,18 @@
             });
         }
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function toggleButton() {
+            var checkbox = document.getElementById('accountActivation');
+            var button = document.querySelector('.deactivate-account');
 
+            button.disabled = !checkbox.checked;
+        }
+        document.getElementById('accountActivation').addEventListener('change', toggleButton);
+    });
+
+    </script>
 
 @endpush
 

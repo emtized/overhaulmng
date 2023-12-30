@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Models\Customer;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\InfoRequest;
 use App\Http\Requests\Admin\CustomerRequest;
@@ -14,7 +16,11 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('admin.user.index',compact('customers'));
+        $inActiveCustomer = Customer::where('activation',0)->count();
+        $activeCustomer = Customer::where('activation',1)->count();
+        $successfulTransactions = DB::table('transactions')->join('customers', 'transactions.customer_id', '=', 'customers.id')->where('transactions.status', 1)->where('customers.activation', 0)->count();
+        
+        return view('admin.user.index',compact('customers','inActiveCustomer','activeCustomer','successfulTransactions'));
     }
 
     public function store(CustomerRequest $request)
@@ -100,7 +106,7 @@ class CustomerController extends Controller
     {
         $result = $customer->delete();
         $customer->deleteRelations();
-        
+
         return back()->with('swal-success','کاربر مورد نظر با موفقیت حذف شد');
     }
 }
