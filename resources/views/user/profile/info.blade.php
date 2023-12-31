@@ -145,12 +145,23 @@
                                                 </div>
 
                                                 <div class="col-sm-4">
-                                                    <label class="form-label" for="place">محل صدور</label>
+                                                    <label class="form-label" for="place">استان محل صدور</label>
                                                     <span class="link-danger">*</span>
-                                                    <input type="text" id="place" name="birth_place" class="form-control text-start" value="{{old('birth_place',$user->birth_place)}}">
-                                                    <div class="input-group input-group-merge">
-                                                    </div>
+                                                    <select class="form-control" id="province" name="province_id">
+                                                        @foreach($provinces as $p)
+                                                            <option value="{!! $p->id !!}" @if(old('province_id', $p->id) == $user->province_id) selected @endif>{!! $p->city_name !!}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
+
+                                                <div class="col-sm-4">
+                                                    <label class="form-label" for="place">شهر محل صدور</label>
+                                                    <span class="link-danger">*</span>
+                                                    <select class="form-control" id="city" name="city_id">
+                                                        <option value="{{ $user->city_id }}" selected>{{ $user->city->city_name }}</option>
+                                                    </select>
+                                                </div>
+
                                                 <div class="col-sm-4">
                                                     <label class="form-label" for="flatpickr">تاریخ تولد</label>
                                                     <span class="link-danger">*</span>
@@ -599,6 +610,35 @@
              });
 
     </script>
+   <script>
+    $(document).ready(function() {
+        $('#province').on('change', function() {
+            var provinceId = $(this).val();
 
+            if (provinceId) {
+                loadCities(provinceId);
+                $('#city').prop('disabled', false);
+            } else {
+                $('#city').prop('disabled', true);
+            }
+        });
+
+        function loadCities(provinceId) {
+            $.ajax({
+                url: '/api/cities-by-province/' + provinceId,
+                method: 'GET',
+                success: function(data) {
+                    $('#city').html('<option value="">انتخاب کنید</option>');
+                    $.each(data, function(index, city) {
+                        $('#city').append('<option value="' + city.id + '">' + city.city_name + '</option>');
+                    });
+                },
+                error: function(error) {
+                    console.log('Error loading cities:', error);
+                }
+            });
+        }
+    });
+</script>
 
 @endpush

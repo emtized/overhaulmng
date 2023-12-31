@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Bank;
+use App\Models\City;
 use App\Models\Date;
 use App\Traits\Uuids;
 use App\Models\Contacts;
@@ -205,6 +206,11 @@ class Customer extends Authenticatable
         $this->employ()->delete();
         $this->physical()->delete();
 
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
     }
 
 

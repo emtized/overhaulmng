@@ -50,11 +50,20 @@
     </div>
 
     <div class="col-sm-4">
-        <label class="form-label" for="place">محل صدور</label>
+        <label class="form-label" for="place">استان محل صدور</label>
         <span class="link-danger">*</span>
-        <input type="text" id="place" name="birth_place" class="form-control text-start">
-        <div class="input-group input-group-merge">
-        </div>
+        <select class="form-control" id="province" name="province_id">
+            @foreach($provinces as $p)
+                <option value="{!! $p->id !!}">{!! $p->city_name !!}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="col-sm-4">
+        <label class="form-label" for="place">شهر محل صدور</label>
+        <span class="link-danger">*</span>
+        <select class="form-control" id="city" name="city_id">
+        </select>
     </div>
     <div class="col-sm-4">
         <label class="form-label" for="flatpickr">تاریخ تولد</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use DateTime;
 use App\Models\Bank;
+use App\Models\City;
 use App\Models\Date;
 use App\Models\User;
 use App\Models\Contacts;
@@ -32,7 +33,8 @@ class AuthController extends Controller
 
     public function showRegister()
     {
-        return view('user.register.first');
+        $provinces = City::where('parent_id', null)->get();
+        return view('user.register.first',compact('provinces'));
     }
 
     public function showforgetPass()
@@ -43,7 +45,7 @@ class AuthController extends Controller
 
 
     //register process
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         $inputs = $request->all();
 
