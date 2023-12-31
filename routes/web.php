@@ -28,7 +28,6 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
 
             //role
-
             Route::prefix('roles')->group(function () {
                 Route::get('/',[RoleController::class,'index'])->name('admin.role.index');
                 Route::get('/create',[RoleController::class,'create'])->name('admin.role.create');
@@ -72,6 +71,9 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
 Route::middleware(['checkCustomerLogin'])->prefix('/profile')->group(function(){
 
     Route::get('/',[\App\Http\Controllers\User\ProfileController::class,'showProfile'])->name('profile');
+
+    //payment
+    Route::post('/payment',[\App\Http\Controllers\User\PaymentController::class,'send'])->name('user.payment');
 
     //personal-info
     Route::get('/personal-info',[\App\Http\Controllers\User\ProfileController::class,'info'])->name('user.show.info');

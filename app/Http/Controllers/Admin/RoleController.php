@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Role;
+use App\Models\User;
+use App\Models\Permission;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 
 class RoleController extends Controller
@@ -13,12 +15,22 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('admin.roles.index', compact('roles'));
+        return view('admin.roles.index',compact('roles'));
     }
 
     public function create()
     {
-        return view('admin.roles.create');
+        $roles = Role::all();
+        $permissions = Permission::all();
+        $users = User::all();
+
+        $usersCountPerRole = [];
+        foreach ($roles as $role) {
+            $userCount = User::role($role->name)->count();
+            $usersCountPerRole[$role->name] = $userCount;
+        }
+
+        return view('admin.roles.create',compact('roles','permissions','users','usersCountPerRole'));
     }
 
     public function store(Request $request)
@@ -43,20 +55,16 @@ class RoleController extends Controller
             DB::commit();
         } catch (\Exception $ex) {
             DB::rollBack();
-            return redirect()->back();
+            return redirect()->back()->with('swal-error',$ex->getMessage());
         }
-        return redirect()->route('admin.roles.index');
-    }
-
-    public function edit(Role $role)
-    {
-        return view('admin.roles.edit', compact('role'));
+        return redirect()->route('admin.role.index');
     }
 
     public function update(Request $request, Role $role)
     {
         $request->validate([
             'name' => 'required',
+            'title' => 'required'
         ]);
 
         try {
@@ -64,17 +72,18 @@ class RoleController extends Controller
 
             $role->update([
                 'name' => $request->name,
+                'title' => $request->title
             ]);
 
-            $permissions = $request->except('_token', 'name','_method');
+            $permissions = $request->except('_token', 'name','title','_method');
             $role->syncPermissions($permissions);
 
             DB::commit();
         } catch (\Exception $ex) {
             DB::rollBack();
-            return redirect()->back();
+            return redirect()->back()->with('swal-error',$ex->getMessage());;
         }
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.role.index');
     }
 
     public function destroy(Role $role)

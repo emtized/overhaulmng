@@ -21,7 +21,7 @@
 
                     <form id="formAuthentication" class="mb-3" action="{{ route('admin.post.login')}}" method="POST">
                         @csrf
-                        <div class="mb-3">
+                        <div class="mb-0">
                             <label for="email" class="form-label">ایمیل یا نام کاربری</label>
                             <input type="text" class="form-control text-start" id="email" name="email" value="{{old('email')}}" placeholder="ایمیل یا نام کاربری خود را وارد کنید" autofocus dir="ltr">
                             @error('email')
@@ -31,7 +31,7 @@
                             @enderror
                             @include('alert.alert-section.error')
                         </div>
-                        <div class="mb-3 form-password-toggle">
+                        <div class="my-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">رمز عبور</label>
                                 <a href="#">
@@ -66,3 +66,44 @@
 
     <!-- / Content -->
 @endsection
+@push('js')
+<script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
+  <script>
+                //valiadte
+                $( document ).ready( function () {
+                $( "#formAuthentication" ).validate( {
+                    rules: {
+                         email: {
+                            required: true,
+                            email: true
+                        },
+                        password:'required'
+                    },
+                    messages: {
+                        email: {
+                            required: "وارد کردن ایمیل  یا نام کاربری الزامی است",
+                            email: "لطفاً یک ایمیل معتبر وارد کنید"
+                        },
+                        password : 'وارد کردن رمز عبور الزامی است'
+                    },
+                    errorPlacement: function ( error, element ) {
+					error.addClass( "ui red pointing label transition" );
+					error.insertAfter( element.parent() );
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".row" ).addClass( errorClass );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).parents( ".row" ).removeClass( errorClass );
+				}
+                } );
+            } );
+
+            //validate handler form
+            $.validator.setDefaults({
+                 submitHandler: function (form) {
+                    form.submit();
+                 },
+             });
+  </script>
+@endpush

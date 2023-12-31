@@ -218,14 +218,14 @@
                     <div class="container-xxl d-flex h-100">
                         <ul class="menu-inner">
                             <!-- Dashboards -->
-                            <li class="menu-item active">
-                                <a href="javascript:void(0)" class="menu-link">
+                            <li class="menu-item {{ request()->is('admin') ? 'active' : ''}}">
+                                <a href="{{route('admin')}}" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                                     <div data-i18n="Dashboards">داشبورد</div>
                                 </a>
                             </li>
                             <!-- Tables -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('admin/users') ? 'active' : ''}}">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bx-group"></i>
                                     <div data-i18n="Tables">کاربران سیستم</div>
@@ -238,15 +238,15 @@
                                             <div data-i18n="Tables">لیست کاربران</div>
                                         </a>
                                     </li>
-                                    <li class="menu-item">
+                                    {{-- <li class="menu-item">
                                         <a href="{!! route('admin.user.index') !!}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-plus"></i>
                                             <div data-i18n="Datatables">کاربرجدید</div>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('admin/cities') ? 'active' : ''}}">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bxs-cog"></i>
                                     <div data-i18n="Misc">تنظیمات</div>
@@ -254,7 +254,7 @@
                                 <ul class="menu-sub">
                                     <!-- Tables -->
                                     <li class="menu-item">
-                                        <a href="" class="menu-link">
+                                        <a href="{{route('admin.city.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-current-location"></i>
                                             <div>شهر/شهرستان</div>
                                         </a>
@@ -299,20 +299,20 @@
                             </li>
 
                             <!-- Misc -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('admin/roles*') ? 'active' : ''}}">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bxs-user-account"></i>
-                                    <div data-i18n="Misc">نفشها</div>
+                                    <div data-i18n="Misc">نقشها</div>
                                 </a>
                                 <ul class="menu-sub">
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{route('admin.role.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                                             <div data-i18n="Support">لیست نقش ها</div>
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{route('admin.role.create')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-plus"></i>
                                             <div data-i18n="Documentation">نقش جدید</div>
                                         </a>
@@ -320,24 +320,24 @@
                                 </ul>
                             </li>
                             <!-- Misc -->
-                            <li class="menu-item">
+                            <li class="menu-item {{ request()->is('admin/customer') ? 'active' : ''}}">
                                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                                     <i class="menu-icon tf-icons bx bxs-group"></i>
                                     <div data-i18n="Misc">کارجویان</div>
                                 </a>
                                 <ul class="menu-sub">
                                     <li class="menu-item">
-                                       <a href="#" class="menu-link">
+                                       <a href="{{route('admin.customer.index')}}" class="menu-link">
                                             <i class="menu-icon tf-icons bx bxs-user"></i>
                                             <div data-i18n="Support">لیست کارجویان</div>
                                         </a>
                                     </li>
-                                    <li class="menu-item">
+                                    {{-- <li class="menu-item">
                                         <a href="#" class="menu-link">
                                             <i class="menu-icon tf-icons bx bx-plus"></i>
                                             <div data-i18n="Documentation">کارجوی جدید</div>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                         </ul>

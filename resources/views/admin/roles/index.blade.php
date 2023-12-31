@@ -17,7 +17,7 @@
                     <th>شناسه</th>
                     <th>نام سیستمی</th>
                     <th>نام</th>
-                    <th>عملیات</th>
+                    <th >عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,7 @@
                         <td>
                             <span class="emp_name text-truncate">{{$role->title}}</span>
                         </td>
-                        <td>
+                        <td class="d-flex align-items-center">
                             <div class="d-inline-block">
                                 <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bx bx-dots-vertical-rounded"></i>
@@ -50,7 +50,7 @@
                                     <li>
                                         <a href="javascript:;" class="dropdown-item">ارسال پیام</a>
                                     </li>
-                                    <div class="dropdown-divider"></div>
+                                    {{-- <div class="dropdown-divider"></div>
                                     <li>
                                         <form class="d-inline" action="{{ route('admin.role.delete',$role->uuid)}}" method="post">
                                             @csrf
@@ -58,10 +58,15 @@
                                         <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
                                     </form>
 
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
-                            <a href="{{route('admin.role.edit',$role->uuid)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <form class="d-inline" action="{{ route('admin.role.delete',$role->uuid)}}" method="post">
+                                @csrf
+                                {{ method_field('delete') }}
+                            <button class="dropdown-item text-danger delete-record delete" type="submit"> <i class="bx bxs-trash"></i></button>
+                        </form>
+                            {{-- <a href="{{route('admin.role.edit',$role->uuid)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-trash"></i></a> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -69,83 +74,7 @@
             </table>
         </div>
     </div>
-    <!-- Modal to add new record -->
-    <div class="offcanvas offcanvas-end {{ count($errors) > 0 ? 'show' : '' }}" id="add-new-record">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">کاربر سیستم جدید</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body flex-grow-1">
-            <form action="{{route('admin.user.store')}}" method="post" class="add-new-record pt-0 row g-2" id="form-add-new-record">
-                @csrf
-                <div class="col-sm-12">
-                    <label class="form-label" for="first_name">نام </label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="first_name" class="form-control dt-full-name"  name="first_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('first_name')}}">
-                    </div>
-                    @error('first_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="last_name">نام خانوادگی</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="last_name" class="form-control dt-full-name" name="last_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('last_name')}}">
-                    </div>
-                    @error('last_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
 
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicEmail">ایمیل</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                        <input type="text" id="basicEmail" name="email" class="form-control dt-email text-start dt-post" placeholder="john.doe@example.com" aria-label="john.doe@example.com" dir="ltr" value="{{old('email')}}">
-                    </div>
-                    @error('email')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-
-                <div class="col-sm-12">
-                    <label class="form-label" for="">نقش</label>
-                    <select class="form-select dt-salary" name="role">
-                        @foreach ($roles as $role)
-                             <option value="{{$role->uuid}}">{{$role->title}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-sm-12">
-                    <label class="form-label" for="password">رمز عبور</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                        <input type="password" id="password" class="form-control text-start dt-date" name="password" placeholder="············" aria-describedby="password" dir="ltr">
-                    </div>
-                    @error('password')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                    <div class="form-text">می‌توانید از حروف، اعداد و نقطه استفاده کنید</div>
-                </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
-                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">انصراف</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!--/ DataTable with Buttons -->
 @endsection
 @push('js')
     <script src="{!! asset('libs/datatables-bs5/datatables-bootstrap5.js') !!}"></script>
@@ -153,64 +82,8 @@
     <script src="{!! asset('js/tables-datatables-basic.js') !!}"></script>
     <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
 
-    <script>
-
-		$.validator.setDefaults( {
-			submitHandler: function () {
-				form.submit();
-			}
-		} );
-
-		$( document ).ready( function () {
-			$( "#form-add-new-record" ).validate( {
-				rules: {
-					first_name: "required",
-					last_name: "required",
-					father_name: {
-						required: true,
-						minlength: 2
-					},
-					password: {
-						required: true,
-						minlength: 5
-					},
-					email: {
-						required: true,
-						email: true
-					},
-				},
-				messages: {
-					first_name: "لطفا نام را وارد کنید",
-					last_name: "لطفا نام خانوادگی را  وارد کنید",
-					father_name: {
-						required: "لطفا نام پدر را وارد کنید",
-						minlength: "تعداد کاراکتر از 2 کمتر نباشد"
-					},
-					password: {
-						required: "لطفا رمز عبور خود را وارد کنید",
-						minlength: "تعداد کاراکتر وارده از 5 کمتر نباشد"
-					},
-					email: {
-                        required: 'لطفا ایمیل خود را وارد کنید',
-						email: 'لطفا  ایمیل معتبر وارد کنید'
-                    },
-				},
-				errorPlacement: function ( error, element ) {
-					error.addClass( "ui red pointing label transition" );
-					error.insertAfter( element.parent() );
-				},
-				highlight: function ( element, errorClass, validClass ) {
-					$( element ).parents( ".row" ).addClass( errorClass );
-				},
-				unhighlight: function (element, errorClass, validClass) {
-					$( element ).parents( ".row" ).removeClass( errorClass );
-				}
-			} );
-		} );
-
-    </script>
-
     @include('alert.sweetalert.delete-confirm', ['className' => 'delete'])
+
     <script>
         $(function () {
             var dt_basic_table = $('.datatables-basic'),
@@ -226,13 +99,16 @@
                     displayLength: 7,
                     lengthMenu: [7, 10, 25, 50, 75, 100],
                     buttons: [
-                        {
-                            text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن کاربر جدید</span>',
-                            className: 'create-new btn btn-primary ms-2'
-                        }
-                    ],
+                            {
+                                text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن نقش جدید</span>',
+                                className: 'create-new btn btn-primary ms-2',
+                                action: function () {
+                                    window.location.href = "{{ route('admin.role.create') }}";
+                                }
+                            }
+                        ],
                 });
-                $('div.head-label').html('<h5 class="card-title mb-0">لیست کاربران سیستم</h5>');
+                $('div.head-label').html('<h5 class="card-title mb-0">لیست نقش های سیستم</h5>');
             }
 
             // Add New record
