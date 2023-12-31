@@ -251,7 +251,7 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                        <a href="javascript:;" class="btn btn-sm btn-primary">مشاهده همه</a>
+                        <a href="{{route('admin.customer.index')}}" class="btn btn-sm btn-primary">مشاهده همه</a>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -266,146 +266,29 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
+
+                            @foreach ($customers as $c)
+                            <tr>
+                                <td class="text-nowrap">
+                                    <img src="{{ asset($c->image_small) }}" class="me-3" width="22" alt="Fastrack">   {{$c->first_name .' '. $c->last_name}}
+                                </td>
+                                <td>{{$c->contact->mobile1 ?? 'وارد نشده'}}</td>
+                                <td>{{$c->national_code ?? 'وارد نشده'}}</td>
+                                <td><span class="text-success">فعال</span></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
+                                            <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
+                                            <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">
-                                <img src="{!! asset('img/avatars/1.png') !!}" class="me-3" width="22" alt="Fastrack">لورم ایپسوم متن ساختگی
-                            </td>
-                            <td>09123456789</td>
-                            <td>1234567890</td>
-                            <td><span class="text-success">فعال</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn p-0" type="button" id="action1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="action1">
-                                        <a class="dropdown-item" href="javascript:void(0);">جزئیات</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">ارسال پیام</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">فعالسازی</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
