@@ -24,7 +24,8 @@ class InfoRequest extends FormRequest
         return [
             'first_name'=> "required",
             'last_name'=> "required",
-            'birth_place'=> "required",
+            'province_id'=> "required",
+            'city_id' => "required",
             'status_detail'=>"required",
             'mobile1'=>"required",
             'mobile2'=>"required",

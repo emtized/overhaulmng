@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\City;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,8 @@ class ProfileController extends Controller
 
     public function info()
     {
-        return view('user.profile.info',['user' => $this->user]);
+        $provinces = City::where('parent_id', null)->get();
+        return view('user.profile.info',['user' => $this->user,'provinces' => $provinces]);
     }
 
     public function docs()

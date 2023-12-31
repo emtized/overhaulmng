@@ -24,7 +24,8 @@ class RegisterRequest extends FormRequest
         return [
             'first_name'=> "required",
             'last_name'=> "required",
-            'birth_place'=> "required",
+            'province_id'=> "required",
+            'city_id' => "required",
             'avatar'=>"required",
             'status_detail'=>"required",
             'mobile1'=>"required|unique:customer_contacts",

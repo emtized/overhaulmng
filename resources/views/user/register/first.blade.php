@@ -721,7 +721,6 @@
 
 
     </script>
-
     <script>
 
         var maxCards = 100;
@@ -1518,4 +1517,36 @@
             });
 
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#province').on('change', function() {
+                var provinceId = $(this).val();
+
+                if (provinceId) {
+                    loadCities(provinceId);
+                    $('#city').prop('disabled', false);
+                } else {
+                    $('#city').prop('disabled', true);
+                }
+            });
+
+            function loadCities(provinceId) {
+                $.ajax({
+                    url: '/api/cities-by-province/' + provinceId,
+                    method: 'GET',
+                    success: function(data) {
+                        $('#city').html('<option value="">انتخاب کنید</option>');
+                        $.each(data, function(index, city) {
+                            $('#city').append('<option value="' + city.id + '">' + city.city_name + '</option>');
+                        });
+                    },
+                    error: function(error) {
+                        console.log('Error loading cities:', error);
+                    }
+                });
+            }
+        });
+    </script>
+
 @endpush

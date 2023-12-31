@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -13,7 +14,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.dashboard');
+        $customers = Customer::latest()->limit(8)->get();
+        return view('admin.dashboard',compact('customers'));
     }
 
 
