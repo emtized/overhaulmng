@@ -158,7 +158,7 @@
                                                     <label class="form-label" for="place">شهر محل صدور</label>
                                                     <span class="link-danger">*</span>
                                                     <select class="form-control" id="city" name="city_id">
-                                                        <option value="{{ $user->city_id }}" selected>{{ $user->city->city_name }}</option>
+                                                        <option value="{{ $user->city_id }}" selected>{{ $user->city->city_name ?? '' }}</option>
                                                     </select>
                                                 </div>
 
