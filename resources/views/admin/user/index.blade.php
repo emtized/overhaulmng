@@ -141,7 +141,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="javascript" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <a href="{!! route('admin.customer.edit',$customer->id) !!}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
                         </td>
                     </tr>
                     @endforeach

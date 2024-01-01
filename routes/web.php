@@ -108,7 +108,7 @@ Route::middleware(['checkCustomerLogin'])->prefix('/profile')->group(function(){
 
 
 //auth routes
-Route::get('/login',[\App\Http\Controllers\User\AuthController::class,'showLogin'])->name('user.login.get');
+Route::get('/',[\App\Http\Controllers\User\AuthController::class,'showLogin'])->name('user.login.get');
 Route::post('/loginForm', [\App\Http\Controllers\User\AuthController::class,'login'])->name('user.login.form');
 Route::get('/register',[\App\Http\Controllers\User\AuthController::class,'showRegister'])->name('user.register.get');
 Route::post('/RegisterForm', [\App\Http\Controllers\User\AuthController::class,'register'])->name('user.register.form');
