@@ -38,7 +38,7 @@ class Customer extends Authenticatable
             ? 'storage/' . $this->firstMedia($mediaAttributeName)->directory . '/' .
                 $this->firstMedia($mediaAttributeName)->filename . '.' .
                 $this->firstMedia($mediaAttributeName)->extension
-            : 'img/no-image.jpg';
+            : 'img/avatars/1.png';
     }
 
 
