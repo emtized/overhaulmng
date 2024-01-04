@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.8",
         "morilog/jalali": "3.*",
         "plank/laravel-mediable": "^5.9",
+        "saeedpooyanfar/zarinpal": "^5.0",
         "spatie/laravel-permission": "^6.1"
     },
     "require-dev": {

@@ -74,7 +74,7 @@ Route::middleware(['checkCustomerLogin'])->prefix('/profile')->group(function(){
 
     //payment
     Route::post('/payment',[\App\Http\Controllers\User\PaymentController::class,'send'])->name('user.payment');
-
+    Route::get('/payment-verify/{gatewayName}', [\App\Http\Controllers\User\PaymentController::class, 'verify'])->name('home.payment_verify');
     //personal-info
     Route::get('/personal-info',[\App\Http\Controllers\User\ProfileController::class,'info'])->name('user.show.info');
     Route::put('/personal-info/{customer}', [\App\Http\Controllers\User\InfoController::class, 'update'])->name('user.update.info');
