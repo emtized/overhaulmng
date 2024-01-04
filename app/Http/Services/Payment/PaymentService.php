@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Client\RequestException;
 
 
-class PaymentService
+class PaymentService extends Payment
 {
 
     public function send($amounts, $description)
@@ -31,9 +31,10 @@ class PaymentService
             $message = $zarinpal->getCodeMessage($code);
             if($code === 100)
             {
-                // if (array_key_exists('error', $createOrder)) {
-                //     return $createOrder;
-                // }
+                $createOrder = parent::create($amounts, $response['data']['authority'], '1');
+                 if (array_key_exists('error', $createOrder)) {
+                     return $createOrder;
+                 }
                 $authority = $response['data']['authority'];
                 return $zarinpal->redirect($authority);
             }
@@ -66,6 +67,7 @@ class PaymentService
         dd($result);
         curl_close($ch);
         $result = json_decode($result, true);
+        $updateOrder = parent::update($authority, $result);
         if(count($result['errors']) === 0)
         {
             if($result['data']['code'] == 100)
