@@ -3,67 +3,87 @@
 namespace App\Http\Services\Api;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-
+use Illuminate\Support\Facades\Http;
 
 class FinnotechApi
 {
-    protected $client;
 
-    public function __construct()
+    public function getToken()
     {
-        $this->client = new Client();
+        $client = new Client();
+
+        $url = 'https://apibeta.finnotech.ir/dev/v2/oauth2/token';
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Basic ' .'T3ZlcmhhdWxNTkc6UmlWcFVjWUgyVkc3R0ZCM3VFWWk=',
+        ];
+
+        //dd($headers);
+
+        $data = [
+            'nid' => '5899952776',
+            'grant_type' => 'client_credentials',
+            'scopes' => 'kyc:iban-owner-verification:get',
+        ];
+
+        $response = $client->post($url, [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+
+        $body = $response->getBody();
+        $tokenData = json_decode($body, true);
+
+
+        return response()->json($tokenData['result']['value']);
     }
 
-    public function verifyNationalCode($clientId, $nid, $trackId = null, $token)
+    public function refreshToken()
     {
-        $url = "https://apibeta.finnotech.ir/oak/v2/clients/{$clientId}/users/{$nid}/customerInfo";
+        $client = new Client();
+
+        $url = 'https://apibeta.finnotech.ir/dev/v2/oauth2/token';
+
         $headers = [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Basic ' .'T3ZlcmhhdWxNTkc6UmlWcFVjWUgyVkc3R0ZCM3VFWWk=',
+        ];
+
+        $data = [
+            "grant_type" => "refresh_token",
+            "refresh_token"=>"5tVNNT0FRS0aFcPilrFrnUf2A7wwckkxsQb8syftd4mLJDFnnTdsoAysBabIa9GzFGDmswbqfRjC7BuhhoWgmw45GBlZCElvrBCLjW7iu5EARjOTKs2pTYZLuizGbbj45HP3CiUFoxmAn1jlTB7OOs4MWlwRwOmiLpcRLnh1XruHdDZeghZvq9kROd86gCR61CUoxE9hcw8hh3Lnp8jOm3GIKVM6caCFaZFSNMsVw2DSCGCoTA3dBbpHfHPHcAYB",
+            "token_type" => "CLIENT-CREDENTIAL"
+        ];
+
+        $response = $client->post($url, [
+            'headers' => $headers,
+            'json' => $data,
+        ]);
+
+        $body = $response->getBody();
+        $tokenData = json_decode($body, true);
+
+
+        return response()->json($tokenData['result']['value']);
+    }
+
+    public function ibanOwnerVerification($birth_date, $nid, $iban)
+    {
+
+         $token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbklkIjoiNjhiNDA1YTQtMmQ2My00NTU0LWE5YTUtMzc5YzdiMThlYTdmIiwicmVmcmVzaFRva2VuIjoiNXRWTk5UMEZSUzBhRmNQaWxyRnJuVWYyQTd3d2Nra3hzUWI4c3lmdGQ0bUxKREZublRkc29BeXNCYWJJYTlHekZHRG1zd2JxZlJqQzdCdWhob1dnbXc0NUdCbFpDRWx2ckJDTGpXN2l1NUVBUmpPVEtzMnBUWVpMdWl6R2JiajQ1SFAzQ2lVRm94bUFuMWpsVEI3T09zNE1XbHdSd09taUxwY1JMbmgxWHJ1SGREWmVnaFp2cTlrUk9kODZnQ1I2MUNVb3hFOWhjdzhoaDNMbnA4ak9tM0dJS1ZNNmNhQ0ZhWkZTTk1zVncyRFNDR0NvVEEzZEJicEhmSFBIY0FZQiIsImNyZWF0aW9uRGF0ZSI6IjE0MDIxMDE1MjAzNTAzIiwibGlmZVRpbWUiOjg2NDAwMDAwMCwiY2xpZW50SWQiOiJPdmVyaGF1bE1ORyIsInVzZXJJZCI6IjU4OTk5NTI3NzYiLCJhY3RpdmUiOnRydWUsInNjb3BlcyI6WyJreWM6aWJhbi1vd25lci12ZXJpZmljYXRpb246Z2V0Il0sInR5cGUiOiJDTElFTlQtQ1JFREVOVElBTCIsImJhbmsiOiIwNjIiLCJpYXQiOjE3MDQ0NzQzMDMsImV4cCI6MTcwNTMzODMwM30.cjV8VtrvkngmCR_yQXhd1hLz6OybtWlkht_XMxRWgpMzCLaPA0rCpzHfEiscw70ABKVz-3jKXbnVsYQXWaP9SlIhpZroG9OgGLrtX_r9VflfRQrAxjwj1uBQgYYvBTSH7AbUthrFUhh0B-ZhVSgTD8XN5KyFjWBPZICVY4NS0fGiifZNZQ-8OsayYqlthpdm_31tZYbMw_yrKQWF0XZ18d-QivBaFe-5H5bXaqReHIxJo_R5Wf-hgavCZz62WOI6sp-aDOJvfxCXi66g_xVqC_Ju5NCykts7-NAhnyPsOSZetEbuJ9UVLiZaFX9VJVV3jY3Z2M8cqXhevMeCWW1wQQ';
+
+        $url = "https://apibeta.finnotech.ir/kyc/v2/clients/OverhaulMNG/ibanOwnerVerification";
+        $response = Http::withHeaders([
             'Authorization' => "Bearer {$token}",
-        ];
+        ])->get($url, [
+            'trackId' => '',
+            'birthDate' => $birth_date,
+            'nid' => $nid,
+            'iban' => $iban,
+        ]);
 
-        try {
-            $response = $this->client->post($url, [
-                'headers' => $headers,
-                'query' => [
-                    'trackId' => $trackId,
-                ],
-            ]);
-
-            $result = json_decode($response->getBody(), true);
-
-            return $result;
-        } catch (RequestException $e) {
-            return ['error' => $e->getMessage()];
-        }
-    }
-
-
-    public function verifyIbanOwner($birthDate, $nationalCode, $iban)
-    {
-        $url = "https://apibeta.finnotech.ir/kyc/v2/clients/{kpXVCJ9.eyJ0b2tlbklkIjoiMjNlMGFkMWQtZWFlYi00YjFkLWJmYjYtYTRiMWE0OTljY2RhIiwicmVmcmVzaFRva2VuIjoiNVdiOXBGdXZHd2hWSWxQR0VRcnZoT3NQSTkwNDlzR3c3SEZuc1lkWGRraUFoaEN2TU9TT2lJUVhLOW90eWp1b2w1QWZaN3RIR0pVN2lzQ2dScWdrR3hTZGx1T2Z2MmNwYjhVMkx1aVJ0cHlFOTQ4eEFybHQ3WVhyRWlOT0JSaWlXVHA3MmdGNkhpZWVsYzFKb3c2dDB0TkF4RWVLTk9ZejRXWlNHVHZ5b0dZblRwenNwUmZ4V1p4WTBmOUlVQWsxUmptYURpZWExR1lsNWJVeHZwS0lhdnlZOXM4eXFGTlNWR0gzYUZHU013eDVRTE44MGMyQUFqV3lUTHVMaFpQciIsImNyZWF0aW9uRGF0ZSI6IjE0MDIwOTI5MTYyOTUxIiwibGlmZVRpbWUiOjg2NDAwMDAwMCwiY2xpZW50SWQiOiJPdmVyaGF1bE1ORyIsInVzZXJJZCI6IjU4OTk5NTI3NzYiLCJhY3RpdmUiOnRydWUsInNjb3BlcyI6WyJreWM6aWJhbi1vd25lci12ZXJpZmljYXRpb246Z2V0Il0sInR5cGUiOiJDTElFTlQtQ1JFREVOVElBTCIsImNsaWVudEluZm8iOiJneU1Hb1lNUXREeWxwRlRKN1RQRnExK1p6dTNWZ0RNL21HWmF4NktnOXAzY0RvcjZKSjE5U3NTTlJ5TXFxSVBCIiwiYmFuayI6IjA2MiIsImlhdCI6MTcwMzA3NzE5MSwiZXhwIjoxNzAzOTQxMTkxfQ.SVpnHk_J3Iq-7-DwTwXBuAYHlE5vUARPsHWalpXolZewywhGrrvjgkW69XKWYu5C7ZNEvIHA8UYpsA6Ek2pGnkaLllyAQP6uPttWDViJi4zkqrtwWfCKRXDJODPjvh_073go1Y3T_akZDerzMc8zXqS369La7v0dzmTL2pD65OPZVEF3WS0L42Scvlm8x4H2wnh2LtCboKbHAOp8ArlWjTUMmY-4DR7c7c-C_xTU3NDhuuFReip3mTme6TSu3h94U-Qrl66oJoXm7XiXSGTyAsr7RfXL7CkGq19SUCykKtYODdbmRYw0JCjoHdEAjJp4Z08RXsK3MaIMGk0wNHVvig}/ibanOwnerVerification";
-        $headers = [
-            'Authorization' => 'Bearer',
-        ];
-
-        try {
-            $response = $this->client->request('GET', $url, [
-                'headers' => $headers,
-                'query' => [
-                    'trackId' => 'trackId',
-                    'birthDate' => $birthDate,
-                    'nid' => $nationalCode,
-                    'iban' => $iban,
-                ],
-            ]);
-
-            $result = json_decode($response->getBody(), true);
-
-
-            return $result;
-        } catch (RequestException $e) {
-            return ['error' => $e->getMessage()];
-        }
+        return $response->json();
     }
 }
 

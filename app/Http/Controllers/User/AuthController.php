@@ -273,4 +273,13 @@ class AuthController extends Controller
         return redirect()->route('user.login.get');
     }
 
+
+    public function test()
+    {
+        $test = new FinnotechApi();
+        $result = $test->ibanOwnerVerification('1377/08/19','0830138528','IR930170000000360572134001');
+
+        return $result;
+    }
+
 }

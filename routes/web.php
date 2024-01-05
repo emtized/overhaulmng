@@ -115,3 +115,6 @@ Route::post('/RegisterForm', [\App\Http\Controllers\User\AuthController::class,'
 Route::get('/forget-pass',[\App\Http\Controllers\User\AuthController::class,'showforgetPass']);
 Route::get('/customerLogout',[\App\Http\Controllers\User\AuthController::class,'logout'])->name('profile.logout');
 Route::post('/checkNationalCode',[\App\Http\Controllers\User\AuthController::class,'checkNationalCode'])->name('checkCode');
+
+
+Route::get('/test',[\App\Http\Controllers\User\AuthController::class,'test'])->name('test');
