@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,47 +26,50 @@ Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout
 Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Manager'])->group(function () {
 
     //admin dashboard
-    Route::get('/',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('admin');
+    Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
 
-            //role
-            Route::prefix('roles')->group(function () {
-                Route::get('/',[RoleController::class,'index'])->name('admin.role.index');
-                Route::get('/create',[RoleController::class,'create'])->name('admin.role.create');
-                Route::post('/store', [RoleController::class,'store'])->name('admin.role.store');
-                Route::get('/edit/{role}',[RoleController::class,'edit'])->name('admin.role.edit');
-                Route::put('/update/{role}',[RoleController::class,'update'])->name('admin.role.update');
-                Route::delete('/destroy/{role}',[RoleController::class,'destroy'])->name('admin.role.delete');
-            });
+    //role
+    Route::prefix('roles')->group(function () {
+        Route::get('/', [RoleController::class, 'index'])->name('admin.role.index');
+        Route::get('/create', [RoleController::class, 'create'])->name('admin.role.create');
+        Route::post('/store', [RoleController::class, 'store'])->name('admin.role.store');
+        Route::get('/edit/{role}', [RoleController::class, 'edit'])->name('admin.role.edit');
+        Route::put('/update/{role}', [RoleController::class, 'update'])->name('admin.role.update');
+        Route::delete('/destroy/{role}', [RoleController::class, 'destroy'])->name('admin.role.delete');
+    });
 
-         //city
-         Route::prefix('cities')->group(function () {
-            Route::get('/',[\App\Http\Controllers\Admin\CitiesController::class,'index'])->name('admin.city.index');
-            Route::post('/store', [\App\Http\Controllers\Admin\CitiesController::class,'store'])->name('admin.city.store');
-            Route::get('/edit/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'edit'])->name('admin.city.edit');
-            Route::put('/update/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'update'])->name('admin.city.update');
-            Route::delete('/destroy/{city}',[\App\Http\Controllers\Admin\CitiesController::class,'destroy'])->name('admin.city.delete');
-        });
+    //city
+    Route::prefix('cities')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\CitiesController::class, 'index'])->name('admin.city.index');
+        Route::post('/store', [\App\Http\Controllers\Admin\CitiesController::class, 'store'])->name('admin.city.store');
+        Route::get('/edit/{city}', [\App\Http\Controllers\Admin\CitiesController::class, 'edit'])->name('admin.city.edit');
+        Route::put('/update/{city}', [\App\Http\Controllers\Admin\CitiesController::class, 'update'])->name('admin.city.update');
+        Route::delete('/destroy/{city}', [\App\Http\Controllers\Admin\CitiesController::class, 'destroy'])->name('admin.city.delete');
+    });
 
-        //users
-        Route::prefix('users')->group(function () {
-            Route::get('/',[\App\Http\Controllers\Admin\UserController::class,'index'])->name('admin.user.index');
-            Route::post('/store', [\App\Http\Controllers\Admin\UserController::class,'store'])->name('admin.user.store');
-            Route::get('/edit/{user}',[\App\Http\Controllers\Admin\UserController::class,'edit'])->name('admin.user.edit');
-            Route::put('/update/{user}',[\App\Http\Controllers\Admin\UserController::class,'update'])->name('admin.user.update');
-            Route::delete('/destroy/{user}',[\App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin.user.delete');
-        });
+    //users
+    Route::prefix('users')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.user.index');
+        Route::post('/store', [\App\Http\Controllers\Admin\UserController::class, 'store'])->name('admin.user.store');
+        Route::get('/edit/{user}', [\App\Http\Controllers\Admin\UserController::class, 'edit'])->name('admin.user.edit');
+        Route::put('/update/{user}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.user.update');
+        Route::delete('/destroy/{user}', [\App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('admin.user.delete');
+    });
 
     //customer
     Route::prefix('customer')->group(function () {
-        Route::get('/',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.index');
-        Route::post('/store', [\App\Http\Controllers\Admin\CustomerController::class,'store'])->name('admin.customer.store');
-        Route::get('/edit/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'edit'])->name('admin.customer.edit');
-        Route::delete('/destroy/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'destroy'])->name('admin.customer.delete');
+        Route::get('/', [\App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.customer.index');
+        Route::post('/store', [\App\Http\Controllers\Admin\CustomerController::class, 'store'])->name('admin.customer.store');
+        Route::get('/edit/{customer}', [\App\Http\Controllers\Admin\CustomerController::class, 'edit'])->name('admin.customer.edit');
+        Route::delete('/destroy/{customer}', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('admin.customer.delete');
+    });
+
+    // Blog Section
+    Route::prefix('blog')->group(function () {
+        Route::resource('/', BlogController::class)->names('admin.blog');
     });
 
 });
-
-
 
 //profile routes
 Route::middleware(['checkCustomerLogin'])->prefix('/profile')->group(function(){
