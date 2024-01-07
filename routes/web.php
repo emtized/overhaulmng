@@ -59,7 +59,7 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
     Route::prefix('customer')->group(function () {
         Route::get('/',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.index');
         Route::post('/store', [\App\Http\Controllers\Admin\CustomerController::class,'store'])->name('admin.customer.store');
-        Route::get('/edit/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'index'])->name('admin.customer.edit');
+        Route::get('/edit/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'edit'])->name('admin.customer.edit');
         Route::delete('/destroy/{customer}',[\App\Http\Controllers\Admin\CustomerController::class,'destroy'])->name('admin.customer.delete');
     });
 

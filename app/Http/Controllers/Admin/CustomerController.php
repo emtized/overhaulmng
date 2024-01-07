@@ -19,7 +19,7 @@ class CustomerController extends Controller
         $inActiveCustomer = Customer::where('activation',0)->count();
         $activeCustomer = Customer::where('activation',1)->count();
         $successfulTransactions = DB::table('transactions')->join('customers', 'transactions.customer_id', '=', 'customers.id')->where('transactions.status', 1)->where('customers.activation', 0)->count();
-        
+
         return view('admin.user.index',compact('customers','inActiveCustomer','activeCustomer','successfulTransactions'));
     }
 
@@ -36,7 +36,7 @@ class CustomerController extends Controller
 
     public function edit(Customer $customer)
     {
-        return view('',compact('customer'));
+        return view('admin.user.form',compact('customer'));
     }
 
     public function update(InfoRequest $request, Customer $customer)
