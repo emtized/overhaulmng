@@ -17,32 +17,33 @@
         <li class="breadcrumb-item">
             <a href="javascript:void(0);">بلاگ</a>
         </li>
-        <li class="breadcrumb-item active">ساخت بلاگ</li>
+        <li class="breadcrumb-item active">ویرایش بلاگ</li>
     </ol>
 </nav>
     <div class="card">
         <div class="card-datatable table-responsive pt-0">
             <div class="card-body">
-                <form action="{{route('admin.blog.store')}}" method="post" id="submitform" enctype="multipart/form-data">
+                <form action="{{route('admin.blog.update',$blog->id)}}" method="post" id="submitform" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label class="form-label" for="">نام </label>
-                            <input type="text" id="" class="form-control text-start" name="title" placeholder="" dir="rtl" value="{{old('title')}}">
+                            <input type="text" id="" class="form-control text-start" name="title" placeholder="" dir="rtl" value="{{old('title',$blog->title)}}">
                             @error('title')
                                <strong class="text-danger">فیلد اجباری است</strong>
                             @enderror
                         </div>
                         <div class="col-sm-6">
                             <label class="form-label" for="lastname">نام نمایشی</label>
-                            <input type="text" id="lastname" name="show_title" class="form-control text-start"  value="{{old('show_title')}}">
+                            <input type="text" id="lastname" name="show_title" class="form-control text-start" value="{{old('show_title',$blog->show_title)}}">
                             @error('show_title')
                             <strong class="text-danger">فیلد اجباری است</strong>
                          @enderror
                         </div>
                         <div class="col-sm-3">
                             <label class="form-label" for="email">تاریخ انتشار</label>
-                            <input type="text" class="form-control flatpickr-date" name="published_at"  value="{{old('published_at')}}">
+                            <input type="text" class="form-control flatpickr-date" name="published_at" value="{{old('published_at',verta($blog->published_at))}}">
                             @error('published_at')
                             <strong class="text-danger">فیلد اجباری است</strong>
                          @enderror
@@ -95,13 +96,13 @@
                             <h5 class="card-header heading-color">متن نوشته</h5>
                             <div class="card-body">
                                 <div id="full-editor">
-                                    {!!old('body')!!}
+                                    {!!old('body',$blog->body)!!}
                                 </div>
                                 @error('body')
                                 <strong class="text-danger">فیلد اجباری است</strong>
                              @enderror
-                             <input type="text" name="body" id="editor_content" style="visibility:hidden">
                             </div>
+                            <input type="hidden" name="body" id="editor_content">
 
                             <!-- /Full Editor -->
                         </div>
@@ -120,6 +121,7 @@
     <script src="{!! asset('libs/bootstrap-select/bootstrap-select.js') !!}"></script>
     <script src="{!! asset('libs/bootstrap-select/i18n/defaults-fa_IR.js') !!}"></script>
 
+    <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
     <script src="{!! asset('libs/moment/moment.js') !!}"></script>
     <script src="{!! asset('libs/jdate/jdate.js') !!}"></script>
     <script src="{!! asset('libs/flatpickr/flatpickr-jdate.js') !!}"></script>
@@ -128,7 +130,30 @@
     <script src="{!! asset('libs/quill/katex.js') !!}"></script>
     <script src="{!! asset('libs/quill/quill.js') !!}"></script>
     <script src="{!! asset('js/forms-editors.js') !!}"></script>
-    <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
+    <script>
+        const flatpickrDate = document.querySelector('.flatpickr-date');
+        if (flatpickrDate) {
+            flatpickrDate.flatpickr({
+                monthSelectorType: 'static',
+                locale: 'fa',
+                altInput: true,
+                altFormat: 'Y/m/d',
+            });
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var quill = new Quill('#full-editor', {
+                theme: 'snow'
+            });
+
+            quill.on('text-change', function(delta, oldDelta, source) {
+                $('#editor_content').val(quill.root.innerHTML);
+            });
+        });
+    </script>
+
     <script>
 
         $.validator.setDefaults( {
@@ -142,14 +167,18 @@
                 rules: {
                     title: "required",
                     show_title: "required",
-                    image: "required",
-                    body:"required",
+                    body: {
+                        required: true,
+                        minlength: 5
+                    },
                 },
                 messages: {
                     title: "لطفا نام را وارد کنید",
                     show_title: "لطفا نام نمایشی رو وارد کنید",
-                    image: "لطفا  عکس  را وارد کنید",
-                    body: "لطفا متن نوشته  خود را وارد کنید",
+                    body: {
+                        required: "لطفا متن نوشته  خود را وارد کنید",
+                        minlength: "تعداد کاراکتر وارده از 5 کمتر نباشد"
+                    },
                 },
                 errorElement: "em",
                     errorPlacement: function ( error, element ) {
@@ -171,28 +200,6 @@
             } );
         } );
 
-    </script>
-    <script>
-        const flatpickrDate = document.querySelector('.flatpickr-date');
-        if (flatpickrDate) {
-            flatpickrDate.flatpickr({
-                monthSelectorType: 'static',
-                locale: 'fa',
-                altInput: true,
-                altFormat: 'Y/m/d',
-            });
-        }
-    </script>
-    <script>
-        $(document).ready(function() {
-            var quill = new Quill('#full-editor', {
-                theme: 'snow'
-            });
-
-            quill.on('text-change', function(delta, oldDelta, source) {
-                $('#editor_content').val(quill.root.innerHTML);
-            });
-        });
     </script>
 
 @endpush

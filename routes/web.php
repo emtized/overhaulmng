@@ -28,6 +28,16 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
     //admin dashboard
     Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
 
+    // Blog
+    Route::prefix('blog')->group(function () {
+        Route::resource('/', BlogController::class)->names('admin.blog.index');
+        Route::get('/create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('/store', [BlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/edit/{blog}', [BlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/update/{blog}', [BlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('admin.blog.delete');
+    });
+
     //role
     Route::prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('admin.role.index');
@@ -64,10 +74,6 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
         Route::delete('/destroy/{customer}', [\App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('admin.customer.delete');
     });
 
-    // Blog Section
-    Route::prefix('blog')->group(function () {
-        Route::resource('/', BlogController::class)->names('admin.blog');
-    });
 
 });
 

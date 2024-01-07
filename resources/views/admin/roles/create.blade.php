@@ -4,6 +4,18 @@
 @endpush
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="lh-1-85 breadcrumb breadcrumb-style1">
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">خانه</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">نقش ها </a>
+        </li>
+        <li class="breadcrumb-item active">ایجاد نقش</li>
+    </ol>
+</nav>
+
     <h4 class="py-3 breadcrumb-wrapper mb-2">لیست نقش‌ها</h4>
 
     <p>

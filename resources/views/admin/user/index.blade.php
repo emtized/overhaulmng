@@ -7,6 +7,17 @@
 @endpush
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="lh-1-85 breadcrumb breadcrumb-style1">
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">خانه</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">لیست کارجویان</a>
+        </li>
+    </ol>
+</nav>
+
     <div class="row g-4 mb-4">
         <div class="col-sm-6 col-xl-3">
             <div class="card">
