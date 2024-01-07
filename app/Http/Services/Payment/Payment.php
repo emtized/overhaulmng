@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Payment
 {
-    public function create($amounts, $token, $get_way)
+    public function create($amounts, $token, $gateway_name)
     {
         try{
             DB::beginTransaction();
