@@ -21,7 +21,7 @@ class PaymentService extends Payment
         $lang = 'fa';
         $zarinpal = new Zarinpal($merchentID, $client, $lang, $sandbox, $zarinpalGate, $zarinpalGatePSP);
         $payment = [
-            'callback_url'  => route('home.payment_verify' , ['gatewayName' => 'zarinpal']),
+            'callback_url'  => route('home.payment_verify' , ['gatewayName' => '1']),
             'amount' => (int)$amounts * 10,
             'description' => $description,
         ];
@@ -32,9 +32,6 @@ class PaymentService extends Payment
             if($code === 100)
             {
                 $createOrder = parent::create($amounts, $response['data']['authority'], '1');
-                 if (array_key_exists('error', $createOrder)) {
-                     return $createOrder;
-                 }
                 $authority = $response['data']['authority'];
                 return $zarinpal->redirect($authority);
             }
@@ -67,11 +64,11 @@ class PaymentService extends Payment
         dd($result);
         curl_close($ch);
         $result = json_decode($result, true);
-        $updateOrder = parent::update($authority, $result);
         if(count($result['errors']) === 0)
         {
             if($result['data']['code'] == 100)
             {
+                $updateOrder = parent::update($authority, $result);
                 return ['success' => true];
             }
             else{

@@ -49,6 +49,7 @@ class AuthController extends Controller
     {
         $inputs = $request->all();
 
+
         //create data
         $inputs['password'] = '123456789';
         $inputs['birth_day'] = convertToGregorianDate($request->birth_day);
