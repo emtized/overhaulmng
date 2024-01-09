@@ -267,6 +267,21 @@
                                     </li>
                                 </ul>
                             </li>
+                            <!--blog-->
+                            <li class="menu-item {{ request()->is('admin/blog*') ? 'active' : ''}}">
+                                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons bx bxs-group"></i>
+                                    <div data-i18n="Misc">بلاگ</div>
+                                </a>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="{{route('admin.blog.index.index')}}" class="menu-link {{ request()->is('admin/blog*') ? 'active' : ''}}">
+                                            <i class="menu-icon tf-icons bx bxs-user"></i>
+                                            <div data-i18n="Support">لیست بلاگ</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="menu-item">
                                 <a href="javascript:void(0)" class="menu-link">
                                     <i class="menu-icon tf-icons bx bxs-notification"></i>
