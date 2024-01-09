@@ -53,11 +53,10 @@
                         <div class="col-md-6 mb-4">
                             <label for="select2Primary" class="form-label">تگ نوشته</label>
                             <div class="select2-primary">
-                                <select id="select2Primary" class="select2 form-select" name="tag" multiple>
-                                    <option value="1" selected>گزینه 1</option>
-                                    <option value="2" selected>گزینه 2</option>
-                                    <option value="3">گزینه 3</option>
-                                    <option value="4">گزینه 4</option>
+                                <select id="select2Primary" class="select2 form-select" name="tag[]" multiple>
+                                    @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}" >{{ $tag->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

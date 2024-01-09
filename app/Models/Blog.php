@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use App\Traits\Uuids;
 use Plank\Mediable\Mediable;
 use Illuminate\Database\Eloquent\Model;
@@ -28,5 +29,10 @@ class Blog extends BaseModel
     public function getImageSmallAttribute()
     {
         return $this->getImageByMediaName('blog');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }

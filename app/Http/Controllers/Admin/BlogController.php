@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Blog;
 use App\Traits\ImageTrait;
 use Illuminate\Http\Request;
@@ -25,23 +26,26 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create');
+        $tags = Tag::all();
+        return view('admin.blog.create',compact('tags'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BlogRequest $request)
+    public function store(Request $request)
     {
         $inputs = $request->all();
 
         //customize
         $inputs['published_at'] = convertToGregorianDate($request->published_at);
+
         //test
-        $inputs['tag'] = '1,2,3';
         $inputs['category_id'] = '1sd4454545sddfdfdf';
 
         $blog = Blog::create($inputs);
+
+        $blog->tags()->attach($request->tag);
 
         //image upload
         $media = $this->verifyAndUpload($request,'image','blog');

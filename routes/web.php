@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\RoleController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,16 @@ Route::prefix('admin')->middleware(['auth','role:Administrator|Admin|Support Man
 
     //admin dashboard
     Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
+
+    // tag
+    Route::prefix('tags')->group(function () {
+        Route::resource('/', TagController::class)->names('admin.tags.index');
+        Route::get('/create', [TagController::class, 'create'])->name('admin.tags.create');
+        Route::post('/store', [TagController::class, 'store'])->name('admin.tags.store');
+        Route::get('/edit/{tag}', [TagController::class, 'edit'])->name('admin.tags.edit');
+        Route::put('/update/{tag}', [TagController::class, 'update'])->name('admin.tags.update');
+        Route::delete('/destroy/{tag}', [TagController::class, 'destroy'])->name('admin.tags.delete');
+    });
 
     // Blog
     Route::prefix('blog')->group(function () {

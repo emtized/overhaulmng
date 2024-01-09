@@ -13,60 +13,39 @@
             <a href="javascript:void(0);">خانه</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="javascript:void(0);">بلاگ</a>
+            <a href="javascript:void(0);">لیست تگ ها</a>
         </li>
+
     </ol>
 </nav>
+
     <!-- DataTable with Buttons -->
     <div class="card">
         <div class="card-datatable table-responsive pt-0">
             <table class="datatables-basic table table-bordered table-responsive">
                 <thead>
-                <tr>
-                    <th><input type="checkbox" class="form-check-input mt-0 align-middle"></th>
-                    <th>شناسه</th>
-                    <th>عکس شاخص</th>
-                    <th>نام</th>
-                    <th>نام نمایشی</th>
-                    <th>تاریخ انتشار</th>
-                    <th>تگ ها</th>
-                    <th>دسته بندی</th>
-                    <th>وضعیت نوشته</th>
-                    <th>متن</th>
-                    <th>عملیات</th>
-                </tr>
+                    <tr>
+                        <th><input type="checkbox" class="form-check-input mt-0 align-middle"></th>
+                        <th>شناسه</th>
+                        <th>نام تگ</th>
+                        <th>عملیات</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach($blogItmes as $key => $blog)
+                    @foreach($tags as $key => $tag)
                     <tr>
-                        <td>{{$key += 1}}</td>
                         <td>
                             <input type="checkbox" class="dt-checkboxes form-check-input mt-0 align-middle"></td>
                         <td>
                             <div class="d-flex justify-content-start align-items-center user-name">
-                                <div class="avatar-wrapper">
-                                    <div class="avatar me-2">
-                                        <img src="{{ asset($blog->image_small) }}" alt="عکس شاخص" class="rounded-circle">
-                                    </div>
+                                <div class="d-flex flex-column">
+                                    <span class="emp_name text-truncate">{{ $key += 1 }}</span>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <span class="emp_name text-truncate">{{$blog->title}}</span>
+                            <span class="emp_name text-truncate">{{$tag->name}}</span>
                         </td>
-                        <td>{{ $blog->show_title}}</td>
-                        <td>{{jalaliDate($blog->published_at)}}</td>
-                        <td>
-                        @foreach ($blog->tags as $tag)
-                           <span>{{$tag->name}}</span>
-                           @if (!$loop->last)
-                                ,
-                            @endif
-                        @endforeach
-                    </td>
-                        <td><span>{{$blog->category_id}}</span></td>
-                        <td><span>{{$blog->status}}</span></td>
-                        <td><span>{!!$blog->body!!}</span></td>
                         <td>
                             <div class="d-inline-block">
                                 <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,24 +60,53 @@
                                     </li>
                                     <div class="dropdown-divider"></div>
                                     <li>
-                                        <form class="d-inline" action="{{ route('admin.blog.delete',$blog->id)}}" method="post">
+                                        <form class="d-inline" action="{{ route('admin.tags.delete',$tag->id)}}" method="post">
                                             @csrf
                                             {{ method_field('delete') }}
-                                            <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
-                                        </form>
+                                        <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
+                                    </form>
 
                                     </li>
                                 </ul>
                             </div>
-                            <a href="{!! route('admin.blog.edit',$blog->id) !!}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <a href="{{route('admin.tags.edit',$tag->id)}}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end {{ count($errors) > 0 ? 'show' : '' }}" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">ایجاد تگ جدید</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body flex-grow-1">
+            <form action="{{route('admin.tags.store')}}" method="post" class="add-new-record pt-0 row g-2" id="form-add-new-record">
+                @csrf
+                <div class="col-sm-12">
+                    <label class="form-label" for="city_name">نام </label>
+                    <div class="input-group input-group-merge">
+                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                        <input type="text" id="name" class="form-control dt-full-name dt-salary dt-post dt-date dt-email"  name="name" placeholder="نام تگ" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('city_name')}}">
+                    </div>
+                    @error('city_name')
+                    <strong class="text-danger">
+                        {{ $message }}
+                    </strong>
+                    @enderror
+                </div>
 
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
+                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">انصراف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/ DataTable with Buttons -->
 @endsection
 @push('js')
     <script src="{!! asset('libs/datatables-bs5/datatables-bootstrap5.js') !!}"></script>
@@ -107,60 +115,32 @@
     <script src="{!! asset('libs/jquery-validation/jquery.validate.min.js') !!}"></script>
 
     <script>
-
         $.validator.setDefaults( {
-            submitHandler: function () {
-                form.submit();
-            }
-        } );
+			submitHandler: function () {
+				form.submit();
+			}
+		} );
 
-        $( document ).ready( function () {
-            $( "#form-add-new-record" ).validate( {
-                rules: {
-                    first_name: "required",
-                    last_name: "required",
-                    father_name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                },
-                messages: {
-                    first_name: "لطفا نام را وارد کنید",
-                    last_name: "لطفا نام خانوادگی رو وارد کنید",
-                    father_name: {
-                        required: "لطفا نام پدر را وارد کنید",
-                        minlength: "تعداد کاراکتر از 2 کمتر نباشد"
-                    },
-                    password: {
-                        required: "لطفا رمز عبور خود را وارد کنید",
-                        minlength: "تعداد کاراکتر وارده از 5 کمتر نباشد"
-                    },
-                    email: {
-                        required: 'لطفا ایمیل خود را وارد کنید',
-                        email: 'لطفا  ایمیل معتبر وارد کنید'
-                    },
-                },
-                errorPlacement: function ( error, element ) {
-                    error.addClass( "ui red pointing label transition" );
-                    error.insertAfter( element.parent() );
-                },
-                highlight: function ( element, errorClass, validClass ) {
-                    $( element ).parents( ".row" ).addClass( errorClass );
-                },
-                unhighlight: function (element, errorClass, validClass) {
-                    $( element ).parents( ".row" ).removeClass( errorClass );
-                }
-            } );
-        } );
-
+		$( document ).ready( function () {
+			$( "#form-add-new-record" ).validate( {
+				rules: {
+					name: "required",
+				},
+				messages: {
+					name: "لطفا نام تگ را وارد کنید",
+				},
+				errorPlacement: function ( error, element ) {
+					error.addClass( "ui red pointing label transition" );
+					error.insertAfter( element.parent() );
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".row" ).addClass( errorClass );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).parents( ".row" ).removeClass( errorClass );
+				}
+			} );
+		} );
     </script>
 
     @include('alert.sweetalert.delete-confirm', ['className' => 'delete'])
@@ -179,16 +159,13 @@
                     displayLength: 7,
                     lengthMenu: [7, 10, 25, 50, 75, 100],
                     buttons: [
-                            {
-                                text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن بلاگ جدید</span>',
-                                className: 'create-new btn btn-primary ms-2',
-                                action: function () {
-                                    window.location.href = "{{ route('admin.blog.create') }}";
-                                }
-                            }
-                        ],
+                        {
+                            text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن تگ جدید</span>',
+                            className: 'create-new btn btn-primary ms-2'
+                        }
+                    ],
                 });
-                $('div.head-label').html('<h5 class="card-title mb-0">لیست بلاگ سیستم</h5>');
+                $('div.head-label').html('<h5 class="card-title mb-0">لیست تگ های سیستم</h5>');
             }
 
             // Add New record
