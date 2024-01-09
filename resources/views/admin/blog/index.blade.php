@@ -7,6 +7,16 @@
 @endpush
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="lh-1-85 breadcrumb breadcrumb-style1">
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">خانه</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">بلاگ</a>
+        </li>
+    </ol>
+</nav>
     <!-- DataTable with Buttons -->
     <div class="card">
         <div class="card-datatable table-responsive pt-0">
@@ -15,39 +25,48 @@
                 <tr>
                     <th><input type="checkbox" class="form-check-input mt-0 align-middle"></th>
                     <th>شناسه</th>
+                    <th>عکس شاخص</th>
                     <th>نام</th>
-                    <th>ایمیل</th>
-                    <th>تاریخ</th>
-                    <th>همراه</th>
-                    <th>وضعیت</th>
+                    <th>نام نمایشی</th>
+                    <th>تاریخ انتشار</th>
+                    <th>تگ ها</th>
+                    <th>دسته بندی</th>
+                    <th>وضعیت نوشته</th>
+                    <th>متن</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($blogItmes as $customer)
+                @foreach($blogItmes as $key => $blog)
                     <tr>
+                        <td>{{$key += 1}}</td>
                         <td>
                             <input type="checkbox" class="dt-checkboxes form-check-input mt-0 align-middle"></td>
                         <td>
                             <div class="d-flex justify-content-start align-items-center user-name">
                                 <div class="avatar-wrapper">
                                     <div class="avatar me-2">
-                                        <img src="{{ asset($customer->image_small) }}" alt="آواتار" class="rounded-circle">
+                                        <img src="{{ asset($blog->image_small) }}" alt="عکس شاخص" class="rounded-circle">
                                     </div>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span class="emp_name text-truncate">{{$customer->first_name . ' '.$customer->last_name}}</span>
-                                    <small class="emp_post text-truncate text-muted">{{$customer->father_name}}</small>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <span class="emp_name text-truncate">{{$customer->first_name . ' '.$customer->last_name}}</span>
+                            <span class="emp_name text-truncate">{{$blog->title}}</span>
                         </td>
-                        <td>{{ $customer->email}}</td>
-                        <td>{{jalaliDate($customer->created_at)}}</td>
-                        <td>{{$customer->contact->mobile1 ?? 'وارد نشده است'}}</td>
-                        <td><span class="badge rounded-pill  bg-label-warning">استعفا داده</span></td>
+                        <td>{{ $blog->show_title}}</td>
+                        <td>{{jalaliDate($blog->published_at)}}</td>
+                        <td>
+                        @foreach ($blog->tags as $tag)
+                           <span>{{$tag->name}}</span>
+                           @if (!$loop->last)
+                                ,
+                            @endif
+                        @endforeach
+                    </td>
+                        <td><span>{{$blog->category_id}}</span></td>
+                        <td><span>{{$blog->status}}</span></td>
+                        <td><span>{!!$blog->body!!}</span></td>
                         <td>
                             <div class="d-inline-block">
                                 <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +81,7 @@
                                     </li>
                                     <div class="dropdown-divider"></div>
                                     <li>
-                                        <form class="d-inline" action="{{ route('admin.customer.delete',$customer->id)}}" method="post">
+                                        <form class="d-inline" action="{{ route('admin.blog.delete',$blog->id)}}" method="post">
                                             @csrf
                                             {{ method_field('delete') }}
                                             <button class="dropdown-item text-danger delete-record delete" type="submit"> حذف</button>
@@ -71,7 +90,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="{!! route('admin.customer.edit',$customer->id) !!}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                            <a href="{!! route('admin.blog.edit',$blog->id) !!}" class="btn btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
                         </td>
                     </tr>
                 @endforeach
@@ -79,137 +98,7 @@
             </table>
         </div>
     </div>
-    <!-- Modal to add new record -->
-    <div class="offcanvas offcanvas-end {{ count($errors) > 0 ? 'show' : '' }}" id="add-new-record">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">ایجاد  جدید</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body flex-grow-1">
-            <form action="{{route('admin.customer.store')}}" method="post" class="add-new-record pt-0 row g-2" id="form-add-new-record">
-                @csrf
-                <div class="col-sm-12">
-                    <label class="form-label" for="first_name">نام </label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="first_name" class="form-control dt-full-name"  name="first_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('first_name')}}">
-                    </div>
-                    @error('first_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="last_name">نام خانوادگی</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="last_name" class="form-control dt-full-name" name="last_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('last_name')}}">
-                    </div>
-                    @error('last_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
 
-                <div class="col-sm-12">
-                    <label class="form-label" for="father_name">نام پدر</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="father_name" class="form-control dt-full-name dt-salary" name="father_name" placeholder="" aria-label="John Doe" aria-describedby="basicFullname2" value="{{old('father_name')}}">
-                    </div>
-                    @error('father_name')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicEmail">ایمیل</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                        <input type="text" id="basicEmail" name="email" class="form-control dt-email text-start dt-post" placeholder="john.doe@example.com" aria-label="john.doe@example.com" dir="ltr" value="{{old('email')}}">
-                    </div>
-                    @error('email')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="password">رمز عبور</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                        <input type="password" id="password" class="form-control text-start dt-date" name="password" placeholder="············" aria-describedby="password" dir="ltr">
-                    </div>
-                    @error('password')
-                    <strong class="text-danger">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                    <div class="form-text">می‌توانید از حروف، اعداد و نقطه استفاده کنید</div>
-                </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
-                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">انصراف</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!--/ DataTable with Buttons -->
-    <div class="offcanvas offcanvas-end" id="add-new-record">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="exampleModalLabel">رکورد جدید</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body flex-grow-1">
-            <form class="add-new-record pt-0 row g-2" id="form-add-new-record" onsubmit="return false">
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicFullname">نام کامل</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicFullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                        <input type="text" id="basicFullname" class="form-control dt-full-name" name="basicFullname" placeholder="جان اسنو" aria-label="John Doe" aria-describedby="basicFullname2">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicPost">مطلب</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicPost2" class="input-group-text"><i class="bx bxs-briefcase"></i></span>
-                        <input type="text" id="basicPost" name="basicPost" class="form-control dt-post" placeholder="توسعه دهنده وب" aria-label="Web Developer" aria-describedby="basicPost2">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicEmail">ایمیل</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                        <input type="text" id="basicEmail" name="basicEmail" class="form-control dt-email text-start" placeholder="john.doe@example.com" aria-label="john.doe@example.com" dir="ltr">
-                    </div>
-                    <div class="form-text">می‌توانید از حروف، اعداد و نقطه استفاده کنید</div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicDate">تاریخ عضویت</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicDate2" class="input-group-text"><i class="bx bx-calendar"></i></span>
-                        <input type="text" class="form-control dt-date" id="basicDate" name="basicDate" aria-describedby="basicDate2" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <label class="form-label" for="basicSalary">حقوق</label>
-                    <div class="input-group input-group-merge">
-                        <span id="basicSalary2" class="input-group-text">تومان</span>
-                        <input type="number" id="basicSalary" name="basicSalary" class="form-control dt-salary" placeholder="12000" aria-label="12000" aria-describedby="basicSalary2">
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">ثبت</button>
-                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">انصراف</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!--/ DataTable with Buttons -->
 @endsection
 @push('js')
     <script src="{!! asset('libs/datatables-bs5/datatables-bootstrap5.js') !!}"></script>
@@ -290,13 +179,16 @@
                     displayLength: 7,
                     lengthMenu: [7, 10, 25, 50, 75, 100],
                     buttons: [
-                        {
-                            text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن کارجو جدید</span>',
-                            className: 'create-new btn btn-primary ms-2'
-                        }
-                    ],
+                            {
+                                text: '<i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">افزودن بلاگ جدید</span>',
+                                className: 'create-new btn btn-primary ms-2',
+                                action: function () {
+                                    window.location.href = "{{ route('admin.blog.create') }}";
+                                }
+                            }
+                        ],
                 });
-                $('div.head-label').html('<h5 class="card-title mb-0">لیست کارجویان سیستم</h5>');
+                $('div.head-label').html('<h5 class="card-title mb-0">لیست بلاگ سیستم</h5>');
             }
 
             // Add New record

@@ -7,6 +7,18 @@
 @endpush
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="lh-1-85 breadcrumb breadcrumb-style1">
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">خانه</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">کاربران سیستم</a>
+        </li>
+        <li class="breadcrumb-item active">ویرایش</li>
+    </ol>
+</nav>
+
     <!-- DataTable with Buttons -->
     <div class="card">
         <div class="card-datatable table-responsive pt-0">

@@ -1,5 +1,17 @@
 @extends('admin.layouts.app')
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="lh-1-85 breadcrumb breadcrumb-style1">
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">خانه</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="javascript:void(0);">لیست کارجویان</a>
+        </li>
+        <li class="breadcrumb-item active">ویرایش کارجو</li>
+    </ol>
+</nav>
+
     <h4 class="py-3 breadcrumb-wrapper mb-4">
         <span class="text-muted fw-light">کاربر / نمایش /</span> حساب
     </h4>
